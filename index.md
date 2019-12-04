@@ -7,13 +7,13 @@ Michael Myer (Pseudonym)
 * Gender: Male
 * Home: Germany, Munich
 * Languages: Perl, C, C++; Assembler, Shell, SQL, HTML, CSS, Javascript, Java, ..
-* Experience: 30 years of development, running a company for several years, freelancing work
-* Native German speaker. Fluent English. Good Latin. 
+* Experience: 30 years of development, running a company for several years, freelancing
+* Native German speaker. Fluent in English. Good Latin. 
 
 ### Specializations 
 
 * System programming 
-* Perl for web-backends / universal data processing, 
+* Perl for web-backends / universal data processing 
 * Conception and design of medium to big sized projects
 * Security 
 * analyzing and consulting customer requirements 
@@ -30,14 +30,15 @@ Michael Myer (Pseudonym)
 
 ### Weaknesses
 
-* Won't accept assignments > 50 hours
+* Won't accept assignments > 80 hours
 * Hate Java
 
 
 ### Further interests and hobbies
 
 Electronics ( especially development and building of audio equipment ),<br>
-Music, music production,<br>
+art and design,<br>
+music, music production,<br>
 playing the guitar,<br>
 trekking, travelling,<br> 
 reading books, Chess.
