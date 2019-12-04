@@ -10,5 +10,6 @@
 #### 2019/12/04 
 
 Writing of this new website.<br>
-Mainly for the presentation of me, since I'm now open for assignments again.
+Mainly for the presentation of myself, since I'm now open for new assignments.<br>
+;) If you'd like to hire me, hurry up and send me a proposal.
 
