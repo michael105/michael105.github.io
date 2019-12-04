@@ -7,7 +7,7 @@ Please contact me at michaNNN@protonmail.com, replace NNN with 105
 </small><hr>
 
 
-
+<div>
 <img align="right" src="me-320px.png"> 
 
 ### Michael Myer 
@@ -18,6 +18,9 @@ Please contact me at michaNNN@protonmail.com, replace NNN with 105
 * Languages: Perl, C, C++; Assembler, Shell, SQL, HTML, CSS, Javascript, Java, .. 
 * Experience: 30 years of development, running a company for several years, freelancing 
 * Native German speaker. Fluent English. 
+
+</div>
+
 
 <hr>
 
