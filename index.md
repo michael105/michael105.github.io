@@ -55,7 +55,7 @@ Please contact me at michaNNN@protonmail.com, replace NNN with 105__
 
 Several software projects,<br>
 electronics ( especially development and building of audio equipment ),<br>
-art and design,<br>
+art and design, photography,<br>
 music, music production,<br>
 playing the guitar,<br>
 trekking, travelling,<br> 
