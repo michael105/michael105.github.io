@@ -7,7 +7,7 @@ Index: -- Blog (This page) -- [About me](aboutme) -- [github repo index](https:/
 
 #### 2019/12/04 
 
-Writing of this new website.<br>
+Writing this website.<br>
 Mainly for the presentation of myself, since I'm now open for new assignments.<br>
 ;) If you'd like to hire me, hurry up and send me a proposal.
 
