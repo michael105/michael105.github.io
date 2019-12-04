@@ -1,6 +1,6 @@
-## Michael 105
-
 -- Blog (This page) -- [About me](aboutme) -- [github repo index](https://github.com/michael105/index/blob/master/README.asciidoc) --
+
+## Michael 105
 
 
 ### Blog
