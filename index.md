@@ -9,7 +9,7 @@ Please contact me at michaNNN@protonmail.com, replace NNN with 105
 
 
 <img align="right" src="me-320px.png"> 
-<br><br>
+<br>
 
 ### Michael (misc) Myer 
 
