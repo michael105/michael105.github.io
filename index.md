@@ -1,12 +1,10 @@
 ## About me
 
 
-<hr>
-<small>
+<hr><small>
 Open for assignments up to 50 hours.<br>
 Please contact me at michaNNN@protonmail.com, replace NNN with 105
-</small>
-<hr>
+</small><hr>
 
 
 Michael Myer (Pseudonym)
@@ -24,12 +22,14 @@ Michael Myer (Pseudonym)
 * Perl for web-backends / universal data processing 
 * Conception and design of medium to big sized projects
 * Security 
-* analyzing and consulting customer requirements 
+* Analyzing and consulting customer requirements 
+
 
 ### Strengths
 
 * Communication and analyzing together with the customer the requirements
 * Not limited to informatics with a MA in Pilosophy, focuses have been amongst others on knowledge conceptions, formalization, logic, modal logic, differences and commons of logic and actuality
+* Experience in teaching
 * Analytic thinking
 * Usability studies
 * Creativity
