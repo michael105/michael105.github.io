@@ -22,6 +22,7 @@ Please contact me at michaNNN@protonmail.com, replace NNN with 105__
 * Native German speaker. Fluent English. 
 
 ---
+<br>
 
 ### Specializations 
 
