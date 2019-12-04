@@ -1,6 +1,14 @@
 ## About me
 
 
+<hr>
+<small>
+Open for assignments up to 50 hours.<br>
+Please contact me at michaNNN@protonmail.com, replace NNN with 105
+</small>
+<hr>
+
+
 Michael Myer (Pseudonym)
 
 * Age: 40
@@ -26,13 +34,14 @@ Michael Myer (Pseudonym)
 * Usability studies
 * Creativity
 * Open minded
+* Reliable
 
 
 ### Weaknesses
 
 * Won't accept assignments > 80 hours
-* Hate Java
-
+* Hates Java
+* 
 
 ### Further interests and hobbies
 
@@ -44,10 +53,4 @@ trekking, travelling,<br>
 reading books, Chess.
 
 
-<hr>
-
-Open for assignments up to 50 hours.<br>
-Please contact me at michaNNN@protonmail.com, replace NNN with 105
-
-<hr>
 
