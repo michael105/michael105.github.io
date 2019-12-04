@@ -7,7 +7,7 @@ Please contact me at michaNNN@protonmail.com, replace NNN with 105
 </small><hr>
 
 
-<div>
+---
 <img align="right" src="me-320px.png"> 
 
 ### Michael Myer 
@@ -22,7 +22,7 @@ Please contact me at michaNNN@protonmail.com, replace NNN with 105
 </div>
 
 
-<hr>
+---
 
 ### Specializations 
 
