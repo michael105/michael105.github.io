@@ -41,7 +41,7 @@ Michael Myer (Pseudonym)
 
 * Won't accept assignments > 80 hours
 * Hates Java
-* 
+
 
 ### Further interests and hobbies
 
