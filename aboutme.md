@@ -1,7 +1,6 @@
 ## About me
 
 
-<br>
 
 <img align="right" src="me-320px.png"> 
 <br>
