@@ -1,10 +1,8 @@
 ## About me
 
 
-<hr><small>
-Open for assignments up to 50 hours.<br>
-Please contact me at michaNNN@protonmail.com, replace NNN with 105
-</small><hr>
+__Open for assignments up to 50 hours.<br>
+Please contact me at michaNNN@protonmail.com, replace NNN with 105__
 
 
 
