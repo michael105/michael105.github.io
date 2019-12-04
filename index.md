@@ -7,19 +7,21 @@ Please contact me at michaNNN@protonmail.com, replace NNN with 105
 </small><hr>
 
 
----
-<img align="right" src="me-320px.png"> 
 
+<img align="right" src="me-320px.png"> 
+<br><br>
 ### Michael Myer 
 (Pseudonym)
 
 * Age: 40     
 * Living in Germany, Munich 
-* Languages: Perl, C, C++; Assembler, Shell, SQL, HTML, CSS, Javascript, Java, .. 
-* Experience: 30 years of development, running a company for several years, freelancing 
+* Languages: Perl, C, C++; Assembler, Shell, <br>
+  SQL, HTML, CSS, Javascript, Java, .. <br>
+* Experience: 30 years of development, <br>
+  running a software company for several years,<br> 
+  freelancing 
 * Native German speaker. Fluent English. 
 
-</div>
 
 
 ---
