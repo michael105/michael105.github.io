@@ -9,7 +9,8 @@ Please contact me at michaNNN@protonmail.com, replace NNN with 105
 
 
 <img align="right" src="me-320px.png"> 
-
+<br>
+<hr>
 
 ### Michael (misc) Myer 
 
@@ -21,8 +22,6 @@ Please contact me at michaNNN@protonmail.com, replace NNN with 105
   running a software company for several years,<br> 
   freelancing 
 * Native German speaker. Fluent English. 
-
-(Myer is a pseudonym. This is a need of my other life)
 
 ---
 
@@ -63,5 +62,8 @@ playing the guitar,<br>
 trekking, travelling,<br> 
 reading books, Chess.
 
+
+<br>
+(Myer is a pseudonym. This is a need of my other life. For god's sake.)
 
 
