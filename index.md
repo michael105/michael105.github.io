@@ -62,7 +62,3 @@ trekking, travelling,<br>
 reading books, Chess.
 
 
-<br>
-(Myer is a pseudonym. This is a need of my other life. For god's sake.)
-
-
