@@ -10,11 +10,10 @@ Please contact me at michaNNN@protonmail.com, replace NNN with 105
 Michael Myer (Pseudonym)
 
 * Age: 40
-* Gender: Male
-* Home: Germany, Munich
+* Living in Germany, Munich
 * Languages: Perl, C, C++; Assembler, Shell, SQL, HTML, CSS, Javascript, Java, ..
 * Experience: 30 years of development, running a company for several years, freelancing
-* Native German speaker. Fluent in English. Good Latin. 
+* Native German speaker. Fluent English. 
 
 ### Specializations 
 
@@ -45,7 +44,8 @@ Michael Myer (Pseudonym)
 
 ### Further interests and hobbies
 
-Electronics ( especially development and building of audio equipment ),<br>
+Several software projects,<br>
+electronics ( especially development and building of audio equipment ),<br>
 art and design,<br>
 music, music production,<br>
 playing the guitar,<br>
