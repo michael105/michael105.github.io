@@ -36,7 +36,9 @@ Michael Myer (Pseudonym)
 
 ### Further interests and hobbies
 
-Music, music production, playing guitar,<br>
+Electronics ( especially development and building of audio equipment ),<br>
+Music, music production,<br>
+playing the guitar,<br>
 trekking, travelling,<br> 
 reading books, Chess.
 
