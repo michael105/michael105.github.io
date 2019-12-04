@@ -10,8 +10,8 @@ Please contact me at michaNNN@protonmail.com, replace NNN with 105
 
 <img align="right" src="me-320px.png"> 
 <br><br>
-### Michael Myer 
-(Pseudonym)
+
+### Michael (misc) Myer 
 
 * Age: 40     
 * Living in Germany, Munich 
@@ -22,7 +22,7 @@ Please contact me at michaNNN@protonmail.com, replace NNN with 105
   freelancing 
 * Native German speaker. Fluent English. 
 
-
+(Myer is a pseudonym. This is a need of my other life)
 
 ---
 
