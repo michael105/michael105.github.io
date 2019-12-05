@@ -58,6 +58,6 @@ art and design, photography,<br>
 music, music production,<br>
 playing the guitar,<br>
 trekking, travelling,<br> 
-reading books, Chess.
+reading books, chess.
 
 
