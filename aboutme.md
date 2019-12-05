@@ -31,8 +31,8 @@
 
 ### Strengths
 
-* Communication and analyzing together with the customer the requirements
-* Not limited to informatics with a MA in Pilosophy, focuses have been amongst others on knowledge conceptions, formalization, logic, modal logic, differences and commons of logic and actuality
+* Analyzation and communication of requirements
+* Not limited to informatics with a MA in Pilosophy, focuses amongst others on knowledge conceptions, formalizations, modal logic, logic and actuality
 * Experience in teaching
 * Analytic thinking
 * Usability studies
