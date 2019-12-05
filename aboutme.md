@@ -24,7 +24,7 @@
 ### Specializations 
 
 * System programming 
-* Perl for web-backends / universal data processing 
+* Perl for web-backends / data processing 
 * Databases, database interfaces, data structuring
 * Analyzing and consulting customer demands 
 * Conception and design of medium to big sized projects
