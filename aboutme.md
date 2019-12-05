@@ -13,7 +13,7 @@
 * Languages: Perl, C, C++; Assembler, Shell, <br>
   SQL, HTML, CSS, Javascript, Ajax, Java<br>
 * Experience: 30 years of development, <br>
-  running a software company for several years,<br> 
+  running a software company for several years, 
   freelancing 
 * Native German speaker. Fluent English. 
 
