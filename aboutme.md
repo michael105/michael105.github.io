@@ -47,7 +47,7 @@
 ### Weaknesses
 
 * Won't accept assignments > 80 hours
-* Resentments towards Java and Windows 
+* Resentments towards Java and Microsoft 
 
 
 ### Further interests and hobbies
