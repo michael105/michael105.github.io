@@ -33,7 +33,7 @@
 ### Strengths
 
 * Analyzation and communication of requirements
-* Not limited to informatics with a MA in Philosophy, focuses amongst others on knowledge conceptions, formalizations, modal logic, logic and actuality
+* Not limited to informatics with a MA in Philosophy, focuses amongst others on knowledge conceptions, formalizations, modal logic, logic and actuality, ethics, history
 * Experience in teaching
 * Analytic thinking
 * Usability studies
