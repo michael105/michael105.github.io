@@ -24,9 +24,9 @@
 
 * System programming 
 * Perl for web-backends / universal data processing 
+* Analyzing and consulting customer requirements 
 * Conception and design of medium to big sized projects
 * Security 
-* Analyzing and consulting customer requirements 
 
 
 ### Strengths
