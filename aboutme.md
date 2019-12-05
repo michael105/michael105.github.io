@@ -51,7 +51,7 @@
 ### Further interests and hobbies
 
 Several software projects,<br>
-electronics ( especially development and building of audio equipment ),<br>
+electronics ( development and building of audio equipment ),<br>
 art and design, photography,<br>
 music, music production,<br>
 playing the guitar,<br>
