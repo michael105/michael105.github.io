@@ -24,7 +24,7 @@
 
 * System programming 
 * Perl for web-backends / universal data processing 
-* Analyzing and consulting customer requirements 
+* Analyzing and consulting customer demands 
 * Conception and design of medium to big sized projects
 * Security 
 
