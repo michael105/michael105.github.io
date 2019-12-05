@@ -25,7 +25,7 @@
 
 * System programming 
 * Perl for web-backends / universal data processing 
-* Interfacing databases
+* Databases, database interfaces, data structuring
 * Analyzing and consulting customer demands 
 * Conception and design of medium to big sized projects
 * Cryptography
