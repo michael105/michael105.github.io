@@ -27,7 +27,7 @@
 * Resource usage optimization
 * Databases, database interfaces, data structuring
 * Web-backends / data processing ( Perl, Javascript )
-* System Administration
+* System Conception and Administration
 * Analyzing and consulting customer demands 
 * Conception and design of medium to big sized projects
 * Cryptography
