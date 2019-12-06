@@ -24,6 +24,7 @@
 ### Specializations 
 
 * System programming 
+* Resource usage optimization
 * Perl for web-backends / data processing 
 * Databases, database interfaces, data structuring
 * Analyzing and consulting customer demands 
@@ -37,6 +38,7 @@
 * Analyzation and communication of requirements
 * Lateral thinking
 * Not limited to informatics with a MA in Philosophy, focuses amongst others on knowledge conceptions, formalizations, modal logic, logic and actuality, ethics, history
+* Core competences of humanity studies include the ability to fastly get into new concepts 
 * Experience in teaching
 * Analytic thinking
 * Usability studies
