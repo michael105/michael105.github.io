@@ -35,6 +35,7 @@
 ### Strengths
 
 * Analyzation and communication of requirements
+* Lateral thinking
 * Not limited to informatics with a MA in Philosophy, focuses amongst others on knowledge conceptions, formalizations, modal logic, logic and actuality, ethics, history
 * Experience in teaching
 * Analytic thinking
@@ -58,6 +59,7 @@ art and design, photography,<br>
 music, music production,<br>
 playing the guitar,<br>
 trekking, travelling,<br> 
-reading books, chess.
+reading books, Philosophy,<br>
+chess.
 
 
