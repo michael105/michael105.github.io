@@ -23,10 +23,11 @@
 
 ### Specializations 
 
-* System programming 
+* System programming (C, Assembly)
 * Resource usage optimization
-* Perl for web-backends / data processing 
 * Databases, database interfaces, data structuring
+* Web-backends / data processing ( Perl, Javascript )
+* System Administration
 * Analyzing and consulting customer demands 
 * Conception and design of medium to big sized projects
 * Cryptography
