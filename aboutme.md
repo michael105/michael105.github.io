@@ -15,7 +15,7 @@
 * Experience: 30 years of development, <br>
   running a software company for several years, 
   freelancing 
-* Native German speaker. Fluent English. 
+* Native German speaker. Fluent in English. 
 
 ---
 <br>
