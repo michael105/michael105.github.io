@@ -10,7 +10,7 @@
 
 * Age: 40     
 * Living in Germany, Munich 
-* Languages: Perl, C, C++; Assembler, Shell, <br>
+* Languages: Perl, C, C++, Assembler, Shell, <br>
   SQL, HTML, CSS, Javascript, Ajax, Java<br>
 * Experience: 30 years of development, <br>
   running a software company for several years, 
