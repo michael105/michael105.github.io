@@ -1,4 +1,4 @@
-{% include header.md %}
+{% include_relative header.md %}
 
 ## About me
 
