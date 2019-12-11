@@ -9,7 +9,7 @@ A customer told me ten years later, around 2015, the project would still be
 the exceptional best solution for his branch of industry.
 
 I essentially had the idea of cloud software, before clouds existed.
-The project is a big perl project, round about 60,000 lines of code (80,000 when counting also templates, comments, sql, andsoon)
+The project is a big perl project, round about 60,000 lines of code (80,000 when counting also templates, comments, sql, andsoon),
 which serve as interface between database and the webinterface.
 
 I did choose this design, because I was sure html would be a future-proof and versatile way to present generic data.
