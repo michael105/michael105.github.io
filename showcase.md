@@ -30,6 +30,19 @@ What is quite surprising, and I optimized my assembly hardly and consequently pr
 Memo to me, setup the script on a webserver.
 
 
+I developed the software in close cooperation with a pendently construction industry company,
+also giving trainings to the employees. 
+
+The reason to put the project aside might have been some familie calamities and disturbances;
+although I was already within negotiations with big companies, I abandoned the project and 
+started a study generalis, in order to break my personal limits.
+
+Of all the subjects I did within two years of studying (e.g. Archaeology, Sinology, History, Psychology, Sociology, even Tibetan)
+I decided me for a study of Philosophy. 
+
+
+
+
 ----
 
 
