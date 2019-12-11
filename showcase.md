@@ -23,7 +23,7 @@ Perl also is a quite performant language, the groupware could serve several thou
 running on my old notebook.
 
 
-Some later research on sort algorithms gave me the same results about perl's performace,, 
+Some later research on sort algorithms gave me the same results about perl's performance, 
 even Assembly hardly gave more of an advantage than 30 percent.
 What is quite surprising, and I optimized my assembly hardly and consequently processor and system specific.
 
