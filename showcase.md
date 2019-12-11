@@ -46,7 +46,7 @@ Which might have been a mistake, instead of selling my software I now had to spa
 and I could live of the money earned only for one year overall, so I favored my studies in consequence)
 But this "mistake" I'd do again, Philosophy gave me more than all the money could have.
 
-After all- a neighboured farmer, who also raised me up when I was child told me when I did see him the last time 
+After all- a neighboured farmer, who also raised me up, when I was child, told me when I did see him the last time 
 before he died (And in retrospective, he knew he'd die within a few months, you could see it in his eyes):
 You cannot take anything with you onto your last journey.
 
