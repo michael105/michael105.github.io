@@ -41,7 +41,7 @@ Of all the subjects I did within two years of doing a study generalis (e.g. Arch
 I decided me for a study of Philosophy. Which I did for the next 6 years, finishing with the degree "Magister Artium"(Master of Arts).
 
 
-Which might have been a mistake, instead of selling my software I now had to spare every penny.
+The studies might have been a mistake seen financially, instead of selling my software I now had to spare every penny.
 (I once adapted and licensed my software to a customer of another business, but this costed me overall half a year,
 and I could live of the money earned only for one year overall, so I favored my studies in consequence)
 But this "mistake" I'd do again, Philosophy gave me more than all the money could have.
