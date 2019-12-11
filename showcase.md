@@ -50,8 +50,7 @@ After all- a neighboured farmer, who also raised me up when I was child told me 
 before he died (And in retrospective, he knew he'd die within a few months, you could see it in his eyes):
 You cannot take anything with you onto your last journey.
 
-
-
+Which is absolutely true.
 
 ----
 
