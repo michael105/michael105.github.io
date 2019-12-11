@@ -41,8 +41,9 @@ Of all the subjects I did within two years of studying (e.g. Archaeology, Sinolo
 I decided me for a study of Philosophy. 
 
 
-Which might have been a mistake, instead of selling my software I know had to spare every penny.
-(I once adapted and licensed my software to a customer of another business, but this costed me overall half a year)
+Which might have been a mistake, instead of selling my software I now had to spare every penny.
+(I once adapted and licensed my software to a customer of another business, but this costed me overall half a year,
+but I could live of the money only for one year, so I favored my studies in consequence)
 But this "mistake" I'd do again, Philosophy gave me more than all the money could have.
 
 
