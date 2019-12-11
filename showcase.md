@@ -43,7 +43,7 @@ I decided me for a study of Philosophy.
 
 Which might have been a mistake, instead of selling my software I now had to spare every penny.
 (I once adapted and licensed my software to a customer of another business, but this costed me overall half a year,
-but I could live of the money only for one year, so I favored my studies in consequence)
+and I could live of the money earned only for one year overall, so I favored my studies in consequence)
 But this "mistake" I'd do again, Philosophy gave me more than all the money could have.
 
 After all- a neighboured farmer, who also raised me up when I was child told me when I did see him the last time 
@@ -51,6 +51,9 @@ before he died (And in retrospective, he knew he'd die within a few months, you 
 You cannot take anything with you onto your last journey.
 
 Which is absolutely true.
+
+
+
 
 ----
 
