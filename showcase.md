@@ -52,7 +52,11 @@ You cannot take anything with you onto your last journey.
 
 What is absolutely true.
 
-
+However, what might give the appearance of being paradox, developing software is to me a release of thinking about, well,
+the big questions in life and all the other struggles.. 
+Instead of questioning the reason of life, or which dynamics lead to the influence of one theory, abandoning the other;
+You can simply say it works, or it doesn't. Even usability in terms of being accepted, or denied by the users can be reduced into quite simple 
+questions and answers.
 
 
 ----
