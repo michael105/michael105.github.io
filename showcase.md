@@ -10,13 +10,13 @@ the exceptional best solution for his branch of industry.
 
 I essentially had the idea of cloud software, before clouds existed.
 The project is a big perl project, if I remember right around 60,000 lines of code,
-which serve as interface between the database and the webinterface.
+which serve as interface between database and the webinterface.
 
 I did choose this design, because I was sure html would be a future-proof and versatile way to present generic data.
 Which showed up true. 
 
 Perl in turn is a very dynamic language, there nearly aren't any restrictions.
-The fact the whole project started to shrink in loc's at some point gave me the proove,
+The fact the whole project started to shrink in loc's at some point gave me the confirmation,,
 I implemented some object oriented concept's the right (partly unusual) way. 
 
 Perl also is a quite performant language, the groupware could serve several thousand concurrent users in my estimation,
