@@ -38,7 +38,7 @@ although I was already within negotiations with big companies, I abandoned the p
 started a study generalis, in order to break my personal limits.
 
 Of all the subjects I did within two years of doing a study generalis (e.g. Archaeology, Sinology, History, Psychology, Sociology, even Tibetan)
-I decided me for a study of Philosophy. Which I did for the next 6 years, finishing with the degree "Magister Artium"(Master of Arts).
+I decided me towards a study of Philosophy. Which I did for the next 6 years, finishing with the degree "Magister Artium"(Master of Arts).
 
 
 The studies might have been a mistake judging financially, instead of selling my software I now had to spare every penny.
