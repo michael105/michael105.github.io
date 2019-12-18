@@ -46,7 +46,8 @@ Somehow crazy, but I got the feeling, I should make clear I'm the discoverer of 
 I'm still not sure, whether this algorithm really gives such an andvantage. Simply,
 cause I'm not experienced in big data or mainframe computing. However,
 well. My feelings. Sometimes I've got the feeling, I'd better close my eyes when walking around.
-And should listen to my feelings.
+And should listen to my feelings. Cause when looking around, I'm going to surely stamp into every puddle
+and piece of sxxx on my way.
 
 I really do not know, what is happening these days. Somehow the people around me, well, are nervous.
 And I'm looking for the reason, but I'm unable to find one.
