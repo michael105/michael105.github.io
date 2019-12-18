@@ -76,9 +76,13 @@ Me responding best to positive suggestions.
 Worst thing however in all cases might be, when people yell contradicting instructions.
 That's like -- right? left?? eh, what?? -- even worse, you'll get into thinking. Which is not what you have the time for,
 when climbing at your limit. The conclusions might show up more detailed in these "extreme" situations.
-But should be applicable in normal life as well.
+But should be applicable in normal life as well. 
 
-I should go freeclimbing again and leave all these thoughts behind me. At least for the time climbing.
+And there's the experience, I possibly should heed on now. 
+Whatever you do, keep climbing. If you're in the wrong direction, you'll possibly drop.
+But when you stand still, you'll drop for sure, since your strengths cannot hold on forever.
+So better keep climbing. 
+
 
 
 #### 2019/12/10
