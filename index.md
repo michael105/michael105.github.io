@@ -5,6 +5,32 @@
 ---
 
 
+#### 2019/12/18
+
+Somehow I got the feeling,
+I should raise an old project/idea especially.
+
+It's about sort algorithms. To be more exact, 
+it's about howto sort and take most advantage of the cashelines/memory access. 
+
+I did this about ten years before, and also implemented the algorithm in Perl/C/Assembly.
+
+The results are overall surprising.
+
+-Firstly, my algorithm is in most cases about 50% faster than, e.g., gnu glibc sort.
+-Although my algorithm utilizes a conquer and divide approach; for datasets below, say, 10MB,
+paralellization doesn't give much of an advantage. The syncronization overhead simply is to expensive;
+and I tried different techniques.
+-C is faster than perl, but not much. Even when optimized.
+-Same for Assembly; Assembly is faster than C (gnu gcc), WHEN optimized right. 
+
+I guess, the methodology of my algorithm has been overseen; simply,
+cause normally you think in terms of complexity. Which isn't the same as efficiency.
+
+Complexity is a heuristic approach, which is useful in most cases. 
+But the other factors also have to be taken in account.
+
+
 #### 2019/12/10
 
 Looking through old projects I did, 
