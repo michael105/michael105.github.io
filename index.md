@@ -32,7 +32,7 @@ Complexity is a heuristic approach, which is useful.
 But the other factors also have to be taken in account.
 
 In computing terms, we simply do not have turing machines.
-Instead, there are memory casheline, instruction pipelines, jump predictions, 
+Instead, there are memory cashelines, instruction pipelines, jump predictions, 
 parallel instruction processing, and so on.
 
 While the compiler is very often suprisingly good in optimizing --
