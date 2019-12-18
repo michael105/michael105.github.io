@@ -32,8 +32,17 @@ But the other factors also have to be taken in account.
 
 Somehow crazy, but I got the feeling, somehow I should make clear I'm the discoverer of this sorting approach.
 I'm still not sure, whether this algorithm really gives such an andvantage. Simply,
-cause I'm not experienced in big data or cluster computing. However,
-well. My guts.
+cause I'm not experienced in big data or mainframe computing. However,
+well. My feelings. Sometimes I've got the feeling, I'd better close my eyes when walking around.
+And should listen to my feelings.
+
+I really do not know, what is happening these days. Somehow the people around me, well, are nervous.
+And I'm looking for the reason, but I'm unable to find one.
+Possibly, cause there's none. However, there's a slight possibilty, someone else I've told about this 
+discovery of me, would like to take advantage.
+
+Which should be harder now. And it's just another guess of mine.
+I simply don't know nothing.
 
 
 #### 2019/12/10
