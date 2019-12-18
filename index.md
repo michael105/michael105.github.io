@@ -58,7 +58,8 @@ Which should be harder now. And it's just another guess of mine.
 I simply don't know anything.
 
 
-Happily, I'm not easy to infect with nervousity. Or, it's possibly more honest, I'm able to cope
+--Happily, I'm not easy to infect with nervousity.-- 
+Or, it's possibly more honest, I'm able to cope
 with very high tensions. I did freeclimbing for more than ten years, and there you've to learn to cope
 with your fears. Not willingly you will get from time to time into real dangers. And when you are going to cramp,
 cause you let the fear control your body, you'll drop. Which sometimes wouldn't be good at all.
