@@ -70,7 +70,8 @@ Everyone reacts in another way on the cheering,
 so within your climbing group you normally know, what to yell, when someone fights with his route.
 
 Which is quite funny. One has to be insulted, like "UUhh you'll never do it, looser", and so on.
-The other has to be praised and lauded, that she's a great climber, did really well, ..
+The other has to be praised and lauded, that she's a great climber, did really well, she's looking wonderful,..
+Me responding best to positive suggestions.
 
 Worst thing however in all cases might be, when people yell contradicting instructions.
 That's like -- right? left?? what?? -- even worse, you'll get into thinking. Which is not what you have the time for,
