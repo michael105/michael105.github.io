@@ -51,8 +51,10 @@ and piece of sxxx on my way.
 
 I really do not know, what is happening these days. Somehow the people around me, well, are nervous.
 And I'm looking for the reason, but I'm unable to find one.
-Possibly, cause there's none. However, there's a slight possibilty, someone else I've told about this 
-discovery of me would like to take advantage.
+Possibly, cause there's none. However, there's a slight possibilty, ~~someone else I've told about this 
+discovery of me would like to take advantage.~~
+This also seems wrong. Possibly nothing is wrong, and I'm just looking for nothing;
+which is quite hard to detect, logically. Dunno.
 
 Which should be harder now. And it's just another guess of mine.
 I simply don't know anything.
