@@ -17,7 +17,7 @@ I did this about ten years before, and also implemented the algorithm in Perl/C/
 
 The results are overall surprising.
 
-- Firstly, my algorithm is in most cases about 50% faster than, e.g., gnu glibc sort.
+- Firstly, my algorithm is in most cases about 50% faster than, e.g., gnu glibc sort(quicksort), but also faster than other approaches.
 - Although my algorithm utilizes a conquer and divide approach; for datasets below, say, 10MB,
 parallelization doesn't give much of an advantage. The syncronization overhead is to expensive;
 and I tried different techniques, also spinlocks / combined with XCHANGE (or so, it has been ten years ago).
