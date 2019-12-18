@@ -19,8 +19,8 @@ The results are overall surprising.
 
 - Firstly, my algorithm is in most cases about 50% faster than, e.g., gnu glibc sort(quicksort), but also faster than other approaches.
 But I don't remember exactly, I should reinvestigate the results again..
-- Although my algorithm utilizes a conquer and divide approach; for datasets below, say, 10MB,
-parallelization doesn't give much of an advantage. The syncronization overhead is to expensive;
+- Although the algorithm utilizes a conquer and divide approach; for datasets below, say, 10 or 100MB,
+parallelization doesn't give much of an advantage. The syncronization overhead is too expensive;
 and I tried different techniques, also spinlocks / combined with XCHANGE (or so, it has been ten years ago).
 - C is faster than perl, but not much. Even when optimized.
 - Same for Assembly; Assembly is faster than C (gnu gcc), WHEN optimized right. 
