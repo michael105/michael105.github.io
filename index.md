@@ -64,7 +64,7 @@ with your fears. Not willingly you will get from time to time into real dangers.
 cause you let the fear control your body, you'll drop. Which sometimes wouldn't be good at all.
 But, at the moment, I'm still like WTF what is going on WTF. And everyone keeps suggesting me different directions.
 
-Remembering me also on freeclimbing.
+Also remembering me onto freeclimbing.
 Sometimes, people try cheering you to keep going.
 Everyone reacts in another way on the cheering, 
 so within your climbing group you normally know, what to yell, when someone fights with his route.
@@ -74,8 +74,9 @@ The other has to be praised and lauded, that she's a great climber, did really w
 Me responding best to positive suggestions.
 
 Worst thing however in all cases might be, when people yell contradicting instructions.
-That's like -- right? left?? what?? -- even worse, you'll get into thinking. Which is not what you have the time for,
-when climbing at your personal limit.
+That's like -- right? left?? eh, what?? -- even worse, you'll get into thinking. Which is not what you have the time for,
+when climbing at your limit. The conclusions might show up more detailed in these "extreme" situations.
+But should be applicable in normal life as well.
 
 I should go freeclimbing again and leave all these thoughts behind me. At least for the time climbing.
 
