@@ -30,6 +30,11 @@ cause normally you think in terms of complexity. Which isn't the same as efficie
 Complexity is a heuristic approach, which is useful in most cases. 
 But the other factors also have to be taken in account.
 
+Somehow crazy, but I got the feeling, somehow I should make clear I'm the discoverer of this sorting approach.
+I'm still not sure, whether this algorithm really gives such an andvantage. Simply,
+cause I'm not experienced in big data or cluster computing. However,
+well. My guts.
+
 
 #### 2019/12/10
 
