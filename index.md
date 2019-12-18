@@ -35,7 +35,7 @@ In computing terms, we simply do not have turing machines.
 Instead, there are memory casheline, instruction pipelines, jump predictions, 
 parallel instruction processing, and so on.
 
-While the compiler is very often suprisingly good in optimizing,
+While the compiler is very often suprisingly good in optimizing --
 e.g. the choice of the algorithm as well as the prediction on the datasets (size,entropy,..) has to be done by humans(yet).
 
 At which point my philosophical education could jump in, but I'm going to write
