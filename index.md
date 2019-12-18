@@ -11,7 +11,7 @@ Somehow I got the feeling,
 I should raise an old project/idea especially.
 
 It's about sort algorithms. To be more exact, 
-it's about howto sort and take most advantage of the cashelines/memory access. 
+it's about howto sort and take most advantage of the cashelines/memory access/instruction set. 
 
 I did this about ten years before, and also implemented the algorithm in Perl/C/Assembly.
 
@@ -19,18 +19,18 @@ The results are overall surprising.
 
 -Firstly, my algorithm is in most cases about 50% faster than, e.g., gnu glibc sort.
 -Although my algorithm utilizes a conquer and divide approach; for datasets below, say, 10MB,
-paralellization doesn't give much of an advantage. The syncronization overhead simply is to expensive;
-and I tried different techniques.
+parallelization doesn't give much of an advantage. The syncronization overhead is to expensive;
+and I tried different techniques, also spinlocks / combined with XCHANGE (or so, it has been ten years ago).
 -C is faster than perl, but not much. Even when optimized.
 -Same for Assembly; Assembly is faster than C (gnu gcc), WHEN optimized right. 
 
 I guess, the methodology of my algorithm has been overseen; simply,
 cause normally you think in terms of complexity. Which isn't the same as efficiency.
 
-Complexity is a heuristic approach, which is useful in most cases. 
+Complexity is a heuristic approach, which is useful. 
 But the other factors also have to be taken in account.
 
-Somehow crazy, but I got the feeling, somehow I should make clear I'm the discoverer of this sorting approach.
+Somehow crazy, but I got the feeling, I should make clear I'm the discoverer of this sorting approach.
 I'm still not sure, whether this algorithm really gives such an andvantage. Simply,
 cause I'm not experienced in big data or mainframe computing. However,
 well. My feelings. Sometimes I've got the feeling, I'd better close my eyes when walking around.
@@ -39,7 +39,7 @@ And should listen to my feelings.
 I really do not know, what is happening these days. Somehow the people around me, well, are nervous.
 And I'm looking for the reason, but I'm unable to find one.
 Possibly, cause there's none. However, there's a slight possibilty, someone else I've told about this 
-discovery of me, would like to take advantage.
+discovery of me would like to take advantage.
 
 Which should be harder now. And it's just another guess of mine.
 I simply don't know nothing.
