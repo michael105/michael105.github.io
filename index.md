@@ -62,8 +62,21 @@ Happily, I'm not easy to infect with nervousity. Or, it's possibly more honest, 
 with very high tensions. I did freeclimbing for more than ten years, and there you've to learn to cope
 with your fears. Not willingly you will get from time to time into real dangers. And when you are going to cramp,
 cause you let the fear control your body, you'll drop. Which sometimes wouldn't be good at all.
+But, at the moment, I'm still like WTF what is going on WTF. And everyone keeps suggesting me different directions.
 
-So, better keep climbing.
+Remembering me also on freeclimbing.
+Sometimes, people try cheering you to keep going.
+Everyone reacts in another way on the cheering, 
+so within your climbing group you normally know, what to yell, when someone fights with his route.
+
+Which is quite funny. One has to be insulted, like "UUhh you'll never do it, looser", and so on.
+The other one has to be praised and lauded, that she's a great climber, did really well, ..
+
+Worst thing however in all cases might be, when people yell contradicting instructions.
+That's like -- right? left?? what?? -- even worse, you'll get into thinking. Which is not what you have the time for,
+when climbing at your personal limit.
+
+I should do freeclimbing again.
 
 
 #### 2019/12/10
