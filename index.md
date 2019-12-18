@@ -70,13 +70,13 @@ Everyone reacts in another way on the cheering,
 so within your climbing group you normally know, what to yell, when someone fights with his route.
 
 Which is quite funny. One has to be insulted, like "UUhh you'll never do it, looser", and so on.
-The other one has to be praised and lauded, that she's a great climber, did really well, ..
+The other has to be praised and lauded, that she's a great climber, did really well, ..
 
 Worst thing however in all cases might be, when people yell contradicting instructions.
 That's like -- right? left?? what?? -- even worse, you'll get into thinking. Which is not what you have the time for,
 when climbing at your personal limit.
 
-I should do freeclimbing again.
+I should go freeclimbing again and leave all these thoughts behind me. At least for the time climbing.
 
 
 #### 2019/12/10
