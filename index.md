@@ -17,12 +17,12 @@ I did this about ten years before, and also implemented the algorithm in Perl/C/
 
 The results are overall surprising.
 
--Firstly, my algorithm is in most cases about 50% faster than, e.g., gnu glibc sort.
--Although my algorithm utilizes a conquer and divide approach; for datasets below, say, 10MB,
+- Firstly, my algorithm is in most cases about 50% faster than, e.g., gnu glibc sort.
+- Although my algorithm utilizes a conquer and divide approach; for datasets below, say, 10MB,
 parallelization doesn't give much of an advantage. The syncronization overhead is to expensive;
 and I tried different techniques, also spinlocks / combined with XCHANGE (or so, it has been ten years ago).
--C is faster than perl, but not much. Even when optimized.
--Same for Assembly; Assembly is faster than C (gnu gcc), WHEN optimized right. 
+- C is faster than perl, but not much. Even when optimized.
+- Same for Assembly; Assembly is faster than C (gnu gcc), WHEN optimized right. 
 
 I guess, the methodology of my algorithm has been overseen; simply,
 cause normally you think in terms of complexity. Which isn't the same as efficiency.
