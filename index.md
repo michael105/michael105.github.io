@@ -30,6 +30,17 @@ cause normally you think in terms of complexity. Which isn't the same as efficie
 Complexity is a heuristic approach, which is useful. 
 But the other factors also have to be taken in account.
 
+In computing terms, we simply do not have turing machines.
+Instead, there are memory casheline, instruction pipelines, jump predictions, 
+parallel instruction processing, and so on.
+
+While the compiler is very often suprisingly good in optimizing,
+e.g. the choice of the algorithm as well as the prediction on the datasets (size,entropy,..) has to be done by humans(yet).
+
+At which point my philosophical education could jump in, but I'm going to write
+about my thoughts on the differences of humans and machines another time.
+
+
 Somehow crazy, but I got the feeling, I should make clear I'm the discoverer of this sorting approach.
 I'm still not sure, whether this algorithm really gives such an andvantage. Simply,
 cause I'm not experienced in big data or mainframe computing. However,
