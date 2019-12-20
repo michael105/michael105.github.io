@@ -134,9 +134,8 @@ Republishing useful information here, the kidding things I guess I should publis
 
 #### 2019/12/04 
 
-Writing this website.<br>
-Mainly for the presentation of myself, since I'm now open for new assignments.<br>
-;) If you'd like to hire me, hurry up and send me a proposal.<br>
+Working at these pages.<br>
+Mainly for the presentation of myself.<br>
 michaNNN@protonmail.com, replace NNN with 105
 
 <hr>
