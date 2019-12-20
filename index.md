@@ -145,5 +145,5 @@ Which I use for several reasons, mainly, since I've to separate my identities.
 The public image of, uhm, michael1 would be severely damaged, when michael2 would get connected.
 And I've worked as ethic's teacher with young people, what in turn gives a reason to separate michael1 and michael3.
 You can reach me with the given email in any case, and for business I also use my real name.
-Besides, nics and Pseudonyms are quite usual in the opensource scene. My feeling to show this up seems unusual to me.
+Besides, nics and Pseudonyms are quite usual in the opensource scene. My feeling to show this up explicitely seems unusual to me.
 Anyways. Just for case.
