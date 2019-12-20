@@ -139,3 +139,11 @@ Mainly for the presentation of myself, since I'm now open for new assignments.<b
 ;) If you'd like to hire me, hurry up and send me a proposal.<br>
 michaNNN@protonmail.com, replace NNN with 105
 
+<hr>
+
+Addendum: I somehow have the feeling, I should (again) make clear, misc Myer is a Pseudonym.
+Which I use for several reasons, mainly, since I've to separate my identities.
+The public image of, uhm, michael1 would be severely damaged, when michael2 would get connected.
+And I've worked as ethic's teacher with young people, what in turn gives a reason to separate michael1 and michael3.
+You can reach me with the given email in any case, and for business I also use my real name.
+
