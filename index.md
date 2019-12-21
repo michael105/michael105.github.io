@@ -43,7 +43,7 @@ I guess, we all use this conception, one could name "Platonic", without knowing 
 But when thinking about it - e.g. most UI libraries are obviously written with the Aristotelic approach.
 
 Firstly, the visual representation of the Button is designed, and how it fits into the other elements of the UI.
-Then, the possible attributes are impkemented. The example given, being clickable.
+Then, the possible attributes are implemented. The example given, being clickable.
 
 However, I'd say, the visual representation is not the important aspect of a Button.
 The important aspect is the intent, to be clickable, and .. 
