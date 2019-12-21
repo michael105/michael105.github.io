@@ -30,13 +30,24 @@ so I prepared myself for the external middle school's examen and did this in 199
 
 1996-2000 I did and finished an education as car mechatronics.
 
-2000 I moved to Nuremberg, where I again went to school ("BOS") for 3 years, 
-Finishing with my Matura.("Abitur").
+2000 I moved around 200km away of my hometown to Nuremberg, 
+where I again went to school ("BOS") for 3 years, 
+finishing with my Matura.("Abitur").
 
-1999 I got in contact with linux and installed this on my pc.
+1999 I got in contact with linux and installed it on my pc.
+(I bought a "Suse distribution", the download would have lasted with
+my 28.8kB Modem for weeks..)
+
+To Nuremberg I went cause of several reasons, 
+mainly because I started to do freeclimbing in 2000. 
+The area in the north of Nuremberg, the "North Frankonian Swiss", is worldwide known
+amongst climbers for beeing the spot, where modern sportclimbing started.
 
 
+Programming 2000-2004. 
+2004-2006 (successfull) startup with "pgroupware".
 
+2006 break - Started my studies.
 
 
 `
