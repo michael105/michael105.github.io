@@ -13,6 +13,29 @@ Music education violin 1984-1994
 
 Guitar since 1998
 
+School 1986-1994. Skipped the second class. (I've been taught to read and calculate 
+before school). 
+
+Aborted the "Gymnasium", comparable to the college.
+Somehow I wasn't able to cope with teachers working with black paedagogic.
+Instead of obeying I consequently opposed.
+On the other hand, I often got bored by the learning matters, they mostly didn't challenge me.
+So, my last school report reads quite funny, the grades beeing spread between 1 and 6. 
+
+Luckily, my father has always been supporting me, giving me now the freedom to stay 
+two years at home and doing crafts work at our rural house, what I did with intrinsic motivation.
+I also started to use the early internet in 1994. 
+After some time, I realized I shouldn't go this way forever, 
+so I prepared myself for the external middle school's examen and did this in 1996.
+
+1996-2000 I did and finished an education as car mechatronics.
+
+2000 I moved to Nuremberg, where I again went to school ("BOS") for 3 years, 
+Finishing with my Matura.("Abitur").
+
+1999 I got in contact with linux and installed this on my pc.
+
+
 
 
 
