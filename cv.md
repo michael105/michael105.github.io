@@ -64,6 +64,8 @@ is the biggest department for Philosophy in Germany.
 
 Important teachers to me have been Jacobs (Fichte expert, Idealist), Hutter (Idealist), Nusser (Spaemann, Platonist), Mandrella(Gadamer, Cusanus).
 
+... then it's somehow difficult to remember.
+
 
 
 
