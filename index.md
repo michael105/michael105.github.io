@@ -4,6 +4,54 @@
 
 ---
 
+#### 2019/12/21
+
+Well. There's an Austrian regisseur. Hader. Why the heck does he write my life??
+That's to change.
+
+However. In the "morning" I preferrably drink coffee. 4 cups. And let my thoughts free.
+Today, I came upon an ineteresting question: You can regard programming as an Aristotelic approach of
+getting grip of the world.
+The whole object oriented approach can be seen as an Aristotelic conception.
+Species, genre, individuum - classes, objects, instances. Andsoon.
+
+So what would be a Platonic conception?
+
+**I for myself say I'm a Platonician, furthermore, Aristoteles is read completely wrong. 
+Besides we don't know which documents are really "written" by Aristoteles,
+most writings are just compilations of fragments, sometimes someone did have the 
+meaning this or that sentence could haven been written by Aristoteles -- 
+I'd also say Aristoteles.. uh. That's going to be too lengthy. But my meaning to (the construction of) Aristoteles
+would be, he's a Platonician - who didn't get Plato right.**
+
+Back to software and Plato. Plato's conception of the world is mostly related to the ideas.
+These, in turn, are somehow a paradox conception, being hard to understand.
+They are in the world of the ideas, separated by our world, they are the being of itself.
+
+However, they also are the essence of all things in our world.
+All we understand, we just get the idea of it, not the thing itself.
+
+So this also might be the Platonic approach of software development.
+
+Instead of abstracting, differenciating (e.g. a button, which has the attribute of being clickable),
+it's about the idea and the inner intent. 
+So the button could be represented as an object, which is there to be clicked and initiate an action.
+In which way the button is represented is secondary. 
+
+I guess, we all use this conception, one could name "Platonic", without knowing it.
+
+But when thinking about it - e.g. most UI libraries are obviously written with the Aristotelic approach.
+
+Firstly, the visual representation of the Button is designed, and how he fits into the other elements of the UI.
+Then, the possible attributes are impkemented. The example given, being clickable.
+
+However, I'd say, the visual representation is not the important aspect of a Button.
+The important aspect is the intent, to be clickable, and .. 
+
+I need more coffee. And better stop this writing for now.
+
+
+
 
 #### 2019/12/20
 
