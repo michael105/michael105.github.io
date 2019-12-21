@@ -47,7 +47,7 @@ amongst climbers for beeing the spot, where modern sportclimbing started.
 Programming 2000-2004. 
 2003 third price at an international programming contest, spnsored by Trolltech (QT),  
 for an opensource vocabulary trainer I wrote out of fun. 
-2004-2006 (successfull) startup with "pgroupware"[showcase](Old projects).
+2004-2006 (successfull) startup with "pgroupware"[Old Projects](showcase).
 
 I did have several other ideas, which showed up could have been successfull.
 I did a projection of a bookmark manager. (But.. Highly ranked, kkk sold to yahoo for 20 billion)
