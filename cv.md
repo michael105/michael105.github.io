@@ -45,9 +45,39 @@ amongst climbers for beeing the spot, where modern sportclimbing started.
 
 
 Programming 2000-2004. 
-2004-2006 (successfull) startup with "pgroupware".
+2003 third price at an international programming contest, spnsored by Trolltech (QT),  
+for an opensource vocabulary trainer I wrote out of fun. 
+2004-2006 (successfull) startup with "pgroupware"[showcase](Old projects).
 
-2006 break - Started my studies.
+I did have several other ideas, which showed up could have been successfull.
+I did a projection of a bookmark manager. (But.. Highly ranked, kkk sold to yahoo for 20 billion)
+but I've ben possibly to careful about German law. (Some really crazy sentences about links at this time)
+My concept for a UI library would still be a need (SVG)
 
 
-`
+In the Autumn of 2006 I experienced a hard break, I got sick and was at the hospital for 2 weeks. 
+Suddenly I couldn't continue with my work, and did have the chance to think about my life. 
+I decided to start my studies in Philosophy, and rearrange my life.
+
+Consequently I changed to Munich, the Philosophical department at the Ludwig-Maximilian-University 
+is the biggest department of Philosophy in Germany.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
