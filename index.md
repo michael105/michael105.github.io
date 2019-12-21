@@ -54,7 +54,12 @@ I need more coffee. And better stop this writing for now.
 there's also a Platonic object oriented approach. What somehow negates my initial sentences.
 
 So. I rethink. drink more coffee. And leave this entry, as it is. 
-It's a blog and not a scientific publication..
+It's a blog and not a scientific publication.
+
+... So. seems to me, what I tried to characterize as a Platonic conception of software development
+overlaps in many points with the concept of Agile Software Development. (Wikipedia Agile Software Development)[https://en.wikipedia.org/wiki/Agile_software_development]
+
+I push these thoughts onto my stack for now. 
 
 
 
