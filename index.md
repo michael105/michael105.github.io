@@ -50,6 +50,11 @@ The important aspect is the intent, to be clickable, and ..
 
 I need more coffee. And better stop this writing for now.
 
+..rereading - I've to rethink the beginning, cause when naming this approach "Platonic",
+there's also a Platonic object oriented approach. What somehow negates my initial sentences.
+
+So. I rethink. drink more coffee. And leave this entry, as it is. 
+It's a blog and not a scientific publication..
 
 
 
