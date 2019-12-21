@@ -60,7 +60,9 @@ Suddenly I couldn't continue with my work, and did have the chance to think abou
 I decided to start my studies in Philosophy, and rearrange my life.
 
 Consequently I changed to Munich, the Philosophical department at the Ludwig-Maximilian-University 
-is the biggest department of Philosophy in Germany.
+is the biggest department for Philosophy in Germany.
+
+Important teachers to me have been Jacobs (Fichte expert, Idealist), Hutter (Idealist), Nusser (Spaemann, Platonist), Mandrella(Gadamer, Cusanus).
 
 
 
