@@ -17,12 +17,12 @@ Species, genre, individuum - classes, objects, instances. Andsoon.
 
 So what would be a Platonic conception?
 
-**I for myself say I'm a Platonician, furthermore, Aristoteles is read completely wrong. 
+*I for myself say I'm a Platonician, furthermore, Aristoteles is read completely wrong. 
 Besides we don't know which documents are really "written" by Aristoteles,
 most writings are just compilations of fragments, sometimes someone did have the 
 meaning this or that sentence could haven been written by Aristoteles -- 
 I'd also say Aristoteles.. uh. That's going to be too lengthy. But my meaning to (the construction of) Aristoteles
-would be, he's a Platonician - who didn't get Plato right.**
+would be, he's a Platonician - who didn't get Plato right.*
 
 Back to software and Plato. Plato's conception of the world is mostly related to the ideas.
 These, in turn, are somehow a paradox conception, being hard to understand.
