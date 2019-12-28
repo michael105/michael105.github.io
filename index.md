@@ -12,13 +12,7 @@ It's a implementation, being in most cases about twice as fast as glibc qsort, f
 I did this implementation more than 10 years before)
 
 I somehow guess, I should publish a quite nice compression algorithm as well - 
-the decompressor implementation consists of three(!) lines of code.
-
-However; I have to think about not only howto demask a motiv - 
-but also howto to fight back. I'm fed up. with some quite ugly habits.
-
-Although I'm feeling good - I'm just annoyed.
-
+the decompressor implementation are three(!) lines of code, in the unoptimized version.
 
 
 
