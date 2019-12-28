@@ -4,6 +4,25 @@
 
 ---
 
+#### 2019/12/28
+
+Just created a new project for a sort algorithm implementation, I'm calling bitsort.
+It's a implementation, being in most cases about twice as fast as glibc qsort, for example.
+(That's my claim, at least - have to reevaluate at the machines, I can get a grip on.
+I did this implementation more than 10 years before)
+
+I somehow guess, I should publish a quite nice compression algorithm as well - 
+the decompressor implementation consists of three(!) lines of code.
+
+However; I have to think about not only howto demask a motiv - 
+but also howto to fight back. I'm fed up. with some quite ugly habits.
+
+Although I'm feeling good - I'm just annoyed.
+
+
+
+
+
 #### 2019/12/21
 
 Well. There's an Austrian regisseur. Hader. Why the heck does he write my life??
