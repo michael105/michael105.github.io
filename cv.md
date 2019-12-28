@@ -2,8 +2,8 @@
 
 ## CV
 
-`
-Born 1979
+
+<!-- Born 1979
 
 Raised in a small village in North Frankonia.
 
@@ -33,7 +33,9 @@ so I prepared myself for the external middle school's examen and did this in 199
 2000 I moved around 200km away of my hometown to Nuremberg, 
 where I again went to school ("BOS") for 3 years, 
 finishing with my Matura.("Abitur").
+-->
 
+`
 1999 I got in contact with linux and installed it on my pc.
 (I bought a "Suse distribution", the download would have lasted with
 my 28.8kB Modem for weeks..)
