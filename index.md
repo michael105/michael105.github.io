@@ -24,6 +24,22 @@ A quote:
 
 Oh. Some further readings: (The Bell System Technical Journal (1922-1983)[https://archive.org/details/bstj-archives]
 
+---
+
+oh. That's surprising. 
+Unaligned memory access is way faster when aligned?? Am I reading wrong?
+Or, if I get this right, the conclusion might be, don't use data structures, 
+aligned and with a power of two. I'm still surprised.
+Although this is somehow logical; when the data exactl would fit into a cache,
+ever byte more will cause a cache miss. Why I sometimes used to set the size of structures to just a few bytes
+below a power of two. Anyways. I learnd something new.
+https://danluu.com/3c-conflict/
+
+Compare here: 
+- https://danluu.com/new-cpu-features/
+- https://people.freebsd.org/~lstewart/articles/cpumemory.pdf
+- this diskussion, Torvalds et al.. https://groups.google.com/forum/#!msg/comp.arch/_uecSnSEQc4/mvfRnOvIyzUJ
+
 
 
 
