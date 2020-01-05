@@ -4,6 +4,29 @@
 
 ---
 
+#### 2020/01/05
+
+##### Happy new year everyone!
+
+I better do not say, it can only get better - it could always be worse.
+
+so. Just my best wishes to anyone.
+
+Found a interesting reading about the state of software development 
+written by Rob Pike, and dating back to the year 2000.
+
+A quote: 
+> Ironically, at a time when computing is almost the definition of innovation, research in both software and hardware at universities and much of industry is becoming insular, ossified, and irrelevant.
+
+
+.. still true. Read on: [http://doc.cat-v.org/bell_labs/utah2000/utah2000.html]
+
+
+Oh. Some further readings: (The Bell System Technical Journal (1922-1983)[https://archive.org/details/bstj-archives]
+
+
+
+
 #### 2019/12/28
 
 Just created a new project for a sort algorithm implementation, I'm calling bitsort.
