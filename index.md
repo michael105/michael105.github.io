@@ -4,6 +4,34 @@
 
 ---
 
+
+#### 2020/02/10
+
+Life is an adventure.
+
+In the need of falling back to some of my resources,
+meaning, good friends and my knowledge and experience in informatic technologies,
+suddenly, this starts to get fun.
+
+I always preferred doing some development work just for fun.
+It's a soothing puzzle to me,
+other people watch television,
+I do either music or some development puzzles.
+
+However - sometimes life changes, and, well, I always did know,
+I do have some things in my background.
+
+And, my opensource engagement obviously pays out.
+
+So, quite gripping, I'm travelling along, visiting good friends, 
+and building a network for my (now) business, I'm going to work again.
+
+Btw., when you've got linkedin, would be glad if you'd connect with me:
+(linked.in)[https://linked.in/in/michael-scondo]
+
+Cheers, Michael
+
+
 #### 2020/01/05
 
 ##### Happy new year everyone!
