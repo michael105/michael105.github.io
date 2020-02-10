@@ -27,7 +27,7 @@ So, quite gripping, I'm travelling along, visiting good friends,
 and building a network for my (now) business, I'm going to work again.
 
 Btw., when you've got linkedin, would be glad if you'd connect with me:
-[https://linked.in/in/michael-scondo](linked.in)
+[linked.in](https://linked.in/in/michael-scondo)
 
 Cheers, Michael
 
@@ -50,7 +50,7 @@ A quote:
 .. still true. Read on: [http://doc.cat-v.org/bell_labs/utah2000/utah2000.html](http://doc.cat-v.org/bell_labs/utah2000/utah2000.html)
 
 
-Oh. Some further readings: [https://archive.org/details/bstj-archives](The Bell System Technical Journal 1922-1983)
+Oh. Some further readings: [The Bell System Technical Journal 1922-1983](https://archive.org/details/bstj-archives)
 
 ---
 
@@ -66,7 +66,7 @@ https://danluu.com/3c-conflict/
 Compare here: 
 - https://danluu.com/new-cpu-features/
 - https://people.freebsd.org/~lstewart/articles/cpumemory.pdf
-- this diskussion, Torvalds et al.. https://groups.google.com/forum/#!msg/comp.arch/_uecSnSEQc4/mvfRnOvIyzUJ
+- this diskussion, Torvalds et al.. [https://groups.google.com/forum/#!msg/comp.arch/_uecSnSEQc4/mvfRnOvIyzUJ](https://groups.google.com/forum/#!msg/comp.arch/_uecSnSEQc4/mvfRnOvIyzUJ)
 
 
 
