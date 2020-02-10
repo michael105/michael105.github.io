@@ -27,7 +27,7 @@ So, quite gripping, I'm travelling along, visiting good friends,
 and building a network for my (now) business, I'm going to work again.
 
 Btw., when you've got linkedin, would be glad if you'd connect with me:
-(linked.in)[https://linked.in/in/michael-scondo]
+[https://linked.in/in/michael-scondo](linked.in)
 
 Cheers, Michael
 
@@ -47,10 +47,10 @@ A quote:
 > Ironically, at a time when computing is almost the definition of innovation, research in both software and hardware at universities and much of industry is becoming insular, ossified, and irrelevant.
 
 
-.. still true. Read on: [http://doc.cat-v.org/bell_labs/utah2000/utah2000.html]
+.. still true. Read on: [http://doc.cat-v.org/bell_labs/utah2000/utah2000.html](http://doc.cat-v.org/bell_labs/utah2000/utah2000.html)
 
 
-Oh. Some further readings: (The Bell System Technical Journal (1922-1983)[https://archive.org/details/bstj-archives]
+Oh. Some further readings: [https://archive.org/details/bstj-archives](The Bell System Technical Journal 1922-1983)
 
 ---
 
