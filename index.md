@@ -96,6 +96,26 @@ some of my knowledge of IT.
 And I'm working quite straight, somehow. Possibly I should be travelling for some longer.
 Seems to do me good.
 
+##### 12:30
+
+Uuuhm.
+
+Sort of successfull.
+I did some more networking at linkedin.
+Writing more about me at my profile.
+
+Some communication. And again, this took 5 hours yet. (or even 6?)
+
+That's the part, I'm having trouble with. Do things in the right order; 
+especially thats true for things, I don't like to do.
+I'm able to do so. But. Anyways. I still do have another half of today.
+
+So - left is: my application, my accomodation for the next days, the dictionary.
+
+Some todo list, I could place here at github.
+Ok. This I'm going to do now.
+
+
 
 
 #### 2020/02/10
