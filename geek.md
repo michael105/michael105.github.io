@@ -1,7 +1,7 @@
 {% include_relative header.md %}
 
 
-## My "geek side"
+### My "geek side"
 
 It might be obvoius, someone, being in Informatics for three thirds of his life,
 also has some propositions best attributed with geeky.
