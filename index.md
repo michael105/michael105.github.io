@@ -91,6 +91,11 @@ My unloved neighbour - she even isn't able to communicate,
 when you talk to her friendly, saying repeatedly she should talk, when there is anything.
 Naaa. Instead. She does crazy and violent things. Stupid.
 
+The good thing: I'm travelling. I'm visiting good friends. I'm thinking about howto monetize
+some of my knowledge of IT.
+And I'm working quite straight, somehow. Possibly I should be travelling for some longer.
+Seems to do me good.
+
 
 
 #### 2020/02/10
