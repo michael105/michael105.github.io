@@ -5,6 +5,94 @@
 ---
 
 
+#### 2020/02/11
+
+Good morning.
+
+I don't know, why. But, somehow,
+I'm getting up earlier and earlier.
+Maybe, cause I see I've got things to do.
+
+So, my plan for today:
+
+I did some changes to minilib; they are within the devel branch yet.
+Like to push them to master.
+
+Also, regarding minilib: ANSI-C is close.
+And much of POSIX-C is written.
+If I can take the time today, I'd love to push that forward.
+The point is close, where one could build an entire basic linux system 
+with minilib. Which would be a real milestone.
+And also one of m other plans; having a solid and secure "minicore";
+above one can build a linux distribution.
+It's thought like this: The core should be rock solid. Just the core,
+literary. Above that, you can build, whatever you want.
+And the core should provide security related functionality.
+E.g. password and user management, the firewall, syslogs.
+I'm thinking about how to minimize memory usage of the core related services.
+Every taskswitch needs resources. 
+The core functionality is needed quite often,
+every time, something is logged, e.g.
+So, having a tiny core, counting in kilobytes, does have real advantages
+in terms of responsibility and resource usage, of the whole system.
+
+
+Ok. That's what I'd like to do.
+
+Then, there IS to do:
+I need to move. Have to call some people, and see, where I'm going to travel now.
+ATM, some things seem to force me travelling. ;) Could be worse.
+
+I have to take care of my money. I did see a job offer today,
+which could be my dream. Remote work, and some travelling.
+Have to apply. Today.
+
+I really should do some music.
+Albite, atm, my macbook is dead. :( 
+And somehow, this really slows me down.
+I'm used to open this thing, and do music, no matter where I am.
+That's. But, I should do some music, and record this time, no matter of the circumstances.
+
+Linkedin I'm going to push a bit.
+I guess, yet I underestimated the power of social networks.
+Ok. I'm a opensource developer, not a manager, you know. Anyways. 
+I should improve myself.
+
+
+I should change the harddisk in my notebook.
+Somehow the free space is. well. too less.
+And I got another disk with me, 
+I'm just fearing the work, copying my current development system (Arch Linux), andsoon.
+
+I need a dictionary, on my hd. Not sure, wheter I'm going to have fast enough internet, where I'm moving.
+So better take care in advance.
+
+I should say thanks for the accomodation to the good friend, where I'm now.
+Have to think about what I could do for her.
+
+Finally, I should setup a real blog.
+ATM, I'm blogging at several places.
+That's partially, cause I do have sort of several lifes.
+And I don't want to have my postpubertying ego, writing down it's anger about some peculiar circumstances,
+doing this at these more serious pages here.
+
+But, somehow, I need to reintegrate. Or not.
+It's about what I am. And parts of me do an entirely different carreer.
+It is more than naturally, separating these parts in public.
+Albite, that has nothing to do with me, and my personality.
+I believe I'm a quite unified person.
+I'm just having trouble with some other people,
+who force me to, e.g., travel. And who also seem to think the craziest things about me.
+These people seem to have a problem with me, and even managed to force me out of my flat.
+Where I'm not going again, until I can afford the money for some lawyers.
+;) possibly they didn't like my music.
+Or, whatever. But one should be able to communicate. 
+My unloved neighbour - she even isn't able to communicate,
+when you talk to her friendly, saying repeatedly she should talk, when there is anything.
+Naaa. Instead. She does crazy and violent things. Stupid.
+
+
+
 #### 2020/02/10
 
 Life is an adventure.
