@@ -4,7 +4,7 @@
 #### About the projects
 
 Here's a short introduction for nontech-people, 
-where I try to put some informtion into few sentences.
+where I try to put some information into a few sentences.
 
 The current project in my focus is minilib, a C system singlefile headeronly librarie.
 This project is quite big and has some unique features.
