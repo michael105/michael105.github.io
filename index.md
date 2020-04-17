@@ -57,9 +57,12 @@ leaving everything from the inside out - well.
 Seems to me, finally I stopped some ugly behaviour.
 E.g., my hd always went full, but I wasn't able to pinpoint the problem.
 Neither the disk usage showed the problem.
+Anyways, I guess, I should be really paranoic now.
+So - :/ reinstall. As soon, as I have a new hd.
+Which also broke.
 
 Going to upload some of the solutions I found for generic problems,
-as soon I finished.
+when I finished.
 Implemented an allpication level firewall for linux, amongst others.
 Since I already wrote some Gui(s) for generic tabular data representation
 and alteration, probably an application level firewall gui is my next project.
