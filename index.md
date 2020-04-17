@@ -5,6 +5,106 @@
 ---
 
 
+#### 2020/04/17
+
+Some time ago, I blogged here.
+
+I should possibly link another blog of mine, albite I tried 
+to put here the "serious" stuff, in the other page(s) I'm sort of presenting
+another side.
+
+Anyways. Atm, I'm (still) concerned about my security.
+I didn't yet have the urge, to really secure my systems,
+exceeding a "normal" security level.
+Some things showed me I obviously got some leaks.
+
+And, the usual "firewall", blocking things from the outside,
+leaving everything from the inside out - well.
+
+Seems to me, finally I stopped some ugly behaviour.
+E.g., my hd always went full, but I wasn't able to pinpoint the problem.
+Neither the disk usage showed the problem.
+
+Going to upload some of the solutions I found for generic problems,
+as soon I finished.
+Implemented an allpication level firewall for linux, amongst others.
+Since I already wrote some Gui(s) for generic tabular data representation
+and alteration, probably an application level firewall gui is my next project. 
+Have to check, how much time this would need.
+
+
+Meanwhile, I stumbled about an quite interesting article.
+Optimizations for C.
+
+(snip)
+
+#### 2020/04/17
+
+Some time ago, I blogged here.
+
+I should possibly link another blog of mine, albite I tried
+to put here the "serious" stuff, in the other page(s) I'm sort of presenting
+another side.
+
+Anyways. Atm, I'm (still) concerned about my security.
+I didn't yet have the urge, to really secure my systems,
+exceeding a "normal" security level.
+Some things showed me I obviously got some leaks.
+
+And, the usual "firewall", blocking things from the outside,
+leaving everything from the inside out - well.
+
+Seems to me, finally I stopped some ugly behaviour.
+E.g., my hd always went full, but I wasn't able to pinpoint the problem.
+Neither the disk usage showed the problem.
+
+Going to upload some of the solutions I found for generic problems,
+as soon I finished.
+Implemented an allpication level firewall for linux, amongst others.
+Since I already wrote some Gui(s) for generic tabular data representation
+and alteration, probably an application level firewall gui is my next project.
+Have to check, how much time this would need.
+
+
+Meanwhile, I stumbled about an quite interesting article.
+Optimizations for C.
+
+[https://www.codeproject.com/articles/6154/writing-efficient-c-and-c-code-optimization]
+
+An especially surprising snippet below..
+
+```
+Faster for() loops
+
+It is a simple concept but effective. Ordinarily, we used to code a simple for() loop like this:
+
+for( i=0;  i<10;  i++){ ... }
+
+[ i loops through the values 0,1,2,3,4,5,6,7,8,9 ]
+
+If we needn't care about the order of the loop counter, we can do this instead:
+
+for( i=10; i--; ) { ... }
+
+Using this code, i loops through the values 9,8,7,6,5,4,3,2,1,0, and the loop should be faster.
+
+This works because it is quicker to process i-- as the test condition, which says "Is i non-zero? If so, decrement it and continue". For the original code, the processor has to calculate "Subtract i from 10. Is the result non-zero? If so, increment i and continue.". In tight loops, this makes a considerable difference.
+
+The syntax is a little strange, put is perfectly legal. The third statement in the loop is optional (an infinite loop would be written as for( ; ; )). The same effect could also be gained by coding:
+Hide   Copy Code
+
+for(i=10; i; i--){}
+
+or (to expand it further):
+
+for(i=10; i!=0; i--){}
+
+The only things we have to be careful of are remembering that the loop stops at 0 (so if it is needed to loop from 50-80, this wouldn't work), and the loop counter goes backwards. It's easy to get caught out if your code relies on an ascending loop counter.
+
+We can also use register allocation, which leads to more efficient code elsewhere in the function. This technique of initializing the loop counter to the number of iterations required and then decrementing down to zero, also applies to while and do statements.
+```
+
+
 #### 2020/02/11
 
 Good morning.
