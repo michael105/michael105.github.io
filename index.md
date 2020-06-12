@@ -4,6 +4,57 @@
 
 ---
 
+#### 2020/06
+
+An update.
+
+Got a milestone with minilib. (http://github.com/michael105/minilib)
+
+A minimal shell compiles with unchanged sources to a stunning size of 5.8kB,
+statically linked.
+
+Minised from Eric Raymond, again unchanged, compiles to 18kB.
+
+That's astonishing. Minised, compiled and linked dynamically with musl,
+counts with 180kB here. (Gentoo, slightly optimized).
+Honestly, I don't know how it's possible to save 90 percent.
+Or, I don't know what exactly happens when compiling with musl.
+Must be some strange multiple inclusion of utf8, localizations, and. Dunno.
+
+There ist still some code left for ansic compatibility. (lacking a bit more to posixc)
+And I've to tidy the sources. (Again)
+
+
+
+Wrote a few more core tools for the "minicore", intended as absolute minimal
+shell environment for an initrd.
+
+I've to fiddle something out for the "rinit" set of initscripts.
+Yet I'm using the shell interpreter from busybox.
+Stripped down to 128kB. It's amayzingly fast.
+However, somehow I do not like the idea of interpreted scripts for the bootup.
+
+The parsing is uneccessary overhead.
+
+On the other hand, I prefer the "microkernel" approach,
+regarding the shell environment as kernel.
+(Which it is, it's just not part of the "real" kernel.)
+
+Last idea has been to compile the core tools with different load addresses,
+and simply load and fire them with an own loader, without replacing the calling binary.
+Just load them into ram, at the address specified by ld, and call "start".
+Since they are compiled position dependent already, this could be a viable and performant way.
+And would prevent forking, again saving some resources.
+
+Maybe that's a viable way between monolythic and micro approach.
+But have to think about that.
+It's somehow a quite difficult question of design.
+(Knowing about the discussion between Thorvalds and Tannenbaum)..
+But the discussion between these both has never been about the different approaches,
+it was more about personal things. As Linus states in his biography.
+
+
+
 
 #### 2020/04/17
 
