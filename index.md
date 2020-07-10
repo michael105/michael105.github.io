@@ -4,6 +4,105 @@
 
 ---
 
+#### 2020/07
+
+Didn't blog too much the last time.
+Albite I did quite some progress with minilib. (online within the branches  'devel', and 'devel-HEAD')
+C89 done to 98%, when subtracting floating math functions and localizations.
+Which I don't intend to add, anyways. For floating math there are several libraries
+already out there. And localizations are somehow out of the scope of minilib.
+
+Meanwhile. 
+If you're a developer, possibly you do have some amusement reading this snippet.
+(a nonconformant and nonoptimized seq implementation)..
+
+I know. Defining void and zero isn't that respectful. Or wise.
+But I couldn't resist.
+
+Please, don't take that too serious..
+But somehow I do like the solution, 
+which came up by looking for the 'algorithms', resulting in an as small as possible binary.
+(440 Bytes, regular elf binary).
+
+```
+#if 0
+mini_start
+mini_exit
+mini_writes
+
+LDSCRIPT text_and_bss
+SHRINKELF
+INCLUDESRC
+return
+#endif
+
+// misc 2020/06
+// public domain
+
+void usage(){
+		writes("Usage: seq from/to [to]\n");
+		exit(-1);
+}
+
+
+int toint( const char c[] ){
+	int ret = 0;
+
+	while ( *c > 47 && *c < 58 ){
+			ret *= 10;
+			ret += (*c-48);
+			*c++;		
+	}
+	return(ret);
+}
+
+
+char* count(char *digit, char* first){
+	if ( digit < first )
+			first=digit;
+	*digit = *digit+1;
+	if ( *digit > '9' ){ 
+			*digit = '0';
+			first = count(digit-1,first);
+	}
+	return(first);
+}
+
+#define VOID "0000000000\n"
+static char* 
+		ZERO = VOID; // seems ok to assume
+
+
+int main(int argc, char *argv[]){
+	if (argc == 1) {
+			usage();
+	}
+
+	// A philosophical question.
+	// However, it works, therefore it's true.
+	char *p = ZERO + sizeof(VOID) - 3 ; 
+
+	char *last = p;
+	int i=0;
+
+	int to = toint( argv[1] );
+
+	if ( argc>2 ){ // count to 'from'
+			for ( ; i<to; i++ )
+					p=count(last,p); 
+			to = toint( argv[2] );
+	}
+
+	for ( ; i<= to; i++ ){
+			write(STDOUT_FILENO, p, ZERO - 1 + sizeof(VOID) - p );
+			p=count(last,p);
+	}
+
+	return(0);
+}
+```
+
+
 #### 2020/06
 
 An update.
@@ -54,6 +153,55 @@ But the discussion between these both has never been about the different approac
 it was more about personal things. As Linus states in his biography.
 
 
+The tools are - minimal. But most of them stay below 1kB.
+
+While thinking about that. Especially, about the build system.
+There is no anyone reason, to not simply distribute the binaries.
+Along the sources. But, having the sources without external build dependencies,
+and, at the moment, restricted to x64 - besides the fact, (And I should know it),
+cpu specific optimizations would rarely give a few cycles / the performance is 
+given instead by the minimalistic approach - I believe in opensource.
+But, since the binaries might built to even binary equal files on all systems (x64),
+I do not see any reason anymore to not distribute the bins.
+
+
+---
+
+few days later. I don't exactly do know, why the heck I started this project.
+Somehow, I wan't to get this finished.
+But having given myself the silly border of 64kB for a usable basic system,
+with a maximum of 128kB - I do not really know, if this has some real advantage.
+
+Somehow yes. Obviously, every byte saved at the bottom, will pay out.
+
+But. It still is a silly idea.
+
+Atm, I'm having some trouble with the linker scripts of minilib.
+What shows up in really annoying errors. Sort of, one time it works,
+no changes, next time it doesn't work.
+I'm quite sure, it has to do with static vars. But. I guess, whoever has already been
+confronted with bugs, showing only randomly up, is able to understand my frustration.
+
+It's uuugh. Guessing, the problem might be at this place - adding debug instructions -
+suddenly, the problem is gone. To just show up at another place. Sometimes.
+
+Darn it.
+
+And somehow, I'm really in the grip of hacking now. I want this to work. Damnit.
+
+Finally, sash (Stand alone shell) now compiles to 34kB, stripped of a few tools. And works. More or less.
+You just shouldn't do too much file globbing. 
+
+Having ranted enough now - there is quite some success.
+Another minimal shell compiles to 4.8kB. And works, stable.
+As well as the growing number of coretools.
+64kB seems to be possible.
+It is just the question, of what tools are to be defined basic.
+Full posix - I do not believe yet, this could fit into 64kB.
+Especially not, when linked as separate binaries.
+
+However, a basic system of 64kB is absolutely possible now.  Statically compiled.
+Counting some "extras" like sed (18kB) to another 64kBs.
 
 
 #### 2020/04/17
