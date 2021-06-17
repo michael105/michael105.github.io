@@ -4,6 +4,30 @@
 
 ---
 
+
+#### 2021/06
+
+So. I hope for god's sake "Corona" is at the end of it's lifetime.
+
+Annoying thing.
+
+Meanwhile, I'm quite glad to have brought a project of mine into a useful state,
+'minilib'.
+
+Anyways, there are chances I'm able to get into my normal life again.
+
+I'll further develop minilib and it's accompanying projects.
+It's just, a passion and, sort of, point to concentrate on when everything else goes mad.
+
+I guess I can be really happy to have this sort of contemplation.
+
+My 'cover' of my 'real life' has been broken.
+
+I won't link back anyways.
+
+There honestly are reasons to separate different images.
+
+
 #### 2020/07
 
 Didn't blog too much the last time.
