@@ -4,6 +4,96 @@
 
 ---
 
+#### 2021/09
+
+Sometimes hard to decide, where to start a project.
+
+So, I've got my ideas for a linux distribution collected.
+I know, howto get the things online.
+
+Several things are more or less finished.
+
+However, where to start, what are the most important things??
+
+
+Good news, I'm going to miss several fiddly problems.
+No dependency management for most programs (static linking), 
+security problems might be avoidable by strict separation in different
+(wideley known as firewall zones) containers, 
+no need to have xzillion software available,
+by (again) just having other distros or package managements as containers.
+
+
+However - some things I'd like to have ready, but they aren't.
+
+The whole posix userspace utilities linked with minilib, e.g.
+
+The big question - use busybox for shell scripts, or.?
+
+
+My userspace utilities are neither finished, or posix compatible (has never been the destiny, yet).
+
+
+Thinking about that - I guess, I still have to get minilib to compile most programs, first place.
+
+It is close. And there is the possibility to include other libraries, e.g. for the math functions.
+(I do not see any advantage in ruling own math functions, most functions are better fitted to the according architecture,
+which is not the target of minilib at all - the target there is to have a tiny standard libc, 
+which is resulting in really small binaries).
+
+
+
+The other side - what is important, and already running?
+
+The system is up within a few seconds. (say, all over all 5 seconds, having xorg and i3 running, 10 years old thinkpad)
+
+I do have some concepts (also tested) to layer the os transparently into different parts.
+Security related (proxies in demilitarized zones/containers),
+user software related.(having here arch for some software, not needed for the basic functionality).
+
+
+
+Application firewall, without ui yet, but working.
+Would be trivial to implement application throttling.
+
+
+
+Again - thinking about it - what is the point of a distribution?
+
+
+In this case, it is the concept of 
+1. containerization, 
+2. application firewalls,
+3. application isolation. 
+4. (I'm targetting a "single" user distribution,
+in the meaning of, only one user is supposed to work with the system at the same time.)
+
+5. statically linked core applications.
+6. easy to integrate other distributions, so the central aspects of the core can be concentrated on. 
+  I do not believe it is that wise trying to target this or that applications, user desktop and server applications,
+   andsoon the same time. Better do one thing, but well. Albite some aspects are the same for desktop and server systems,
+	I personally do believe there is a hard border in some aspects.
+7. Have some sort of waybackmachine. (layered aufs)
+8. the inner core should be unmodifiable, by default, the "mantle" should be readonly as well, 
+   but might be useful to be able to update or add components.
+
+
+thinking abot this - somehow I've got the guts, the application firewall ui could be the most important thing.
+(Besides the package management, but this might be quite trivial).
+I did quite much admire the cgi system admin interface of puppy linux.
+
+
+Naa. I'm going into the forest now.
+Mushrooms everywhere, I do like them.
+My parents have been going looking for mushrooms, when I've been a child.
+Possibly I'm going to find the starting point as well.
+
+Confuzius did say, when you've got no time, you should take some time for relaxing.
+So.
+
+And I already do remember again some of the concepts I did have, also written down, 
+sadly I did have some data loss. Anyways.
+
 
 #### 2021/06
 
