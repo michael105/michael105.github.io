@@ -107,7 +107,7 @@ Finally, C (luckily) isn't Java.
 
 Possibly it is Vogonic, but I'm going to have lunch.
 
-(Vogon)[https://www.youtube.com/watch?v=yaJMD4AkZWs]
+[https://www.youtube.com/watch?v=yaJMD4AkZWs](Vogon)
 
 
 Ok. I leave this for now. This would just introduce confusion, 
