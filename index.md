@@ -4,6 +4,134 @@
 
 ---
 
+#### 2021/10/13
+
+
+I'm currently about to look at the security of minilib.
+Yet, I didn't try to really harden the library - The standards itself,
+C89, C11, are inherently insecure.
+
+There are functions like gets, which you shouldn't use for variable userinput at all.
+
+For example:
+
+```
+cmd getcommand(){
+	char buf[4096];
+	if ( ! gets(buf) )
+		throw_error();
+	
+	return(parse(buf));
+}
+```
+This should read the next line from stdin, parse the line
+and return the recognized cmd.
+
+However, when faced with a line, longer than 4096 Bytes,
+the stack would be overwritten - the classical stackoverflow.
+
+This, in turn, as soon the redline is crossed (gcc reserves some bytes for dynamical allocations
+at the stack on each function entry, called the redzone),
+it is possible to overwrite the return address of the function getcommand.
+This allows an attacker to change the program flow, and jump somewhere else.
+
+However, there are cases, it is ok to use gets. E.g., when stdin is conected to 
+a pipe, and to the pipe is written by a trustworthy program.
+Or, stdin is closed, and redirected to a configuration file.
+
+Therefore, I did the decision some time ago, to not trying to patch functions like gets,
+since finally the developer using minilib has to watch out for not doing things
+like the above getcommand.
+
+Anyways, now I'm trying to give the possiblity for some hardening options.
+
+I wrote one option, globals_on_stack, which locate all globals of minilib at the stack;
+behind the last used return address.
+There is the advantage of being able to have binaries, only consisting of
+one segment, the text segment.
+
+The stack is created in each case by the kernel,
+and this saves several hundred bytes of the binaries.
+
+Finally I started the whole minilib, after I created my first hello world
+without using glibc, and had been puzzled by the sizes.
+(glibc hello world, up to 1MB; handwritten with the own syscall routines, around 200 Bytes)
+
+Just now, I'm a bit puzzled. Firstly, gets shouldn't exist.
+Even when used for a trustworthy stream. It opens an unneccessary attack vector.
+But I cannot strip gets of minilib, since this would prevent many programs
+of being linkable with minilib.
+
+Secondly, there are other attack vectors. I tried to insert a guard page after the stack,
+to prevent the ability of overwriting the environmental variables with a stackoverflow.
+It's not possible.
+(I do know, the bsd people even do a shadow copy of the environment).
+
+Then, strangely the bss segment has to be executable. 
+
+Sideways, several (even suid) programs of linux have a executable stack, e.g. the Xserver.
+
+Furthermore, I'm wondering, why the stack's address is randomized, the other segment's not.
+
+It's again - when randomizing the stack's location, one should do the same
+for the other segments. Elsewhise - it's like having two holes in your boat;
+one you patch, starring at the second hole and leaving it the way it is.
+
+Then you could have leaved the first hole as well.
+
+Finally, first hand someone has to do something like the above getcommand,
+to be able to overwrite the stack at all.
+
+I did implement map_protected, setting up a dynamicaly allocated memory area,
+which is surrounded by protected pages.
+I'm wondering whether to introduce a new data type, protected_mem,
+and change gets(char*) to gets(protected_mem*).
+
+This would at least throw a warning. 
+Albite - Obviously there's the possibility to setup protected_mem buf[4096]
+at the stack.
+
+Ok, one could implement macros, which throw an error when someone tries 
+to setup a protected_mem array. But - somehow - that's all not the solution.
+
+Possibly I should just use compiler warnings for things like gets.
+
+Have to think about that. I'm also thinking of the option "harden" -
+which would simply disallow gets, doing a shadow copy of the environment, and so on.
+But, this is someout out of the scope of minilib - having as small binaries as possible.
+
+And would again introduce confusion - either a libray IS hardened - doing shadow copies
+of sensitive data, placing stack canaries, and so on - or not.
+
+Finally, C (luckily) isn't Java.
+
+Possibly it is Vogonic, but I'm going to have lunch.
+
+(Vogon)[https://www.youtube.com/watch?v=yaJMD4AkZWs]
+
+
+Ok. I leave this for now. This would just introduce confusion, 
+and you just cannot ensure with a system library, other people don't do
+stupid things.
+You also shouldn't try, I'd guess, this would be as silly as well.
+
+I now implemented warnings. However, everyone should be aware, 
+I have read through some vulnerability reports - but I wouldn't say I know all weaknesses
+of nowadays systems.
+
+Somehow - this is correct. Somehow not. 
+
+For now, I'm going to implement fuzzy tests, and compare the output of different libc implementations.
+
+Some time ago, I haven't been aware, minilib would possibly be able to replace glibc or musl.
+So I didn't even try to follow the standards, instead I just did want the whole thing working,
+and used mainly the bsd manpages for reference.
+
+I'm not so eager on comparing the reference and my implementation now.
+Fuzzytesting might show differences between e.g. musl and minilib.
+
+
+
 #### 2021/09
 
 Sometimes hard to decide, where to start a project.
