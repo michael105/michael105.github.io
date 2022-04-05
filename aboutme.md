@@ -47,12 +47,15 @@
 * Creativity
 * Open minded
 * Reliable
+* Experiences with social works
+* enthusiastic
 
 
 ### Weaknesses
 
-* Won't accept assignments > 80 hours
 * Resentments towards Java and Microsoft 
+* enthusiastic
+* sometimes missed my work-life balance
 
 
 ### Further interests and hobbies
@@ -62,7 +65,7 @@ electronics ( development and building of audio equipment ),<br>
 art and design, photography,<br>
 music, music production,<br>
 playing the guitar,<br>
-trekking, travelling,<br> 
+trekking, travelling, freeclimbing,<br> 
 reading books, Philosophy,<br>
 chess.
 
