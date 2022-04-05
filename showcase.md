@@ -20,7 +20,11 @@ I guess, I've been annoyed by not being able to solve them myself.
 I just put the source online, it's commented in german, and untidied.
 The abstraction route I went down is quite funny. 
 Some constructs, you can do only in perl.
-Arrays of functors, closures, "virtual virtualization", and so on.
+Arrays of functors, closures, "virtual virtualization", I don't know how to call this.
+Might be only of interest for people, who do know perl.
+
+Just one explanation, it is possible in perl, to create (also virtual) closures on the fly,
+globally available. 
 
 I applied some rules of the analytical philosphy, did study "Erlanger Konstruktivismus" 
 in Erlangen back then, and wrote a recursive brute force attack.
