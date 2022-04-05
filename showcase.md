@@ -25,6 +25,13 @@ Might be only of interest for people, who do know perl.
 
 Just one explanation, it is possible in perl, to create (also virtual) closures on the fly,
 globally available. 
+It is possible to ignore usual concepts of abstraction.
+it is possible to shoot into your own foot, as well.
+Imho this has not so much to do with restrictions of the language, however.
+The source might be more lacking selfdiscipline, sometimes you realize,
+this or that idea hasn't been that great - but you don't like to, or maybe
+aren't able cause of time restrictions, to correct the clumsy approach.
+
 
 I applied some rules of the analytical philosphy, did study "Erlanger Konstruktivismus" 
 in Erlangen back then, and wrote a recursive brute force attack.
