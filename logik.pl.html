@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>l.pl</title>
+<link rel="stylesheet" type="text/css" href="highlight.css">
+</head>
+<body class="hl">
+<pre class="hl"><span class="hl slc">#!/usr/bin/perl</span>
+
+
+<span class="hl kwb">$nd</span><span class="hl opt">=</span><span class="hl num">0</span><span class="hl opt">;</span>
+<span class="hl kwb">$maindebug</span> <span class="hl opt">=</span> <span class="hl num">0</span><span class="hl opt">;</span>
+<span class="hl kwb">$erstesattr</span> <span class="hl opt">=</span> <span class="hl num">0</span><span class="hl opt">;</span>
+
+<span class="hl kwa">sub</span> attribut<span class="hl opt">(){</span>
+<span class="hl slc">#  $Attribut, &#64;Array </span>
+    <span class="hl kwc">my</span> <span class="hl kwb">$attr</span> <span class="hl opt">=</span> <span class="hl kwc">shift</span> <span class="hl kwb">&#64;_</span><span class="hl opt">;</span>
+    <span class="hl kwc">my</span> <span class="hl kwb">&#64;attl</span> <span class="hl opt">=</span> <span class="hl kwb">&#64;_</span><span class="hl opt">;</span>
+    <span class="hl kwb">$erstesattr</span> <span class="hl opt">=</span> <span class="hl kwb">$attr</span> <span class="hl kwa">if</span> <span class="hl opt">( !</span> <span class="hl kwb">$erstesattr</span> <span class="hl opt">);</span>
+    <span class="hl kwc">push</span> <span class="hl kwb">&#64;attribute, $attr</span><span class="hl opt">;</span>
+    <span class="hl kwb">&#64;$werte</span><span class="hl opt">{</span> <span class="hl kwb">$attr</span> <span class="hl opt">} =</span> \<span class="hl kwb">&#64;attl</span><span class="hl opt">;</span>
+<span class="hl opt">}</span>
+       
+
+<span class="hl slc">#sub build(){</span>
+<span class="hl slc">#    for ( my $a = 0; $a&lt;$nominatoren; $a++ ){</span>
+<span class="hl slc">#        foreach ( &#64;attribute ) {</span>
+<span class="hl slc">#            &#64;nominator[$a]-&gt;{$_ } = undef;</span>
+<span class="hl slc">#        }</span>
+<span class="hl slc">#    }</span>
+<span class="hl slc">#}</span>
+
+
+
+<span class="hl slc"># Prüft eval.</span>
+<span class="hl kwa">sub</span> checkeval<span class="hl opt">(){</span>
+    <span class="hl kwc">my</span> <span class="hl kwb">$evalled</span> <span class="hl opt">=</span> <span class="hl kwc">shift</span><span class="hl opt">;</span>
+    <span class="hl kwc">my</span> <span class="hl kwb">$error</span> <span class="hl opt">=</span> <span class="hl kwc">shift</span><span class="hl opt">;</span>
+    <span class="hl kwa">if</span> <span class="hl opt">(</span> <span class="hl kwb">$error</span> <span class="hl opt">){</span>
+        <span class="hl kwc">print</span> <span class="hl str">&quot;</span><span class="hl ipl">$evalled\n$error\nAbbruch</span><span class="hl str">.</span><span class="hl esc">\n</span><span class="hl str">&quot;</span><span class="hl opt">;</span>
+        <span class="hl kwc">die</span><span class="hl opt">();</span>
+    <span class="hl opt">}</span>
+<span class="hl opt">}</span>
+
+<span class="hl slc"># Erstellt die Funktionen Name, Namex, ...</span>
+<span class="hl kwa">sub</span> build<span class="hl opt">(){</span>    
+    
+    <span class="hl kwa">for</span> <span class="hl opt">(</span> <span class="hl kwc">my</span> <span class="hl kwb">$a</span> <span class="hl opt">=</span> <span class="hl num">0</span><span class="hl opt">;</span> <span class="hl kwb">$a</span><span class="hl opt">&lt;</span><span class="hl kwb">$nominatoren</span><span class="hl opt">;</span> <span class="hl kwb">$a++</span> <span class="hl opt">){</span>
+        <span class="hl kwa">foreach</span> <span class="hl kwc">my</span> <span class="hl kwb">$attr</span> <span class="hl opt">(</span> <span class="hl kwb">&#64;attribute</span> <span class="hl opt">) {</span>
+            <span class="hl kwb">$nominator</span><span class="hl opt">[</span><span class="hl kwb">$a</span><span class="hl opt">]-&gt;{</span><span class="hl kwb">$attr</span> <span class="hl opt">} =</span> <span class="hl str">&quot;undef&quot;</span><span class="hl opt">;</span>
+        <span class="hl opt">}</span>
+    <span class="hl opt">}</span>
+    
+    <span class="hl kwc">my</span> <span class="hl kwb">&#64;variables</span> <span class="hl opt">= (</span> <span class="hl str">qw( x y z )</span> <span class="hl opt">);</span>
+    <span class="hl kwa">for</span> <span class="hl kwc">my</span> <span class="hl kwb">$var</span> <span class="hl opt">(</span> <span class="hl kwb">&#64;variables</span> <span class="hl opt">) {</span>
+
+        <span class="hl slc"># x(), y() und z() führen einen Test für jedes Element des Arrays durch, </span>
+        <span class="hl slc"># das die als erster Parameter übergebene Funktion als Referenz liefert.</span>
+        <span class="hl slc"># Als zweiter Parameter muss der Ausdruck übergeben werden, der als Ergebnis true oder false liefert und</span>
+        <span class="hl slc"># bei dem jedes Vorkommen von X, Y bzw. Z für jedes Elements des übergebenen Arrays geprüft wird.</span>
+        <span class="hl opt">*</span><span class="hl kwb">$var</span> <span class="hl opt">=</span> <span class="hl kwa">sub</span> <span class="hl opt">(){</span>
+            <span class="hl slc">#print &quot;x, start\n&quot;;</span>
+            <span class="hl kwb">$nd</span> <span class="hl opt">=</span> <span class="hl num">0</span><span class="hl opt">;</span>
+            <span class="hl kwc">my</span> <span class="hl kwb">$f</span> <span class="hl opt">=</span> <span class="hl kwc">shift</span><span class="hl opt">();</span>
+            <span class="hl slc">#print &quot;f: $f\n&quot;;</span>
+            <span class="hl kwc">my</span> <span class="hl kwb">&#64;arr</span> <span class="hl opt">= &#64;{</span> <span class="hl kwc">eval</span> <span class="hl opt">(</span><span class="hl kwb">$f</span><span class="hl opt">) };</span>
+            <span class="hl opt">&amp;</span>checkeval<span class="hl opt">(</span> <span class="hl kwb">$f, $&#64;</span> <span class="hl opt">);</span> 
+            <span class="hl slc">#print &quot;arr: &#64;arr \n&quot;;</span>
+            <span class="hl kwa">return</span> <span class="hl num">1</span> <span class="hl kwa">if</span> <span class="hl opt">(</span> <span class="hl kwb">$nd</span> <span class="hl opt">==</span> <span class="hl num">1</span> <span class="hl opt">);</span>
+            <span class="hl slc">#print &quot;x: defined\n&quot;;</span>
+            <span class="hl kwc">my</span> <span class="hl kwb">$ausdruck</span> <span class="hl opt">=</span> <span class="hl kwc">shift</span><span class="hl opt">;</span>
+            
+            <span class="hl kwa">for</span> <span class="hl kwc">my</span> <span class="hl kwb">$y</span> <span class="hl opt">(</span> <span class="hl kwb">&#64;arr</span> <span class="hl opt">){</span>
+                <span class="hl kwc">my</span> <span class="hl kwb">$ausdrucky</span> <span class="hl opt">=</span> <span class="hl kwb">$ausdruck</span><span class="hl opt">;</span>
+                <span class="hl kwb">$b</span> <span class="hl opt">=</span> <span class="hl kwc">uc</span><span class="hl opt">(</span> <span class="hl kwb">$var</span> <span class="hl opt">);</span>
+                <span class="hl slc">#print &quot;b: $b\n&quot;;</span>
+                <span class="hl kwb">$ausdrucky</span> <span class="hl opt">=~</span> <span class="hl kwd">s/$b/$y/g</span><span class="hl opt">;</span>
+                <span class="hl slc">#print &quot;x, eval: $ausdrucky\n&quot;;</span>
+                <span class="hl kwb">$nd</span> <span class="hl opt">=</span> <span class="hl num">0</span><span class="hl opt">;</span>
+                <span class="hl kwc">my</span> <span class="hl kwb">$bool</span> <span class="hl opt">=</span> <span class="hl kwc">eval</span> <span class="hl opt">(</span><span class="hl kwb">$ausdrucky</span><span class="hl opt">);</span>
+                <span class="hl opt">&amp;</span>checkeval<span class="hl opt">(</span> <span class="hl kwb">$ausdrucky, $&#64;</span> <span class="hl opt">);</span>
+                <span class="hl slc">#if ( $nd == 0 ) { print &quot;x: defined 2\n&quot;;} else { print &quot;x, nd2\n&quot;;}</span>
+                <span class="hl kwa">if</span> <span class="hl opt">( (</span><span class="hl kwb">$nd</span><span class="hl opt">==</span><span class="hl num">0</span><span class="hl opt">) &amp;&amp; !</span><span class="hl kwb">$bool</span> <span class="hl opt">){</span>
+                    <span class="hl slc">#print &quot;x, false\n&quot;;</span>
+                    <span class="hl kwa">return</span> <span class="hl num">0</span><span class="hl opt">;</span>
+                <span class="hl opt">}</span>
+            <span class="hl opt">}</span>    
+                
+            <span class="hl slc">#print &quot;x, true\n&quot;;</span>
+            <span class="hl kwa">return</span> <span class="hl num">1</span><span class="hl opt">;</span>
+        <span class="hl opt">};</span>
+    <span class="hl opt">}</span>
+
+
+    <span class="hl kwa">for</span> <span class="hl kwc">my</span> <span class="hl kwb">$attr</span> <span class="hl opt">(</span> <span class="hl kwb">&#64;attribute</span> <span class="hl opt">) {</span>    
+        <span class="hl kwa">no</span> strict <span class="hl str">&apos;refs&apos;</span><span class="hl opt">;</span>
+        <span class="hl slc"># Erstelle die Attributsfunktionen,</span>
+        <span class="hl slc"># nehmen als Parameter eine Funktion, die eine Referenz auf ein Array von Nominatoren liefert,</span>
+        <span class="hl slc"># und geben die Attribute dieser Nominatoren ebenfalls als Referenz auf ein Array von Attributen zurück</span>
+        <span class="hl opt">*</span><span class="hl kwb">$attr</span> <span class="hl opt">=</span> <span class="hl kwa">sub</span> <span class="hl opt">{</span>
+            <span class="hl slc">#print &quot;$attr :  \n&quot;;</span>
+            <span class="hl kwc">my</span> <span class="hl kwb">$arref</span> <span class="hl opt">=</span> <span class="hl kwc">shift</span><span class="hl opt">(</span><span class="hl kwb">&#64;_</span><span class="hl opt">);</span>
+            
+            <span class="hl kwa">if</span> <span class="hl opt">(</span> <span class="hl kwb">$arref</span> <span class="hl opt">==</span> <span class="hl kwc">undef</span> <span class="hl opt">){</span>
+                <span class="hl slc">#print &quot;$attr nd \n&quot;;</span>
+                <span class="hl kwb">$nd</span> <span class="hl opt">=</span> <span class="hl num">1</span><span class="hl opt">;</span>
+                <span class="hl kwa">return</span> <span class="hl kwc">undef</span><span class="hl opt">;</span>
+            <span class="hl opt">}</span>
+            <span class="hl slc">#print &quot;&#64;{$arref}[0]\n&quot;;</span>
+            
+            <span class="hl kwc">my</span> <span class="hl kwb">&#64;rarr</span><span class="hl opt">;</span>
+            <span class="hl kwa">for</span> <span class="hl kwc">my</span> <span class="hl kwb">$nom</span> <span class="hl opt">( &#64;{</span><span class="hl kwb">$arref</span><span class="hl opt">} ) {</span>
+                <span class="hl kwa">if</span> <span class="hl opt">(</span> <span class="hl kwb">$nom</span><span class="hl opt">-&gt;{</span><span class="hl kwb">$attr</span><span class="hl opt">}</span> <span class="hl kwc">eq</span> <span class="hl str">&quot;undef&quot;</span> <span class="hl opt">){</span>
+                    <span class="hl kwb">$nd</span> <span class="hl opt">=</span> <span class="hl num">1</span><span class="hl opt">;</span>
+                    <span class="hl slc">#print &quot;$attr doch nd !\n&quot;;</span>
+                <span class="hl opt">}</span> <span class="hl kwa">else</span> <span class="hl opt">{</span>
+                    <span class="hl kwc">push</span> <span class="hl kwb">&#64;rarr, $nom</span><span class="hl opt">-&gt;{</span><span class="hl kwb">$attr</span><span class="hl opt">};</span>
+                    <span class="hl slc">#print &quot;$nom-&gt;{$attr}\n&quot;;</span>
+                <span class="hl opt">}</span>
+            <span class="hl opt">}</span>
+            <span class="hl kwa">return</span> \<span class="hl kwb">&#64;rarr</span><span class="hl opt">;</span>
+        <span class="hl opt">};</span>
+        
+        <span class="hl kwa">for</span> <span class="hl kwc">my</span> <span class="hl kwb">$var</span> <span class="hl opt">(</span> <span class="hl kwb">&#64;variables</span> <span class="hl opt">){</span>
+            <span class="hl kwb">$attrx</span> <span class="hl opt">=</span> <span class="hl str">&quot;</span><span class="hl ipl">$attr</span><span class="hl str">&quot;</span> <span class="hl opt">.</span> <span class="hl kwb">$var</span><span class="hl opt">;</span>
+            <span class="hl slc"># &quot;Attribut&quot;x, -y, -z Kehren mit einer Referenz auf ein Array der Werte des Attributs zurück</span>
+            <span class="hl opt">*</span><span class="hl kwb">$attrx</span> <span class="hl opt">=</span> <span class="hl kwa">sub</span> <span class="hl opt">{</span>
+                <span class="hl kwa">return</span> <span class="hl opt">(</span> <span class="hl kwb">$werte</span><span class="hl opt">-&gt;{</span><span class="hl kwb">$attr</span><span class="hl opt">} );</span>
+            <span class="hl opt">};</span>
+
+            <span class="hl slc"># attributx, -y -z kehrt mit einer Referenz auf das Array der Attribute zurück</span>
+            <span class="hl kwc">my</span> <span class="hl kwb">$s</span> <span class="hl opt">=</span> <span class="hl str">&quot;attribut&quot;</span> <span class="hl opt">.</span> <span class="hl kwb">$var</span><span class="hl opt">;</span>
+            <span class="hl opt">*</span><span class="hl kwb">$s</span> <span class="hl opt">=</span> <span class="hl kwa">sub</span> <span class="hl opt">{</span>
+                <span class="hl kwa">return</span> \<span class="hl kwb">&#64;attribute</span><span class="hl opt">;</span>
+            <span class="hl opt">}</span>
+        <span class="hl opt">}</span>
+        
+        
+        <span class="hl kwa">for</span> <span class="hl kwc">my</span> <span class="hl kwb">$wert</span> <span class="hl opt">( &#64;{</span><span class="hl kwb">$werte</span><span class="hl opt">-&gt;{</span><span class="hl kwb">$attr</span><span class="hl opt">}}) {</span>
+
+            <span class="hl slc"># Erstelle die Wertefunktionen.</span>
+            <span class="hl slc"># Diese nehmen keine Parameter und geben eine Referenz auf ein Array von Nominatoren zurück</span>
+            <span class="hl opt">*</span><span class="hl kwb">$wert</span> <span class="hl opt">=</span> <span class="hl kwa">sub</span> <span class="hl opt">{</span>
+                <span class="hl kwc">my</span> <span class="hl kwb">&#64;arr</span><span class="hl opt">;</span>
+                <span class="hl slc">#print &quot;wert: $wert\n&quot;;</span>
+                <span class="hl kwa">foreach</span> <span class="hl kwc">my</span> <span class="hl kwb">$nom2</span> <span class="hl opt">(</span> <span class="hl kwb">&#64;nominator</span> <span class="hl opt">) {</span>
+                    <span class="hl kwa">if</span> <span class="hl opt">(</span> <span class="hl kwb">$nom2</span><span class="hl opt">-&gt;{</span><span class="hl kwb">$attr</span><span class="hl opt">}</span> <span class="hl kwc">eq</span> <span class="hl str">&quot;undef&quot;</span> <span class="hl opt">){</span>
+                        <span class="hl slc">#        print &quot;nom-&gt; $attr nd\n&quot;;</span>
+                        <span class="hl kwb">$nd</span> <span class="hl opt">=</span> <span class="hl num">1</span><span class="hl opt">;</span>
+                        <span class="hl kwa">return</span> <span class="hl kwc">undef</span><span class="hl opt">;</span>
+                    <span class="hl opt">}</span>
+                    <span class="hl kwc">push</span> <span class="hl kwb">&#64;arr, $nom2</span> <span class="hl kwa">if</span> <span class="hl opt">(</span> <span class="hl kwb">$nom2</span><span class="hl opt">-&gt;{</span><span class="hl kwb">$attr</span><span class="hl opt">}</span> <span class="hl kwc">eq</span> <span class="hl kwb">$wert</span> <span class="hl opt">);</span>
+                    <span class="hl slc">#   print &quot;wert: $wert\nnom-&gt;attr: $nom2-&gt;{attr}\n&quot;;</span>
+                <span class="hl opt">}</span>
+                <span class="hl kwa">return</span> \<span class="hl kwb">&#64;arr</span><span class="hl opt">;</span>
+            <span class="hl opt">}</span>
+        <span class="hl opt">}</span>
+    <span class="hl opt">}</span>
+<span class="hl opt">}</span>
+
+
+<span class="hl slc"># Kehrt mit der Anzahl der Elemente zurück, die die als erster Parameter übergebene Funktion </span>
+<span class="hl slc"># als Referenz auf ein Array liefert</span>
+<span class="hl kwa">sub</span> anzahl<span class="hl opt">(){</span>
+    <span class="hl kwc">my</span> <span class="hl kwb">&#64;arr</span> <span class="hl opt">= &#64;{</span><span class="hl kwc">shift</span><span class="hl opt">(</span><span class="hl kwb">&#64;_</span><span class="hl opt">)};</span>
+    <span class="hl slc">#print &quot;anzahl, arr: &#64;arr\n&quot;;</span>
+    <span class="hl kwa">if</span> <span class="hl opt">(</span> <span class="hl kwb">&#64;arr</span> <span class="hl opt">==</span> <span class="hl kwc">undef</span> <span class="hl opt">){</span>
+        <span class="hl slc">#print &quot;Anzahl, Not defined\n&quot;;</span>
+        <span class="hl kwb">$nd</span> <span class="hl opt">=</span> <span class="hl num">1</span><span class="hl opt">;</span>
+        <span class="hl kwa">return</span> <span class="hl num">0</span><span class="hl opt">;</span>
+    <span class="hl opt">}</span>
+    <span class="hl slc">#print &quot;Anzahl, def.\n&quot;;</span>
+    <span class="hl kwa">return</span> <span class="hl kwc">scalar</span><span class="hl opt">(</span> <span class="hl kwb">&#64;arr</span> <span class="hl opt">);</span>
+<span class="hl opt">}</span>
+
+
+<span class="hl slc"># Kehrt mit einem Element des als Referenz übergebenen Arrays zurück</span>
+<span class="hl kwa">sub</span> e<span class="hl opt">(){</span> <span class="hl kwa">return</span> <span class="hl opt">&amp;</span>element<span class="hl opt">(</span><span class="hl kwb">&#64;_</span><span class="hl opt">);}</span>
+<span class="hl kwa">sub</span> element<span class="hl opt">(){</span>
+    <span class="hl slc">#print &quot;element\n&quot;;</span>
+    <span class="hl kwb">&#64;arr</span> <span class="hl opt">= &#64;{</span> <span class="hl kwc">shift</span><span class="hl opt">() };</span>
+    <span class="hl kwa">if</span> <span class="hl opt">(</span> <span class="hl kwb">&#64;arr</span> <span class="hl opt">==</span> <span class="hl kwc">undef</span> <span class="hl opt">) {</span>
+        <span class="hl kwb">$nd</span> <span class="hl opt">=</span> <span class="hl num">1</span><span class="hl opt">;</span>
+        <span class="hl slc">#print &quot;e: undef\n&quot;;</span>
+        <span class="hl kwa">return</span> <span class="hl kwc">undef</span><span class="hl opt">;</span>
+    <span class="hl opt">}</span>
+    <span class="hl slc">#print &quot;e: def\n&quot;;</span>
+    <span class="hl kwa">return</span> <span class="hl kwb">$arr</span><span class="hl opt">[</span><span class="hl num">0</span><span class="hl opt">];</span>
+<span class="hl opt">}</span>
+
+
+<span class="hl slc"># Kehrt mit der Ordnungsnummer zurück.</span>
+<span class="hl slc"># Parameter 1 : Die Attributsbezeichnung</span>
+<span class="hl slc"># Parameter 2 : Der Wert</span>
+<span class="hl kwa">sub</span> on<span class="hl opt">(){</span> <span class="hl kwa">return</span> <span class="hl opt">&amp;</span>ordnungsnummer<span class="hl opt">(</span><span class="hl kwb">&#64;_</span><span class="hl opt">); }</span>
+<span class="hl kwa">sub</span> ordnungsnummer<span class="hl opt">() {</span>
+    <span class="hl kwc">my</span> <span class="hl kwb">$attr</span> <span class="hl opt">=</span> <span class="hl kwc">shift</span><span class="hl opt">;</span>
+    <span class="hl kwc">my</span> <span class="hl kwb">$w</span> <span class="hl opt">=</span> <span class="hl kwc">shift</span><span class="hl opt">;</span>
+    <span class="hl slc">#print &quot;w: $w\n&quot;;</span>
+    <span class="hl kwa">if</span> <span class="hl opt">(</span> <span class="hl kwb">$w</span> <span class="hl kwc">eq</span> <span class="hl str">&quot;&quot;</span> <span class="hl opt">){</span>
+        <span class="hl kwb">$nd</span> <span class="hl opt">=</span> <span class="hl num">1</span><span class="hl opt">;</span>
+        <span class="hl kwa">return</span><span class="hl opt">(</span> <span class="hl num">0</span> <span class="hl opt">);</span>
+    <span class="hl opt">}</span>
+    <span class="hl slc">#print &quot;$attr    ..   $w\n&quot;;</span>
+    
+    <span class="hl kwa">for</span> <span class="hl opt">(</span> <span class="hl kwc">my</span> <span class="hl kwb">$a</span> <span class="hl opt">=</span> <span class="hl num">0</span><span class="hl opt">;</span> <span class="hl kwb">$a</span> <span class="hl opt">&lt;</span> <span class="hl kwc">scalar</span><span class="hl opt">( &#64;{</span><span class="hl kwb">$werte</span><span class="hl opt">-&gt;{</span><span class="hl kwb">$attr</span><span class="hl opt">}} );</span> <span class="hl kwb">$a++</span> <span class="hl opt">){</span>
+        <span class="hl kwa">return</span> <span class="hl kwb">$a</span> <span class="hl kwa">if</span> <span class="hl opt">( &#64;{</span><span class="hl kwb">$werte</span><span class="hl opt">-&gt;{</span><span class="hl kwb">$attr</span><span class="hl opt">}}[</span><span class="hl kwb">$a</span><span class="hl opt">]</span> <span class="hl kwc">eq</span> <span class="hl kwb">$w</span> <span class="hl opt">);</span>
+    <span class="hl opt">}</span>
+    <span class="hl kwc">print</span> <span class="hl str">&quot;Error in ordnungsnummer,</span> <span class="hl ipl">$w</span> <span class="hl str">not found !</span><span class="hl esc">\n</span><span class="hl str">&quot;</span><span class="hl opt">;</span>
+    <span class="hl kwa">return</span> <span class="hl num">0</span><span class="hl opt">;</span>
+<span class="hl opt">}</span>
+
+
+
+<span class="hl slc"># prüft den als ersten Parameter übergebenen Ausdruck, der true oder false liefern muss</span>
+<span class="hl kwa">sub</span> pruefe<span class="hl opt">(){</span>
+    <span class="hl kwb">$nd</span> <span class="hl opt">=</span> <span class="hl num">0</span><span class="hl opt">;</span>
+    <span class="hl kwb">$f</span> <span class="hl opt">=</span> <span class="hl kwc">shift</span><span class="hl opt">;</span>
+    <span class="hl slc">#&amp;ausgabe();</span>
+    <span class="hl slc">#print &quot;f: $f\n&quot; if ( $maindebug );</span>
+    <span class="hl kwc">my</span> <span class="hl kwb">$bool</span> <span class="hl opt">=</span> <span class="hl kwc">eval</span><span class="hl opt">(</span> <span class="hl kwb">$f</span> <span class="hl opt">);</span>
+    <span class="hl opt">&amp;</span>checkeval<span class="hl opt">(</span> <span class="hl kwb">$f, $&#64;</span> <span class="hl opt">);</span>
+    <span class="hl kwa">return</span> <span class="hl num">1</span> <span class="hl kwa">if</span> <span class="hl opt">(</span> <span class="hl kwb">$nd</span> <span class="hl opt">==</span> <span class="hl num">1</span> <span class="hl opt">);</span>
+    <span class="hl slc">#&amp;ausgabe();</span>
+    <span class="hl slc">#print &quot;pr: Defined\n&quot;;</span>
+    <span class="hl kwa">if</span> <span class="hl opt">(</span> <span class="hl kwb">$maindebug</span> <span class="hl opt">) {</span>
+        <span class="hl kwc">print</span> <span class="hl str">&quot;geprüft:</span> <span class="hl ipl">$f</span>   <span class="hl str">-   &quot;</span><span class="hl opt">;</span>
+        <span class="hl kwa">if</span> <span class="hl opt">(</span> <span class="hl kwb">$bool</span> <span class="hl opt">){</span>
+            <span class="hl kwc">print</span> <span class="hl str">&quot;Ok.</span><span class="hl esc">\n</span><span class="hl str">&quot;</span><span class="hl opt">;</span>
+        <span class="hl opt">}</span> <span class="hl kwa">else</span> <span class="hl opt">{</span> 
+            <span class="hl kwc">print</span> <span class="hl str">&quot;Falsch.</span><span class="hl esc">\n</span><span class="hl str">&quot;</span><span class="hl opt">;</span>
+        <span class="hl opt">}</span>
+    <span class="hl opt">}</span>
+    <span class="hl kwa">return</span> <span class="hl kwb">$bool</span><span class="hl opt">;</span>
+<span class="hl opt">}</span>
+
+
+<span class="hl slc"># Gibt die Werte der Nominatoren aus</span>
+<span class="hl kwa">sub</span> ausgabe<span class="hl opt">(){</span>
+    <span class="hl kwa">foreach</span> <span class="hl kwc">my</span> <span class="hl kwb">$nom</span> <span class="hl opt">(</span> <span class="hl kwb">&#64;nominator</span> <span class="hl opt">){</span>
+        <span class="hl kwa">foreach</span> <span class="hl kwc">my</span> <span class="hl kwb">$attr</span> <span class="hl opt">(</span> <span class="hl kwb">&#64;attribute</span> <span class="hl opt">){</span>
+            <span class="hl kwc">print</span> <span class="hl str">&quot;</span><span class="hl ipl">$attr</span><span class="hl str">:</span> <span class="hl ipl">$nom</span><span class="hl str">-&gt;{</span><span class="hl ipl">$attr</span><span class="hl str">}   &quot;</span><span class="hl opt">;</span>
+        <span class="hl opt">}</span>
+        <span class="hl kwc">print</span> <span class="hl str">&quot;</span><span class="hl esc">\n</span><span class="hl str">&quot;</span><span class="hl opt">;</span>
+    <span class="hl opt">}</span>
+<span class="hl opt">}</span>
+
+
+<span class="hl kwa">sub</span> iteriere<span class="hl opt">(){</span>
+    <span class="hl kwc">my</span> <span class="hl kwb">$n_zeiger</span> <span class="hl opt">=</span> <span class="hl kwc">shift</span><span class="hl opt">;</span>
+    <span class="hl kwc">my</span> <span class="hl kwb">$a_zeiger</span> <span class="hl opt">=</span> <span class="hl kwc">shift</span><span class="hl opt">;</span>
+    <span class="hl slc">#print &quot;Iter start\n&quot;;</span>
+    
+    <span class="hl slc">#&amp;ausgabe();</span>
+    <span class="hl kwb">$n_zeiger</span> <span class="hl opt">++;</span>
+    <span class="hl kwa">if</span> <span class="hl opt">(</span> <span class="hl kwb">$n_zeiger</span> <span class="hl opt">==</span> <span class="hl kwb">$nominatoren</span> <span class="hl opt">) {</span>
+        <span class="hl kwb">$a_zeiger</span> <span class="hl opt">++;</span>
+  
+        <span class="hl kwa">if</span> <span class="hl opt">(</span> <span class="hl kwb">$a_zeiger</span> <span class="hl opt">==</span> <span class="hl kwc">scalar</span><span class="hl opt">(</span><span class="hl kwb">&#64;attribute</span><span class="hl opt">) ){</span>
+            <span class="hl kwc">print</span> <span class="hl str">&quot;Lösung:</span> <span class="hl esc">\n</span><span class="hl str">&quot;</span><span class="hl opt">;</span>
+            <span class="hl kwb">$maindebug</span> <span class="hl opt">=</span> <span class="hl num">1</span><span class="hl opt">;</span>
+            <span class="hl opt">&amp;</span>test<span class="hl opt">();</span>
+            <span class="hl kwb">$maindebug</span> <span class="hl opt">=</span> <span class="hl num">0</span><span class="hl opt">;</span>
+            <span class="hl kwc">print</span> <span class="hl str">&quot;</span><span class="hl esc">\n</span><span class="hl str">&quot;</span><span class="hl opt">;</span>
+            <span class="hl opt">&amp;</span>ausgabe<span class="hl opt">();</span>
+        <span class="hl opt">}</span> <span class="hl kwa">else</span> <span class="hl opt">{</span>
+            <span class="hl kwb">$n_zeiger</span> <span class="hl opt">=</span> <span class="hl num">0</span><span class="hl opt">;</span>
+            <span class="hl slc">#&amp;iteriere( $n_zeiger, $a_zeiger );</span>
+        <span class="hl opt">}</span>
+    <span class="hl opt">}</span>
+    
+    <span class="hl kwa">foreach</span> <span class="hl kwb">$w</span> <span class="hl opt">( &#64;{</span> <span class="hl kwb">$werte</span><span class="hl opt">-&gt;{</span> <span class="hl kwb">$attribute</span><span class="hl opt">[</span><span class="hl kwb">$a_zeiger</span><span class="hl opt">] } } ){</span>
+        <span class="hl slc">#push ( Falls mehrere Werte auf einmal möglich sind, dann jedoch auch hier eine rekursion</span>
+        <span class="hl slc">#print &quot;iter, w: $w\n&quot;,&quot;attr: $attribute[$a_zeiger]\n&quot;, &quot;$nominator[$n_zeiger]-&gt;{$attribute[$a_zeiger]} \n&quot;;</span>
+        <span class="hl kwb">$nominator</span><span class="hl opt">[</span><span class="hl kwb">$n_zeiger</span><span class="hl opt">]-&gt;{</span><span class="hl kwb">$attribute</span><span class="hl opt">[</span><span class="hl kwb">$a_zeiger</span><span class="hl opt">]} =</span> <span class="hl kwb">$w</span><span class="hl opt">;</span>
+        <span class="hl slc">#&amp;ausgabe();</span>
+        <span class="hl kwa">if</span> <span class="hl opt">( &amp;</span>test<span class="hl opt">() ){</span>
+            <span class="hl slc">#print &quot;iter, test Ok.\n&quot;;</span>
+            <span class="hl opt">&amp;</span>iteriere<span class="hl opt">(</span> <span class="hl kwb">$n_zeiger, $a_zeiger</span> <span class="hl opt">);</span>
+        <span class="hl opt">}</span> <span class="hl kwa">else</span> <span class="hl opt">{</span>
+            <span class="hl slc">#print &quot;iter, test not ok.\n&quot;;</span>
+        <span class="hl opt">}</span>
+        <span class="hl slc">#print &quot;iter, foreach bottom\n&quot;;</span>
+    <span class="hl opt">}</span>
+    <span class="hl slc"># Die Reihenfolge des ersten Attributes spielt keine Rolle</span>
+    <span class="hl kwa">if</span> <span class="hl opt">(</span> <span class="hl kwb">$a_zeiger</span> <span class="hl opt">==</span> <span class="hl num">0</span> <span class="hl opt">){</span>
+            <span class="hl kwa">exit</span><span class="hl opt">(</span> <span class="hl num">0</span> <span class="hl opt">);</span>
+    <span class="hl opt">}</span>
+    <span class="hl slc">#print &quot;iter, nach foreach\n&quot;;</span>
+    <span class="hl kwb">$nominator</span><span class="hl opt">[</span><span class="hl kwb">$n_zeiger</span><span class="hl opt">]-&gt;{</span><span class="hl kwb">$attribute</span><span class="hl opt">[</span><span class="hl kwb">$a_zeiger</span><span class="hl opt">]} =</span> <span class="hl str">&quot;undef&quot;</span><span class="hl opt">;</span>
+
+<span class="hl opt">}</span>
+
+
+<span class="hl kwa">sub</span> test<span class="hl opt">(){</span>
+    <span class="hl kwa">return</span> <span class="hl num">0</span> <span class="hl kwa">if</span> <span class="hl opt">( &amp;</span>struktur<span class="hl opt">() !=</span> <span class="hl num">1</span> <span class="hl opt">);</span>
+    <span class="hl slc">#print &quot;S Ok.\n&quot;;</span>
+    <span class="hl kwa">return</span> <span class="hl num">0</span> <span class="hl kwa">if</span> <span class="hl opt">( &amp;</span>hinweise<span class="hl opt">() !=</span> <span class="hl num">1</span> <span class="hl opt">);</span>
+    <span class="hl slc">#print &quot;H Ok.\n&quot;;</span>
+    <span class="hl slc">#print &quot;test Ok.\n&quot;;</span>
+    <span class="hl kwa">return</span> <span class="hl num">1</span><span class="hl opt">;</span>
+<span class="hl opt">}</span>
+
+
+
+
+
+<span class="hl kwa">sub</span> startup<span class="hl opt">(){</span>
+<span class="hl slc">#1    $nominatoren=2;</span>
+<span class="hl slc">#1    &amp;attribut( &quot;Name&quot;, qw( Anna Katrin ) );</span>
+<span class="hl slc">#1    &amp;attribut( &quot;Nachname&quot;, qw( Fischer Mueller ) );</span>
+<span class="hl slc">#1    &amp;attribut( &quot;Betrag&quot;, ( 2, 5 ) );</span>
+
+<span class="hl slc">#2     $nominatoren = 4;</span>
+<span class="hl slc">#2     &amp;attribut( &quot;Tag&quot;, qw( Montag Dienstag Mittwoch Donnerstag ) );</span>
+<span class="hl slc">#2     &amp;attribut( &quot;Beamter1&quot;, qw( Arafth Denkl Moehler Querig ) );</span>
+<span class="hl slc">#2     &amp;attribut( &quot;Beamter2&quot;, qw( Bresda Gerlach Roesner Zotart ) );</span>
+<span class="hl slc">#2     &amp;attribut( &quot;Code&quot;, (1,2,3,4));</span>
+     
+<span class="hl slc">#3     $nominatoren = 5;</span>
+<span class="hl slc">#3     &amp;attribut( &quot;Tag&quot;, qw( Montag Dienstag Mittwoch Donnerstag Freitag) );</span>
+<span class="hl slc">#3     &amp;attribut( &quot;Fleisch&quot;, qw( Gulasch Hackbraten Schnitzel Schweinebraten Steak ) );</span>
+<span class="hl slc">#3     &amp;attribut( &quot;Beilage&quot;, qw( Bratkartoffeln Knoedel Nudeln Pommes Reis ) );</span>
+<span class="hl slc">#3     &amp;attribut( &quot;Salat&quot;, qw( Endivien Feld Gurken Kopf Tomaten ) );</span>
+     
+    <span class="hl kwb">$nominatoren</span> <span class="hl opt">=</span> <span class="hl num">5</span><span class="hl opt">;</span>
+    <span class="hl opt">&amp;</span>attribut<span class="hl opt">(</span> <span class="hl str">&quot;Vorname&quot;</span><span class="hl opt">,</span> <span class="hl str">qw( Bertram Horst Jupp Moritz Wolfgang )</span> <span class="hl opt">);</span>
+    <span class="hl opt">&amp;</span>attribut<span class="hl opt">(</span> <span class="hl str">&quot;Nachname&quot;</span><span class="hl opt">,</span> <span class="hl str">qw( Jochim Kelde Lundt Reiter Schmitt )</span> <span class="hl opt">);</span>
+    <span class="hl opt">&amp;</span>attribut<span class="hl opt">(</span> <span class="hl str">&quot;Startnummer&quot;</span><span class="hl opt">, (</span> <span class="hl num">2</span><span class="hl opt">,</span><span class="hl num">4</span><span class="hl opt">,</span><span class="hl num">7</span><span class="hl opt">,</span><span class="hl num">8</span><span class="hl opt">,</span><span class="hl num">11</span> <span class="hl opt">) );</span>
+    <span class="hl opt">&amp;</span>attribut<span class="hl opt">(</span> <span class="hl str">&quot;Platz&quot;</span><span class="hl opt">,</span> <span class="hl str">qw( Erster Zweiter Dritter Vierter Fuenfter )</span> <span class="hl opt">);</span>
+<span class="hl opt">}</span>
+
+
+
+<span class="hl slc"># Hier muss die Überprüfung der grundlegenden Struktur der logischen Verknüpfungen stattfinden</span>
+<span class="hl kwa">sub</span> struktur<span class="hl opt">(){</span>
+<span class="hl slc">#1    return 0 if ( ! &amp;x( &quot;Namex()&quot;, &apos;&amp;anzahl(X) == 1&apos; ) );</span>
+<span class="hl slc">#1    return 0 if ( ! &amp;x( &quot;Nachnamex()&quot;, &apos;&amp;anzahl(X) == 1&apos; ) );</span>
+<span class="hl slc">#1    return 0 if ( ! &amp;x( &quot;Betragx()&quot;, &apos;&amp;anzahl(X) == 1&apos; ) );</span>
+
+    <span class="hl slc">#print &quot;Struktur Ok.\n&quot;;</span>
+
+    
+<span class="hl slc">#    return 0 if ( ! &amp;x( &quot;Tagx()&quot;, &apos;&amp;anzahl(&amp;X) == 1&apos; ) );</span>
+<span class="hl slc">#    return 0 if ( ! &amp;x( &quot;Beamter1x()&quot;, &apos;&amp;anzahl(&amp;X) == 1&apos; ) );</span>
+<span class="hl slc">#    return 0 if ( ! &amp;x( &quot;Beamter2x()&quot;, &apos;&amp;anzahl(&amp;X) == 1&apos; ) );</span>
+<span class="hl slc">#    return 0 if ( ! &amp;x( &quot;Codex()&quot;, &apos;&amp;anzahl(&amp;X) == 1&apos; ) );</span>
+
+    <span class="hl slc"># Der Wert von jedem Attribut darf nur einmal vorkommen</span>
+    <span class="hl kwa">return</span> <span class="hl num">0</span> <span class="hl kwa">if</span> <span class="hl opt">( ! &amp;</span>x<span class="hl opt">(</span> <span class="hl str">&quot;attributx()&quot;</span><span class="hl opt">,</span> <span class="hl str">&apos;&amp;y( &quot;Xx()&quot;,</span> <span class="hl esc">\&apos;</span><span class="hl str">&amp;anzahl(&amp;Y) == 1</span><span class="hl esc">\&apos;</span> <span class="hl str">)&apos;</span> <span class="hl opt">) );</span>
+ 
+    
+    
+    
+    <span class="hl kwa">return</span> <span class="hl num">1</span><span class="hl opt">;</span>
+    
+<span class="hl opt">}</span>
+
+
+<span class="hl slc"># Hier werden die Hinweise eingegeben</span>
+<span class="hl kwa">sub</span> hinweise<span class="hl opt">(){</span>
+    
+<span class="hl slc"># 1    return 0 if ( &amp;pruefe(&apos;&amp;element( Betrag( Anna ) ) &gt; &amp;element( Betrag( Fischer ) )&apos;) != 1 );</span>
+<span class="hl slc">#    return 0 if ( &amp;pruefe( &apos;( &amp;element( &amp;Nachname( &amp;Anna() ) ) ne &quot;Mueller&quot; )&apos; ) != 1 );</span>
+
+
+<span class="hl slc">#2    return 0 if ( ! &amp;pruefe( &apos;&amp;e( &amp;Tag( &amp;Denkl )) eq &quot;Dienstag&quot;&apos; ) );</span>
+<span class="hl slc">#2    return 0 if ( &amp;pruefe( &apos;&amp;e( &amp;Code( &amp;Arafth ) ) - 1 == &amp;element( &amp;Code( &amp;Roesner ) )&apos; ) != 1 );</span>
+<span class="hl slc">#2    return 0 if ( &amp;pruefe( &apos;&amp;ordnungsnummer( &quot;Tag&quot;, &amp;element( &amp;Tag( Bresda ) ) ) -1 == </span>
+<span class="hl slc">#2      &amp;ordnungsnummer( &quot;Tag&quot;, &amp;element( &amp;Tag( Moehler ) ) )&apos; ) != 1 );</span>
+<span class="hl slc">#2    return 0 if ( &amp;pruefe( &apos;&amp;element( &amp;Code( Bresda ) ) == 3&apos; ) != 1 );</span>
+<span class="hl slc">#2    return 0 if ( &amp;pruefe( &apos;&amp;element( &amp;Code( Moehler ) ) != 1&apos;) != 1 );</span>
+<span class="hl slc">#2    return 0 if ( &amp;pruefe( &apos;&amp;element( &amp;Tag( Querig ) ) ne &quot;Donnerstag&quot;&apos;) != 1 );</span>
+<span class="hl slc">#2    return 0 if ( &amp;pruefe( &apos;(&amp;element( &amp;Code( Querig ) ) == 3 ) || ( &amp;element( Code( Querig ) ) == 4 )&apos; ) != 1 );</span>
+<span class="hl slc">#2    return 0 if ( &amp;pruefe( &apos;&amp;element( Beamter2( Querig ) ) ne &quot;Zotart&quot;&apos; ) != 1 );</span>
+
+
+<span class="hl slc">#3    return 0 if ( ! &amp;pruefe( &apos;&quot;Donnerstag&quot; eq &amp;e( &amp;Tag( &amp;Schnitzel() ) )&apos; ) );</span>
+<span class="hl slc">#3    return 0 if ( ! &amp;pruefe( &apos;(&quot;Donnerstag&quot; eq &amp;e( &amp;Tag( &amp;Bratkartoffeln() ) ))&apos; ) );</span>
+<span class="hl slc">#3    return 0 if ( ! &amp;pruefe( &apos;( ((&amp;ordnungsnummer( &quot;Tag&quot;, &amp;e( &amp;Tag( &amp;Endivien() ) ) ) + 2) == (&amp;ordnungsnummer( &quot;Tag&quot;, &amp;e( &amp;Tag( &amp;Feld() ) ) ) +1)) &amp;&amp; ( (&amp;ordnungsnummer( &quot;Tag&quot;, &amp;e( &amp;Tag( &amp;Endivien() ) ) ) + 2) == (&amp;ordnungsnummer( &quot;Tag&quot;, &amp;e( &amp;Tag( &amp;Gurken() ) ) ) ) ) ) || ( ( (&amp;ordnungsnummer( &quot;Tag&quot;, &amp;e( &amp;Tag( &amp;Endivien() ) ) ) - 2) == (&amp;ordnungsnummer( &quot;Tag&quot;, &amp;e( &amp;Tag( &amp;Feld() ) ) ) -1) ) &amp;&amp; (  (&amp;ordnungsnummer( &quot;Tag&quot;, &amp;e( &amp;Tag( &amp;Endivien() ) ) ) - 2) == (&amp;ordnungsnummer( &quot;Tag&quot;, &amp;e( &amp;Tag( &amp;Gurken() ) ) ) ) ) )&apos; ) );</span>
+<span class="hl slc">#3    return 0 if ( ! &amp;pruefe( &apos;&amp;e( Salat( Dienstag ) ) eq &quot;Kopf&quot;&apos; ) );</span>
+<span class="hl slc">#3    return 0 if ( ! &amp;pruefe( &apos;&amp;e( Fleisch( Dienstag ) ) ne &quot;Gulasch&quot;&apos; ) );</span>
+<span class="hl slc">#3    return 0 if ( ! &amp;pruefe( &apos;&amp;e( Fleisch( Dienstag ) ) ne &quot;Hackbraten&quot;&apos; ) );</span>
+<span class="hl slc">#3    return 0 if ( ! &amp;pruefe( &apos;( ( ( &amp;e( Fleisch( Montag ) ) eq &quot;Gulasch&quot; ) &amp;&amp; ( &amp;e( Beilage( Mittwoch ) ) eq &quot;Knoedel&quot; ) &amp;&amp; ( &amp;e( &amp;Salat( &amp;Mittwoch ) ) eq &quot;Endivien&quot; ) ) &amp;&amp; ! ( ( &amp;e( Beilage( Montag ) ) eq &quot;Reis&quot; ) || ( &amp;e( Beilage( Freitag ) ) eq &quot;Knoedel&quot; ) || ( &amp;e( Salat( Freitag ) ) eq &quot;Endivien&quot; ) ) ) || ( ( ( &amp;e( Beilage( Montag ) ) eq &quot;Reis&quot; ) &amp;&amp; ( &amp;e( Beilage( Freitag ) ) eq &quot;Knoedel&quot; ) &amp;&amp; ( &amp;e( Salat( Freitag ) ) eq &quot;Endivien&quot; ) ) &amp;&amp; ! ( ( &amp;e( Fleisch( Montag ) ) eq &quot;Gulasch&quot; ) || ( &amp;e( Beilage( Mittwoch ) ) eq &quot;Knoedel&quot; ) || ( &amp;e( &amp;Salat( &amp;Mittwoch ) ) eq &quot;Endivien&quot; ) ) )&apos; ) );</span>
+<span class="hl slc">#3    return 0 if ( ! &amp;pruefe( &apos;&amp;e( Fleisch( Freitag ) ) eq &quot;Schweinebraten&quot;&apos; ) );</span>
+<span class="hl slc">#3    return 0 if ( ! &amp;pruefe( &apos;&amp;e( Salat( Nudeln  ) ) ne &quot;Tomaten&quot;&apos; ) );</span>
+<span class="hl slc">#3    return 0 if ( ! &amp;pruefe( &apos;&amp;e( Beilage( Gulasch )) ne &quot;Pommes&quot;&apos; ) );</span>
+
+
+    <span class="hl kwa">return</span> <span class="hl num">0</span> <span class="hl kwa">if</span> <span class="hl opt">( !&amp;</span>pruefe<span class="hl opt">(</span> <span class="hl str">&apos;&amp;e( Nachname( Bertram ) ) eq &quot;Jochim&quot;&apos;</span> <span class="hl opt">));</span>
+    <span class="hl kwa">return</span> <span class="hl num">0</span> <span class="hl kwa">if</span> <span class="hl opt">( !&amp;</span>pruefe<span class="hl opt">(</span> <span class="hl str">&apos;&amp;e( &amp;Platz( &amp;2() )) eq &quot;Zweiter&quot;&apos;</span> <span class="hl opt">) );</span>
+    <span class="hl kwa">return</span> <span class="hl num">0</span> <span class="hl kwa">if</span> <span class="hl opt">( !&amp;</span>pruefe<span class="hl opt">(</span> <span class="hl str">&apos;&amp;e( &amp;Startnummer( &amp;Wolfgang ) ) == 8&apos;</span> <span class="hl opt">));</span>
+    <span class="hl kwa">return</span> <span class="hl num">0</span> <span class="hl kwa">if</span> <span class="hl opt">( !&amp;</span>pruefe<span class="hl opt">(</span> <span class="hl str">&apos;&amp;e( &amp;Nachname( &amp;Wolfgang ) ) lt &quot;M&quot;&apos;</span> <span class="hl opt">));</span>
+    <span class="hl kwa">return</span> <span class="hl num">0</span> <span class="hl kwa">if</span> <span class="hl opt">( !&amp;</span>pruefe<span class="hl opt">(</span> <span class="hl str">&apos;&amp;on(&quot;Platz&quot;, &amp;e( &amp;Platz( &amp;Moritz ) )) -2 &gt;= &amp;on( &quot;Platz&quot;, &amp;e( &amp;Platz( &amp;Lundt ) ) )&apos;</span> <span class="hl opt">));</span>
+    <span class="hl kwa">return</span> <span class="hl num">0</span> <span class="hl kwa">if</span> <span class="hl opt">( !&amp;</span>pruefe<span class="hl opt">(</span> <span class="hl str">&apos;&amp;e( Platz( Kelde ) ) eq &quot;Vierter&quot;&apos;</span> <span class="hl opt">));</span>
+    <span class="hl kwa">return</span> <span class="hl num">0</span> <span class="hl kwa">if</span> <span class="hl opt">( !&amp;</span>pruefe<span class="hl opt">(</span> <span class="hl str">&apos;&amp;e( Startnummer( Kelde )) &lt; 8&apos;</span> <span class="hl opt">));</span>
+    <span class="hl kwa">return</span> <span class="hl num">0</span> <span class="hl kwa">if</span> <span class="hl opt">( !&amp;</span>pruefe<span class="hl opt">(</span> <span class="hl str">&apos;&amp;e( Nachname( Jupp ) ) ne &quot;Schmitt&quot;&apos;</span> <span class="hl opt">));</span>
+    <span class="hl kwa">return</span> <span class="hl num">0</span> <span class="hl kwa">if</span> <span class="hl opt">( !&amp;</span>pruefe<span class="hl opt">(</span> <span class="hl str">&apos;&amp;e( Startnummer( Jupp ) ) != 11&apos;</span> <span class="hl opt">));</span>
+    <span class="hl kwa">return</span> <span class="hl num">0</span> <span class="hl kwa">if</span> <span class="hl opt">( !&amp;</span>pruefe<span class="hl opt">(</span> <span class="hl str">&apos;&amp;e( Platz( Jupp ) ) eq &quot;Erster&quot;&apos;</span> <span class="hl opt">));</span>
+    <span class="hl slc">#return 0 if ( !&amp;pruefe( &apos;&amp;e( Startnummer( Schmitt ) ) != 11&apos; ));</span>
+    <span class="hl kwa">return</span> <span class="hl num">0</span> <span class="hl kwa">if</span> <span class="hl opt">( !&amp;</span>pruefe<span class="hl opt">(</span> <span class="hl str">&apos;&amp;e( Startnummer( Horst ) ) != 7&apos;</span> <span class="hl opt">));</span>
+    
+    <span class="hl kwa">return</span> <span class="hl num">1</span><span class="hl opt">;</span>
+<span class="hl opt">}</span>
+
+
+
+
+
+
+
+<span class="hl slc"># MAIN</span>
+
+<span class="hl opt">&amp;</span>startup<span class="hl opt">();</span>
+
+<span class="hl opt">&amp;</span>build<span class="hl opt">();</span>
+
+
+<span class="hl kwa">for</span><span class="hl opt">(</span> <span class="hl kwc">my</span> <span class="hl kwb">$a</span> <span class="hl opt">=</span> <span class="hl num">0</span><span class="hl opt">;</span> <span class="hl kwb">$a</span> <span class="hl opt">&lt;</span> <span class="hl kwc">scalar</span><span class="hl opt">( &#64;{</span><span class="hl kwb">$werte</span><span class="hl opt">-&gt;{</span><span class="hl kwb">$erstesattr</span><span class="hl opt">}} );</span> <span class="hl kwb">$a++</span><span class="hl opt">){</span>
+    <span class="hl kwb">$nominator</span><span class="hl opt">[</span><span class="hl kwb">$a</span><span class="hl opt">]-&gt;{</span><span class="hl kwb">$erstesattr</span><span class="hl opt">} = &#64;{</span><span class="hl kwb">$werte</span><span class="hl opt">-&gt;{</span><span class="hl kwb">$erstesattr</span><span class="hl opt">}}[</span><span class="hl kwb">$a</span><span class="hl opt">];</span>
+<span class="hl opt">}</span>
+    
+
+
+
+<span class="hl slc"># Nur -1,1 wenn das erste Attribut feststeht. sonst -1,0    </span>
+<span class="hl opt">&amp;</span>iteriere<span class="hl opt">(-</span><span class="hl num">1</span><span class="hl opt">,</span><span class="hl num">1</span><span class="hl opt">);</span>
+
+
+
+
+
+
+
+
+
+
+
+ 
+</pre>
+</body>
+</html>
+<!--HTML generated by highlight 3.49, http://www.andre-simon.de/-->

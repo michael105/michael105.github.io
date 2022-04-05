@@ -4,6 +4,37 @@
 
 ---
 
+#### 2021/10/21
+
+malloc.
+
+I'm trying to work something senseful for minilib out.
+
+The problem is, it is hard to say in which ways malloc is going to be used.
+I'd even say, malloc shouldn't be part of a system library.
+
+What to do with deleted elements? Currently, sparse areas are kept, until 
+a continous area up to the end is free; which is free'd then in whole.
+
+Obviously, memory usage will grow on unordered malloc's and free's.
+
+However, there are advantages: It's fast, and the codesize is tiny.
+
+For small tools, I yet intend minilib for, this is the optimum.
+
+Admittedly, not for programs which do many de- and reallocations.
+
+Again, up to a hard to say barrier, unused sparse areas don't matter - but as soon,
+that's more than a few pages, it does matter. However, again dependent on the access schema.
+
+I guess I do something like a minimal malloc, and have e.g. a tree of deleted elements as 
+compile switch. Eventually the best solution would be sort of a malloc toolbox,
+so everyone can build something, which is usable for the very usecase.
+
+
+
+
+
 #### 2021/10/13
 
 

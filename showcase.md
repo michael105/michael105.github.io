@@ -68,3 +68,29 @@ questions and answers.
 
 
 
+
+##### logik.pl
+
+
+
+A perl script, I wrote in 2006/2007.
+
+It's a brute force attack to the riddles of the german magazine "PM".
+I guess, I've been annoyed by not being able to solve them myself.
+
+I just put the source online, it's commented in german, and untidied.
+The abstraction route I went down is quite funny. 
+Some constructs, you can do only in perl.
+Arrays of functors, closures, "virtual virtualization", and so on.
+
+I applied some rules of the analytical philosphy, did study "Erlanger Konstruktivismus" 
+in Erlangen back then, and wrote a recursive brute force attack.
+
+..Some riddles did take quite some time to solve.
+
+[./logik.pl.html](logik.pl.html)
+
+
+
+
+
