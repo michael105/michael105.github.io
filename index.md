@@ -8,7 +8,7 @@
 
 malloc.
 
-I'm trying to work something senseful for minilib out.
+I'm trying to work something sensible for minilib out.
 
 The problem is, it is hard to say in which ways malloc is going to be used.
 I'd even say, malloc shouldn't be part of a system library.
@@ -20,14 +20,15 @@ Obviously, memory usage will grow on unordered malloc's and free's.
 
 However, there are advantages: It's fast, and the codesize is tiny.
 
-For small tools, I yet intend minilib for, this is the optimum.
+For small tools, I yet intend minilib for, and which do allocate maybe a few 100kB, 
+this might be the optimum.
 
-Admittedly, not for programs which do many de- and reallocations.
+Admittedly, not for programs, which do many de- and reallocations.
 
 Again, up to a hard to say barrier, unused sparse areas don't matter - but as soon,
 that's more than a few pages, it does matter. However, again dependent on the access schema.
 
-I guess I do something like a minimal malloc, and have e.g. a tree of deleted elements as 
+I guess, I'm going to implement something like a minimal malloc, and have e.g. a tree of deleted elements as 
 compile switch. Eventually the best solution would be sort of a malloc toolbox,
 so everyone can build something, which is usable for the very usecase.
 
