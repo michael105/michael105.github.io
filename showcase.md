@@ -15,7 +15,7 @@ Some of them are just ideas, others I've finished.`
 A perl script, I wrote in 2006/2007.
 
 It's a brute force attack to the riddles of the german magazine "PM".
-I guess, I've been annoyed by not being able to solve them myself.
+I guess, I had been annoyed by not being able to solve them myself.
 
 I just put the source online, it's commented in german, and untidied.
 The abstraction route I went down is quite funny. 
@@ -39,6 +39,16 @@ in Erlangen back then, and wrote a recursive brute force attack.
 ..Some riddles did take quite some time to solve.
 
 [./logik.pl.html](logik.pl.html)
+
+
+One of these riddles, I wrote the script for, is here: [https://philognosie.net/denken-lernen/witziger-logiktrainer-chaos-firma-in-sibirien][Chaos Firma in Sibirien] (German)
+
+Now, using the script for the solution is an new problem.
+These formalizations sometimes are a bit quirky.
+
+However, I did have been satisifed, after I've had been able to solve several riddles with the script,
+so I didn't try to make the usage easier at all.
+
 
 
 -----
