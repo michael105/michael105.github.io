@@ -77,6 +77,11 @@ Have yet to understand what he did exactly.
 
 
 
+Oh. while checking the links online, I stumbled about - Commodore 64 schematics.
+This is. Oh.Just wonderful
+(https://github.com/kicadretroarchive/commodore64c)
+
+
 
 #### 2021/10/21
 
