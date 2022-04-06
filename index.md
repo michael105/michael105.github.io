@@ -68,8 +68,8 @@ a table of closures, and a function table, first.
 
 and should probably rethink the overall design.
 
-[https://github.com/michael105/calcit]
-(https://github.com/michael105/calcit)
+[https://github.com/michael105/calcit](https://github.com/michael105/calcit)
+
 
 And I stumbled (again) about skeeto, who obviously did something very close.
 Have yet to understand what he did exactly.
@@ -80,8 +80,8 @@ Have yet to understand what he did exactly.
 
 Oh. while checking the links online, I stumbled about - Commodore 64 schematics.
 This is. Oh.Just wonderful
-[https://github.com/kicadretroarchive/commodore64c]
-(https://github.com/kicadretroarchive/commodore64c)
+[https://github.com/kicadretroarchive/commodore64c](https://github.com/kicadretroarchive/commodore64c)
+
 
 
 
