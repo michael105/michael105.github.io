@@ -4,6 +4,80 @@
 
 ---
 
+
+
+#### 2022/04/06
+
+
+Yesterday, I started a rework of 'calcit'.
+
+I didn't make clear, what it's intention is.
+
+And I realized, I would implement things in another way.
+
+There's a case table, which is ugly and not that performant.
+Amongst others.
+
+
+I intended the whole thing originally as an expression parser
+for configuration files.
+
+Parse a mathematical formula once, and have later variables calculated.
+
+E.g. a mouse driver, where the accelaration, or translation can be changed,
+and the formulaes are stored within a configuration file.
+
+This would work the same way by an embedded script language.
+
+However, what I've done is more restricted, and might be more performant.
+
+Just now I'm a bit struggling - by far most performant might be a jit compiler.
+Or sort of. 
+Somehow I really get to the restrictions of C just now.
+
+Eventally it would be possible as well, to write some parts in assembly.
+My current problem are relative return addresses.
+
+ehm. wait. probably my problem is about position dependent executables.
+
+Ok. checked it. The PIC flag did has been part of my trouble.
+I tried, amongst others, to jump into naked functions.
+
+The fun part of this construction is, 
+there is e.g. f1 and f2.
+
+f1 is callen from main.
+there is a assembly jump to f2 in f1.
+f2 returns, directly to main.
+
+This spares the function call overhead of f2.
+
+What eventually works out, just think of a game, where the physical formulaes of the racing
+car are stored within configuration files.
+
+If every mathematical operator does have the overhead of a function call,
+this will show up in the overall performance.
+
+The best solution might be a "compiler", translating the formulae into opcodes.
+however, somehow I don't like this idea that much.
+
+It's not portable, and a very attackable vector for malware.
+
+I guess, I should have a look into the generated assembly of
+a table of closures, and a function table, first.
+
+and should probably rethink the overall design.
+
+[https://github.com/michael105/calcit](calcit)
+
+And I stumbled (again) about skeeto, who obviously did something very close.
+Have yet to understand what he did exactly.
+
+[https://nullprogram.com/blog/2017/01/08/](C closures as a Library)
+
+
+
+
 #### 2021/10/21
 
 malloc.
