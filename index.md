@@ -68,12 +68,12 @@ a table of closures, and a function table, first.
 
 and should probably rethink the overall design.
 
-[https://github.com/michael105/calcit]
+(https://github.com/michael105/calcit)
 
 And I stumbled (again) about skeeto, who obviously did something very close.
 Have yet to understand what he did exactly.
 
-[https://nullprogram.com/blog/2017/01/08/]
+[C closures as a library](https://nullprogram.com/blog/2017/01/08/)
 
 
 
