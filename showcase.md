@@ -41,7 +41,7 @@ in Erlangen back then, and wrote a recursive brute force attack.
 [./logik.pl.html](logik.pl.html)
 
 
-One of these riddles, I wrote the script for, is here: (Chaos Firma in Sibirien)[https://philognosie.net/denken-lernen/witziger-logiktrainer-chaos-firma-in-sibirien](German)
+One of these riddles, I wrote the script for, is here: [Chaos Firma in Sibirien](https://philognosie.net/denken-lernen/witziger-logiktrainer-chaos-firma-in-sibirien)(German)
 
 Now, using the script for the solution is an new problem.
 These formalizations sometimes are a bit quirky.
