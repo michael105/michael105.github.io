@@ -4,4 +4,4 @@ __-[Blog](https://michael105.github.io)-
 -[Old Projects](https://michael105.github.io/showcase)-
 -[Links](https://michael105.github.io/links)-
 -[About Me](https://michael105.github.io/aboutme)-
--[The Geek](https://michael105.github.io/geek)-__
+-[Hobbies](https://michael105.github.io/hobbies)-__
