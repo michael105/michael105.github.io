@@ -110,6 +110,32 @@ Instead of questioning the reason of life, or which dynamics lead to the influen
 You can simply say it works, or it doesn't. Even usability in terms of being accepted, or denied by the users can be reduced into quite simple 
 questions and answers.
 
+----
+
+Since I got into some sort of trouble - na, the value of the software might be now about 0.
+It's nearly 20 years old, written in a abandoned language, and there are some - quirks.
+
+There wasn't any need for security, I just did need to separate internet and
+intranet. So. There are some fundamental design "flaws".
+
+Besides the other companies, which nowadays do have more than comparable solutions.
+Using my software wouldn't pay out.
+
+I would estimate an effort of at least half a year fulltime, if I would try to make the software
+competitive. But I'm also calculating with 80hours per week, and I'm quite productive.
+
+So - the value at the market is 0. Now.
+
+Back then, it's been an exclusive solution.
+But I'm also happy I decided to study philosophy, instead of going at the market.
+
+
+
+
+
+
+
+
 
 ----
 
