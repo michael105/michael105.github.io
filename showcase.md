@@ -117,8 +117,15 @@ It's nearly 20 years old, written in a abandoned language, and there are some - 
 
 There wasn't any need for security, I just did need to separate internet and
 intranet. So. There are some fundamental design "flaws".
+In the company, my "solution" was easy, and save. Physically changing a backup harddisk each day,
+and doing incremental backups. 
+IF there would have been a problem, it would had been easy to track it back.
+It didn't happen. Albite a lacking rights management, amongst others.
+But the few users did know as well, their actions were protocolled.
+So. 
 
-Besides the other companies, which nowadays do have more than comparable solutions.
+
+And there are other companies, which nowadays do have more than competitive solutions.
 Using my software wouldn't pay out.
 
 I would estimate an effort of at least half a year fulltime, if I would try to make the software
