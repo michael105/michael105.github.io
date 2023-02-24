@@ -47,7 +47,7 @@ this will take some time)
 
 My bigger projects are only partial online: ksalomon (ksalomon.sf.net),
 a vocabulary trainer, I built 2000-2003; wxPDF, a PDF reader built for reading big sized scans of books 
-(handles without problems files>100MB); pgroupware, a (commercial) Groupware solution.
+(handles without problems files>100MB); pgroupware, a Groupware solution.
 
 
 
