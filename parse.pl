@@ -2,13 +2,18 @@
 #
 #
 
-use Data::Dumper::Simple;
+
+# Those both input files can be found (after make, make header) in:
+# linux-src/usr/include/asm/unistd_64.h
+# linux-src/include/linux/syscalls.h
 
 my $syscalls="syscalls.h";
 my $unistd="unistd_x64.h";
+
 my $out = "syscalls.html";
 
 
+use Data::Dumper::Simple;
 
 
 open $s,"<",$syscalls or die;
