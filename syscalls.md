@@ -11,6 +11,11 @@ Here is a quick hack, to fetch the call numbers and the arguments from the kerne
 
 The 'script' (it is functional, that's all) is linked below.
 
+Most syscalls are declared within a single file. Few syscalls might not be predeclared at all,
+and / or to be found within other files. Yet I didn't need them, and there are the manpages as well.
+
+So, I leave this the way it is. 
+
 
 [parse.pl](parse.pl)
 <html>
