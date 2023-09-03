@@ -12,7 +12,7 @@ Here is a quick hack, to fetch the call numbers and the arguments from the kerne
 The 'script' (it is functional, that's all) and the table for the kernel 6.3 are linked below..
 
 
-[parse.pl]
+(parse.pl)[parse.pl]
 
 <html>
 <body>
