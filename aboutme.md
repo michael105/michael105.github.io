@@ -10,11 +10,11 @@
 
 ### Michael (misc) Myer 
 
-* Age: 40     
+* (Open source pseudonym)
 * Living in Germany, Munich 
-* Languages: Perl, C, C++, Assembler, Shell, <br>
-  SQL, HTML, CSS, Javascript, Ajax, Java<br>
-* Experience: 30 years of development, <br>
+* Languages, deep knowledge: Perl, C, C++, Assembler, Shellscript <br>
+* SQL, HTML, CSS, Javascript, Ajax, Java, and knowledge of some other languages<br>
+* Experience: 25 years of development, <br>
   running a software company for several years, 
   freelancing 
 * Native German speaker. Fluent in English. 
