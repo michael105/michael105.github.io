@@ -4,6 +4,32 @@
 
 ---
 
+#### 2025/01/22
+
+About coding with AI
+
+Got the problem to share an id (rendered glyphs) with all x11 clients.
+
+So, I asked the ai, howto do that.
+
+Well, the ai for sure isn't bad, and suggestet ipc.
+Obviously right.
+
+Then, we wen't through the possibilities, shared memory, tcp, ..
+
+My solution was finally a config file.
+Until I realized, that's bad, cause the file will be persistent, the id not.
+
+Some more discussion with ai, and suddenly - x11 properties.
+
+So - the ai didn't understand my problem. It might also have been
+my questioning, since I did ask for ipc.
+
+Since ai does nothing else than completion, those problems will stay.
+
+Did just read, ai is going to replace coders. No. 
+This will not work out.
+
 
 
 #### 2022/04/06
