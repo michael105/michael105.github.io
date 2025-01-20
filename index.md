@@ -22,7 +22,7 @@ Until I realized, that's bad, cause the file will be persistent, the id not.
 
 Some more discussion with ai, and suddenly - x11 properties.
 
-So - the ai didn't understand my problem. It might also have been
+So - the ai didn't understand my problem. It might also had been
 my questioning, since I did ask for ipc.
 
 Since ai does nothing else than completion, those problems will stay.
