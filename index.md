@@ -20,7 +20,7 @@ Then, we wen't through the possibilities, shared memory, tcp, ..
 My solution was finally a config file.
 Until I realized, that's bad, cause the file will be persistent, the id not.
 
-Some more discussion with ai, and suddenly - x11 properties. Values can be set and read from the xserver.
+Some more discussion with ai, and suddenly - x11 properties. Values, which can be set and read from the xserver.
 The ai even pointed out, (correct) the values will not persist. Albite I already stated,
 persistence would be a problem.
 
