@@ -33,6 +33,10 @@ Since ai does nothing else than completion, those problems will stay.
 Did just read, ai is going to replace coders. No. 
 This will not work out.
 
+Not yet, and maybe never, for methodical reasons.
+
+Copying isn't developing.
+
 
 
 #### 2022/04/06
