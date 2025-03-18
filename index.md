@@ -173,6 +173,123 @@ maybe modify it, print it out later.
 I stop that for now. I really need to reconsider my thoughts about binary sizes..
 
 
+#### 2025/03/16
+
+
+
+
+Trying to figure a way out, to be able to use
+os 'functions', which are sametime standalone tools,
+from within C in a perlish manner.
+
+
+things like: xflag (many options) (flags) path1, path2, ..
+
+
+so here is my current experiment..
+
+
+```
+#define TOOL_MAIN( _tool)
+
+
+#define _dbgv(_arg) #_arg": ",_arg, "\n"
+
+#define dbgv(_str, ...) printvl( _str " (dbg "__FILE__", "__STRLINE__ ")\n", FOREACH_K(_dbgv,__VA_ARGS__) )
+
+
+enum _arg {___arg};
+typedef enum _arg arg;
+
+
+int mytool_main( uint opts, int i1, int i2, char *str, char *path ){
+   dbgv( "options: ", opts, i1, i2, str, path );
+
+   return(0);
+}
+
+#define mytool(_opts,...) ({ int opts=0; int i1=21; int i2=22; char *str="STR1"; \
+      char *path="n"; char *p = "0"; \
+   _Generic((_opts), int: opts=(int)(POINTER)(_opts), arg: _opts, char*: p=(char*)(POINTER)(_opts) ); \
+   __VA_ARGS__; \
+   mytool_main( opts, i1, i2, str, p ); })
+
+
+MAIN{
+
+
+   printvl( *argv );
+
+   //mytool_main( 7, 11,12, "str1 xx ", "path1" );
+
+
+   mytool( "c" );
+   mytool( 1, i2=33, "pfad" );
+
+
+   //mytool( i1=100, i2=33, "pfad" );
+   mytool( 0, i2=33, str="string 1", "pfad" );
+   mytool( (arg)(str="string 1"), "pfad" );
+
+
+   exit(0);
+}
+```
+
+
+
+The current problem is the decision path between string args and paths.
+
+I dislike (arg)(...), it's a strange syntax.
+I also dislike having arguments at fixed positions.
+
+Eventually I should have paths as an array of pointers.
+
+What, again, would be awful, when writing e.g. xflags("/file")
+
+could do a macro: xflags(PATHS("/file"))
+
+
+Finally, this might not be the best solution,
+but works: I'm going to use a special datatype,
+argstr.
+
+Which is a typedef to volatile const char*
+
+Works with generic, makes it possible to use the macros
+with variable arguments without fixed position,
+and the named arguments don't need to be prefixed with another type
+or anything else.
+
+
+At this point it seems to me, I might need to start writing 
+my own transpiler.
+
+
+hm. well. wouldn't possibly be that complicated,
+I'd need to replace just the calls to mytool, etc.
+
+named arguments like str="string" would need to be rewritten
+as (arg)(str="string").
+
+Obviously this is possible, without too much logic.
+
+
+---
+
+
+And I should write my script to convert my entries here 
+to html and taglists.
+
+
+
+
+
+
+
+
+
+*tags c,macros*
 
 
 
