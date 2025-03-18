@@ -60,7 +60,7 @@ so I didn't try to make the usage easier at all.
 
 A totp token generator for the terminal.
 
-Albite opensource as well, I did choose a more serious approach.
+Albite opensource as well, I did choose a more 'serious' approach.
 
 Most opensource projects online I did either just for fun, 
 or they aren't really finished, therefore lacking documentation.

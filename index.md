@@ -4,6 +4,187 @@
 
 ---
 
+
+#### 2025/03/17
+
+
+
+Surprisingly, AI couldn't help at all.
+
+AI did write several macros, which do not work at all.
+
+
+I tried several versions of gemini, but I don't expect any AI to be able to help.
+
+
+Problem was to have a praeprocessor decision path for arguments.
+
+There are three 'types': opts, a 32bit bitfield.
+  Sadly I cannot resort to a struct, since the compiler isn't able to do its optimizations
+  anymore with structs. in my experience.
+
+
+  named args. 
+
+  and path(s).
+
+
+So I'd like to write: xflags("/path"); xflags(l+x,"/path2"); xflags(a+g+x,addflags=d+s,"/path3");
+
+Further, optionally the output can be redirected. Into char buffers, or as binary 
+output into shared memory/wherever.
+
+
+
+More and more I struggle with my aim for the smallest possible binaries.
+
+I'm going to find a solution for the macro decision path.
+
+Then, I might need to take a break. 
+The most obvious way seems to me to write a stream like interface for the output,
+with callbacks, also for the formatting.
+
+But this will not give the smallest binaries. 
+
+Admittedly, I might need to rethink my definition of bloatware.
+The problem is, it is much easier to have a clear destination set.
+But in this case, this will not work out.
+Or I'm going to have other problems.
+
+
+I dislike the idea of formatting data at a pipe's writer, to then parse that data into binary format
+at the receiver again.
+
+I even dislike pipes, and might replace them with shared memory.
+And I'm not eager to have several processes, eventually threads are needed,
+but even that seems unneccessary in most cases.
+
+
+---
+
+
+So, I might have a plan: Sort the argument macro problem out.
+
+And think about a generic output macro for the tools, which 
+can be changed later.
+
+
+Sort all those macros out, get them into a consistent state.
+
+
+Make a decision, whether I really like to have my macro decision
+path based on the difference of 'const volatile char*' and 'char*' (cough).
+
+(eventually I'm at the point, where it would be better to begin with a transpiler..)
+Thinking about a transpiler .. wouldn't be that hard. I just need to replace
+all arg1=value1 arguments with (arg)(arg1=value1) ...
+I just dislike the idea of writing those brackets within every's tool call.
+
+Type conversion might be another problem, I'm faced with.
+Doable via macros. But, since I like to exchange data in binary format as well,
+and I don't want to rely too much on callbacks, they are quite an overhead,
+well. 
+
+cpp isn't an option to me, btw. It would obviously work, but then I'd be faced with
+other trouble. Since I'm counting single bytes, and a few hundreds bytes are a red flag to me,
+I'm not going to use cpp.
+
+
+----
+
+Then, there's still the question of howto combine the different tools into single binaries.
+I did already write an own loader, which doesn't do symbolic relocations at all.
+Instead, just maps another binary(/library, this doesn't matter) into ram,
+load the function addresses from a table, and redirect function calls there.
+Extremely simple. 
+
+But my original goal was to have statically linked binaries.
+
+I know, those problems are .. well, fun to me.
+
+
+----
+
+
+anyways. Plan is set. do those macros.
+then take a break.
+
+
+----
+
+
+ok. done so far.
+
+I'm writing down my thoughts about path lists.
+Closely connected with binary output of tools.
+
+several ideas..
+
+
+```
+struct _ls_entry{
+	_ls_entry* next;
+	char* path;
+	uint permissions;
+	...
+}
+
+struct xflag_entry{
+	*next;
+	xflag_t flags;
+	char path[]; 
+}
+```
+
+ah me. need another datatype.
+e.g. filename and caps.
+separating the list. hm. 
+I might need to have data between the structs.
+xfentry pathname capabilities xfentry ...
+
+I did already think about a totally abstracted type, where
+only the positions of members are given.
+
+with structs there is the advantage of type safety.
+
+e.g. GREP(pathlist,tr_entrys) will throw an error.
+
+
+makros, some ideas:
+
+FOREACH_PATH(list,do ...)
+
+FOREACH_LINE(list,...)
+
+GREP(list, path) 
+
+ok. I need a tidy concept.
+
+I'm close.
+
+
+Looking at ls, it's also obvious, it is better to fill a struct first,
+then do it's formatting for the output.
+
+the fmt in turn would be nice to be given in the header.
+So it is possible to have a list of the output of ls,
+maybe modify it, print it out later.
+
+I stop that for now. I really need to reconsider my thoughts about binary sizes..
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #### 2025/01/20
 
 About coding with AI
