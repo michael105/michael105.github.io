@@ -294,6 +294,56 @@ to html and taglists.
 
 
 
+#### 2025/02/28
+
+
+
+Need to sort things out.
+
+
+Blogging did always help.
+
+
+So, here's the master plan..
+
+Get a basic linux system together, which compiles with minilib.
+
+Sort minilib out, to have a basic libc.
+
+Sort the package management problem out.
+
+
+Need to decide, which language to use.
+I do prefer perl. However, python is more common.
+
+Also a question of my target users.
+
+
+On the other hand, perl can be self documenting.
+
+I personally do dislike python.
+Shellscripts are always a bit awkward for more complex stuff.
+
+
+Sort repositories out.
+
+
+Get a plan, howto manage patches, build scripts, ..
+
+
+Dependencies.
+
+
+
+---
+
+
+Build a container: home/micha/pallium
+
+
+(/pallium eq /root)
+
+
 
 
 
