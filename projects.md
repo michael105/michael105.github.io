@@ -6,6 +6,7 @@
 `Some projects I'd like to highlight.
 Some of them are just ideas, others I've finished.`
 
+Opensource only.
 
 
 ##### logik.pl
@@ -52,6 +53,25 @@ so I didn't try to make the usage easier at all.
 
 
 -----
+
+
+##### totp
+
+
+A totp token generator for the terminal.
+
+Albite opensource as well, I did choose a more serious approach.
+
+Most opensource projects online I did either just for fun, 
+or they aren't really finished, therefore lacking documentation.
+
+totp I'm using myself for several years now.
+
+It solves the problem of the need to have a correct system time
+by syncronizing the time of the tokens via sntp to a network time server.
+
+
+(https://github.com/michael105/totp)
 
 
 
