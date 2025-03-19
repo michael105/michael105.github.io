@@ -57,7 +57,7 @@
 * sometimes missed my work-life balance
 
 
-### Further interests and hobbies
+---
 
 Several software projects,<br>
 electronics ( development and building of audio equipment ),<br>
