@@ -5,6 +5,189 @@
 ---
 
 
+
+#### 2025/03/19
+
+
+I'm still thinking about howto implement named arguments for core tools.
+
+I might write my own precompiler. 
+And either use a fixed syntax, I can grep for, without parsing the whole
+C code.
+Or do an intermediate step, between two runs of the c praeprocessor.
+
+I did oversee, I already have macro lists for the arguments,
+and additional arguments like the ouput stream handler are the same for all tools.
+
+About pipes, I'm still thinking.
+I could use callbacks for the output, which can be overwritten.
+
+Define structures, inheritable, and call either the output callback, 
+to print at the screen, or into a buffer, or copy the binary data into
+shared memory, or wherever.
+
+The advantage is a clean separation of the program logic from its output as well.
+
+The disadvantage - this costs some bytes.
+
+But I already realized, with 'ls', it doesn't make sense at this level 
+to look for the smallest possible solution alone.
+E.g. colors could be regarded as unneccessary overhead.
+But this doesn't make sense.
+
+
+I'm going to work out a solution for that.
+
+After that, I might look again at the problem of a package manager.
+Which I'm eventually more or less dismiss. 
+
+I did some work a long time ago, there my 'packages' had been simple tarballs,
+and aufs overlays. Little bit tinycore linux alike.
+The reason had been to be able to experiment with different 
+source packages, at a gentoo base. 
+E.g. installing a new version of glibc. What can get nasty,
+due to further dependencies on iconv, and whatever.
+
+.. did think about it. I need to rewrite those option parsing macros in each case,
+they need to be prefixed with the current tool's name.
+
+Possibly I should add options with long names.
+maybe.. (so many bytes...)
+
+
+Then I should focus on other things.
+
+Currently, somehow, there are ten things at the same time.
+Like slterm, it's imho very close to be 'finished'.
+The core tools - many are missing, and I'll need to rewrite all of them,
+for redirectionable output.
+
+Static linking still is a problem, but will always be.
+
+btw., to anyone reading this, please remove the debug switch (-g) from 
+distributed makefiles. or make it optional.
+
+
+---
+
+Reading the manual - I note this for later..
+
+'-mrtd'
+   Use a different function-calling convention, in which functions
+   that take a fixed number of arguments return with the 'ret NUM'
+   instruction, which pops their arguments while returning.  This
+   saves one instruction in the caller since there is no need to pop
+   the arguments there.
+
+(function attribute)
+'const'
+     Calls to functions whose return value is not affected by changes to
+     the observable state of the program and that have no observable
+     effects on such state other than to return a value may lend
+     themselves to optimizations such as common subexpression
+     elimination.  Declaring such functions with the 'const' attribute
+     allows GCC to avoid emitting some calls in repeated invocations of
+     the function with the same argument values.
+
+'nonnull (ARG-INDEX, ...)'
+     The 'nonnull' attribute may be applied to a function that takes at
+     least one argument of a pointer type.  It indicates that the
+     referenced arguments must be non-null pointers.
+
+'patchable_function_entry'
+     In case the target's text segment can be made writable at run time
+     by any means, padding the function entry with a number of NOPs can
+     be used to provide a universal tool for instrumentation.
+(might be a way to use stack canaries..)
+
+'-mfunction-return=CHOICE'
+     Convert function return with CHOICE.  The default is 'keep', which
+     keeps function return unmodified.  'thunk' converts function return
+     to call and return thunk.  'thunk-inline' converts function return
+     to inlined call and return thunk.  'thunk-extern' converts function
+     return to external call and return thunk provided in a separate
+     object file.  You can control this behavior for a specific function
+     by using the function attribute 'function_return'.
+
+---
+
+No luck. I did hope to find something, to specify the difference
+between the arguments 'str=_opt' and '_opt', to
+have different Generic macro paths.
+
+Currently it seems to me, I should start writing the transpiler.
+
+Using the specifier 'const volatile' ... is. well.
+
+The other option would be to write : xflag( +o+l, (args)(addflags=+s+d,delflags=+i), "path", "path" )
+instead of: xflag( +o+l, addflags=+s+d, delflags=+i, "path", "path" )
+
+I could do a typedef for paths as well. Using 'const signed char* const'.
+so this gets: xflag( (path)"path1" );
+
+It's ugly in both cases.
+
+----
+
+
+for blogging I might have found a solution (again).
+Just using gists. 
+
+
+It's sunny again here in munich.
+Should go outside later.
+
+
+Listen to some music first, while writing I somehow was remembered to some of the lyrics of 'the wall'..
+
+
+
+
+#### 2025/03/18
+
+
+Since I did write, what I'm doing currently, hacking some basic things together in strange ways,
+maybe I also should explain a little bit more.
+
+First hand, it's fun to me, and contemplation.
+
+It's sort of a soothing puzzle. 
+Possibly I'll never finish, but this is not, what puzzling is about.
+
+
+It's more about my surprises, in which ways C can be used.
+
+With Perl, it is known. 
+With C, e.g., without any problem you are able to write object oriented
+code. 
+
+Sametime, I did learn a lot about compilers.
+There are common misconceptions. E.g. - a variable isn't neccessarily
+assigned or updated, if some conditions are given.
+
+a=7; this is more like a hint.
+The variable can get completely optimized away, or pushed into a register,
+maybe even bitshifted, and so on.
+
+(If you need to be sure, the variable gets assigned, write asm volatile("mov $7,%0" : "=m"(a) ); )
+
+I might write more about that, also about the order of instructions, but I continue with Assembler.
+
+C is an abstraction of Assembler. Even with assembler, some things are surprising,
+especially when copying data around.
+The abstraction layer adds its own complexity.
+
+In both cases, neither the keyword 'volatile' nor memory fences seem to work
+in each case, instead those features exist only, as long you don't
+go into debug mode. The classical Heisenberg Bugs.
+
+This is some special sort of fun with syscalls.
+
+
+Somehow, today, I'm going to do other things.
+
+
+
 #### 2025/03/17
 
 
