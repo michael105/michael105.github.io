@@ -8,10 +8,9 @@
 <br>
 <hr>
 
-### Michael (misc) Myer 
+### Michael misc147  
 
-* (Open source pseudonym)
-* Living in Germany, Munich 
+* Germany, Munich 
 * Languages, deep knowledge: Perl, C, C++, Assembler, Shellscript <br>
 * SQL, HTML, CSS, Javascript, Ajax, Java, and knowledge of some other languages<br>
 * Experience: 25 years of development, <br>
