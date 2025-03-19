@@ -31,7 +31,7 @@
 * System Conception and Administration
 * Analyzing and consulting customer demands 
 * Conception and design of medium to big sized projects
-* Security 
+* Security with C
 
 
 ### Strengths
