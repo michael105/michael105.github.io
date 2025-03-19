@@ -5,4 +5,3 @@ __-[Blog](https://michael105.github.io)-
 -[Old Projects](https://michael105.github.io/projects)-
 -[Links](https://michael105.github.io/links)-
 -[About Me](https://michael105.github.io/aboutme)-
--[Hobbies](https://michael105.github.io/hobbies)-__
