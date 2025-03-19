@@ -1513,3 +1513,21 @@ Whatever you do, keep climbing. If you're in the wrong direction, you'll possibl
 But when you stand still, you'll drop for sure, since your strengths cannot hold on forever.
 So better keep climbing. 
 
+<script src="https://giscus.app/client.js"
+        data-repo="michael105/michael105.github.io"
+        data-repo-id="MDEwOlJlcG9zaXRvcnkyMjU5MTIwODI="
+        data-category="Announcements"
+        data-category-id="DIC_kwDODXclEs4CoOid"
+        data-mapping="pathname"
+        data-strict="1"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="dark"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+
+
+
