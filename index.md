@@ -1523,7 +1523,7 @@ So better keep climbing.
         data-reactions-enabled="1"
         data-emit-metadata="0"
         data-input-position="bottom"
-        data-theme="dark"
+        data-theme="light"
         data-lang="en"
         crossorigin="anonymous"
         async>
