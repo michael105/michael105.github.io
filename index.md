@@ -186,6 +186,14 @@ This is some special sort of fun with syscalls.
 
 Somehow, today, I'm going to do other things.
 
+oh, and my latest nic (misc147), my github page is placed at position 1 with google and quant.
+Maybe I should stick with that this time. 
+
+I didn't know (or remember, I did learn a litlle bit chinese years ago), 
+I just did choose 147 for no special reason, but
+it is the chinese radical (part of a word) for seeing, feeling, and some other meanings.
+
+
 
 
 #### 2025/03/17
