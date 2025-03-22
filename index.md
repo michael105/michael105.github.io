@@ -5,6 +5,46 @@
 ---
 
 
+#### 2025/03/21
+
+Reading the C99 spec, (again) ....
+
+Well. strncat(s1,s2,n) appends up to n+1 (!) bytes to s1. (memo to me: rtfm .......)
+
+In my experience, especially older software often relies onto such features.
+Hard to find bugs, sometimes even heisenbugs.
+Furthermore, the implementations do not necessarily follow the specification,
+making things worse.
+
+ Sideways, I'd prefer a formal language for specifications. 
+ Natural languages are sometimes hard to understand and distracting, 
+ if you need to understand exactly the e.g. definitions.
+ (Some thing, I did learn in philosophy.. it's common
+  to read single pages at least twice, sometimes 10 or 20 times..
+  With the difference, that associations can be quite important,
+  depending on the author.)
+
+And my question, what happens, if null pointer are supplied, this isn't specified.
+
+Sametime I recognize, well. 
+I still do have the project of fuzzy tests, comparing different libc
+implementations. 
+
+Currently rewriting an 'getopt' macro,
+which does as much work as possible at compile time.
+Still counting bytes...
+
+Did a rewrite of strcmp in assembler.
+;) spares about 40 bytes. (albite non portable)
+Now wondering, whether strcmp should be aliased to strncmp(a,b,-1),
+if strncmp is compiled. Obviously, yes.
+Next question is, whether relying on the compiler to translate
+a trampoline function halfway performant, or use a macro .....
+
+Admittedly, this relies onto noone comparing strings > SIZE_T MAX
+
+
+*tags C,gcc,C99,specifications*
 
 #### 2025/03/19
 
