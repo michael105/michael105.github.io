@@ -23,7 +23,7 @@ a cite of Kotzker Rebbe
 Reminds me of Schelling and the "Nicht Ich".(Not I)
 
 For Schelling, the "not I" is the ground of beeing. 
-With a negative associations.
+With a 'negative' association.
 
 Saying I'm grounded within myself does have imho way more positive effects.
 
@@ -32,6 +32,23 @@ While developing I quite often even think in English, albite not my native langu
 With philosophy, this is different.
 
 It's an interesting experiment, anyways.
+
+I do need to somehow rethink all concepts I know.
+This gets way more concrete. 
+
+Sametime I get slow, extremely slow.
+Trying to think of the 'I' of Descartes, doing this in English,
+and make a connection to Schelling and Rebbe, I get stuck.
+
+Close to trying to solve a mathematical riddle, which has no solution.
+
+....
+
+Here is the link to the cite: https://judaism.stackexchange.com/questions/148411/are-you-really-you
+
+
+
+
 
 
 #### 2025/03/23
