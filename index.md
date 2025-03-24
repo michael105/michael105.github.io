@@ -5,6 +5,404 @@
 ---
 
 
+#### 2025/03/24
+
+
+Found at stack overflow,
+a cite of Kotzker Rebbe
+
+    If I am I because I am I, 
+	 and you are you because you are you, 
+	 then I am I and you are you. 
+
+	 But if I am I because you are you 
+	 and you are you because I am I, 
+	 then I am not I and you are not you!
+
+
+Reminds me of Schelling and the "Nicht Ich".(Not I)
+
+For Schelling, the "not I" is the ground of beeing. 
+With a negative associations.
+
+Saying I'm grounded within myself does have imho way more positive effects.
+
+Just now I do recognize, my English is technical firsthand.
+While developing I quite often even think in English, albite not my native language.
+With philosophy, this is different.
+
+It's an interesting experiment, anyways.
+
+
+#### 2025/03/23
+
+
+Should have written a transpiler, this would have been easier.
+
+I extended the current options (getopt sort) like parsing macros,
+ and added named arguments to the tools.
+
+ sort of: xflags("/path1","/path1"); xflags( setflags='ds', "/path"), xflags( l ), ...
+
+the cpp praeprocessor assigns the arguments, combines all paths into an array of pointers, and so on.
+
+However, the preprocessed code now looks - awful. really awful.
+first hand. second hand, this isn't easy to extend.
+
+In my search for the smallest binaries, it is a huge advantage to loeave as much work as possible
+to the preprocessor. But my other idea, writing a transpiler, which in turn e.g. converts
+the named argument syntax into C syntax, would be way more easy to implement, and
+there wouldbe more extension possible.
+
+I'm writing some memos to me, about useful extensions to C, especially in the context
+of tiny static binaries...
+
+
+- named arguments, eventually as indirect small pointers.
+- namespaces ( just prefix namespaced vars and functions with it's namespace id, and use a cpp syntax )
+- make all functions and global vars static. (gcc isn't smart enough and assumes, the functions 
+		could be called with other arguments from outside the curren compilation unit)
+- stack canaries with less overhead
+- compressed strings
+- malloc analyzation ( using separated areas for malloc and the usage case )
+- templates
+- static inheritance
+
+Well. Eventually, possibly, I should experiment with c++.
+I do know c++ quite well, but dislike the overhead.
+However, using C gets more and more complicated.
+It is all possible.
+Don't know. I leave that decision for later.
+
+
+About c++ - In my opinion, there are several things not that great.
+
+But eventually I really should see, whether it would be possible, to use only some
+separated features of c++. E.g. namespaces, named arguments, and operator overloading.
+templates.
+On the other hand - I fear, it's like medusa'a box.
+
+Start using only some features, and suddenly you end up with a typical c++ implementation,
+which is something different as aiming for tiny static binaries.
+
+
+My current problem is the abstraction of the output of tools.
+I might have found a way. sort of: outp(type,fmt,content); ... 
+and outpbuf();
+
+The fmt ist applied to the content in outpbuf, which is a callback.
+
+So it is possible to e.g. write the output of xflags into a char buffer,
+or get a list of binary data as a list of structs.
+(useful e.g. for 'find' or 'ls', and it's extensible, e.g. compression and network transmission)
+
+Furthermore I'd like to separate the output logic from the program logic.
+
+
+-----
+
+##### multiplication overflow
+
+This is one of the worst bugs, I ever found. (also introduced by me..)
+the multiplication of two integers doesn't neccessarly yield 
+in the result being smaller than one of the factors.
+
+thinking about that, it's the same with addition.
+
+a horrible feature.
+
+There are intrinsics, which check for overflow.
+I eventually might stick with assembler.
+
+
+Looking into the code, gcc generated for the intrinsic, again those unecessary register copies.
+
+```
+8048de5:       89 d8                   mov    %ebx,%eax
+8048de7:       48 89 44 24 18          mov    %rax,0x18(%rsp)
+8048dec:       8b 04 24                mov    (%rsp),%eax
+8048def:       f7 e3                   mul    %ebx
+8048df1:       41 89 c5                mov    %eax,%r13d
+8048df4:       0f 80 1b 01 00 00       jo     8048f15 <uitofmt.isra.0+0x209>
+```
+
+why?? 
+
+Did read backwards in the assembly.
+I don't understand, in ebx is just a 1 stored.
+
+
+This is the same as with variable arguments of functions.
+The code, gcc generates, is just crazy. Here there are several xmm instructions generated,
+half of them could be strippped, I guess.
+
+Might be some fun for kernel development.
+
+I would be interested, in what code clang generates.
+Currently, I better write my inline assembly.
+
+*tags gcc bugs*
+
+
+
+#### 2025/03/22
+
+
+Still fiddling around with macros...
+
+My current experiment, the idea is simple:
+
+Have a Maro definition:
+
+```
+#define xflag_OPTIONS \
+	h,,,"Show help", \
+   w,int,cols,"Set column with", \
+  ...
+```
+
+Parse that with the preprocessor, and create the functions
+usage(), help(), the macro PARSEARGV(), the tool_main declaration, the tool() Macro...
+
+It works already without the type specifier.
+(Used in 'xflags')
+
+I however did oversee, in my concept, I do need
+all tools as variadic macros, so it's possible to write
+in C xflags("/dir/file"), xflags( l+x, "/dir/file" ), xflags( s, addflags="sd", "/file" ), xflags( cols=80 )...
+And those macros do need their own toolname as parameter.
+
+The framework with global static vars for options and arguments, it's the same.
+It is great and imho ok with small static linked tools.
+But I do more and more come to the conclusion, I might end up
+with a linked library. (typeof, I've written my own loader)
+And in this case, It might be better to call the tools with arguments, instead of using
+globals. Else I'll end up.
+
+Oh. Sometimes writing helps sorting my thoughts out.
+My current implementation expands into several arguments. 
+so, tool_main( int opts, char* arg1, char*arg2,... , path1, path2.. )
+
+There is the advantage for the compiler to optimize arguments and code paths within tool_main away,
+if unused.
+
+However, if using a struct instead, this can be seen as a 'global' at the stack, for the 
+time execution takes place within and nested within tool_main.
+
+Again, and this might be the real problem, it depends on whether I'm going to
+'link', and tool_main is within a separated binary.
+Or whether I stick with those small static linked binaries.
+
+
+It is also the question of how much space can be spared effectively.
+E.g. by having a printf implementation, but sparing most conversions.
+
+.....
+
+In my experience, usability is extremely important.
+
+When comparing perl and shellscript, my point might be obvious.
+
+Eventually I should have written a transpiler, instead of fiddling with macros around.
+
+On the other hand, the advantage of my idea is the optionality.
+
+It is just an option within a basic framework, so it's an optional addon.
+
+
+.....
+
+The other riddle is howto have a basic and unified output 'system'.
+
+I fear, I'll need to get away from my byte counting obsession...
+
+By looking into the compiled binaries, I did learn a lot about compiler internals.
+Also about howto write performant code.
+
+But since the formatting of the output and the exchange of binary data within 'pipes'
+is such a basic thing, I need to get away from my priority in this case.
+And shift my focus from codesize to usability.
+
+
+I should regard this reflection as a riddle on its own. 
+
+
+At least, I can shift my focus to aesthetics again with the output implementation.
+
+Those macros, it's like, I don't know.
+
+Each macro is like a pot, stuffed with unknown chemicals and objects. 
+Look into the pot, and be surprised.
+You eventually are able to sort the pots, and polish them outside.
+But.. 
+
+And don't ever put the wrong thing into such a pot, or you are going to experience,
+what the true meaning of 'features' is...
+
+
+Albite not the optimum performancewise, I might use callbacks for the output conversions,
+to be able to redirect the output.
+This is something completely different.
+
+I again realize - I need to decide on whether build the tools as library or statically linked
+conglomerats now. The abstraction of the output can be done via macros or callbacks.
+Depending on the needs.
+
+
+-----
+
+Ok. I really should regard those macros as pots.
+Doesn't matter, what's inside.
+
+I just need to polish the outside a little bit.
+
+And maybe even separate that clearly, by having the headers 'loops.h' and 'loops.impl.h' ...
+Thinking about that, I should introduce a new 'keyword', something like
+```//+INTERFACE
+# define macro() ...
+```
+within loops.impl.h, and copy the definition into loop.h.
+
+Or maybe even more easy, separate the header files itself into to parts.
+
+at the top, have the outside definitions.
+
+below, separated, its implementations and again the definitions and documentation,
+which is copied to the top.
+
+Write a marker with the file's timestamp at the top, so the build system doesn't need
+to regenerate the file each time.
+
+And have sort of marks with each definition, to be able to jump from the top definition
+to its implementation, also being a mark for the parser.
+
+
+-----
+
+
+##### 'side effects'
+
+
+I did check my strcmp implementation of yesterday again.
+
+```
+static int asm_cmp(const char *s1, const char *s2){
+	int a = 0;
+	asm (R"(
+	1:
+	   testb $0xFF, (%%rdi)
+		jz 4f
+		cmpsb
+		je 1b
+		jbe 3f
+		2:
+		dec %0
+		jmp 6f
+		3:
+		inc %0
+		jmp 6f
+4:	
+		testb $0xFF, (%%rsi)
+		jnz 2b
+
+6:
+	)" : "+r"(a), "+D"(s1),"+S"(s2) :: "cc" );
+
+	return(a);
+}
+```
+
+shockingly:
+```
+asm_cmp( buf1, buf2 );// does work out.
+buf2[4] = 'X'; // change buf2
+asm_cmp( buf1, buf2 ); // wrong result.
+```
+
+either asm needs to be volatile, or the memory needs to be flagged. (:"memory")..
+
+in this case, I'm buffled, since gcc doesn't know what happens inside the asm.
+Besides, rax is written.
+
+
+Anyways, my final solution.
+
+```
+static int asm_cmp(const char *s1, const char *s2){
+	char a;
+	asm volatile (R"(
+	1:
+	   lodsb (%%rsi),%%al
+		subb (%%rdi),%%al
+		jnz 6f
+
+		inc %%rdi
+		testb $0xff,-1(%%rdi)
+		jnz 1b
+6:
+		neg %%al
+	)" : "=a"(a),"+D"(s1),"+S"(s2) :: "cc" );
+
+	return((int)a);
+}
+```
+
+I'm not so happy with the neg.
+But defining a macro to switch arguments s1/s2 (therefore rdi/rsi) doesn't seem wise.
+
+the whole function now is 18 Bytes.
+(uclibc 29 bytes. musl 23bytes)
+
+On the other hand, musl and uclibc are compiled into movzbl instructions, 2 and 3 in the loop.
+Those aren't that fast. well. I leave that for now.
+
+
+To add some explanation, why I'm writing a strcmp in assembler:
+
+the implementations of musl or uclibc are essentially machine language as well.
+
+They do casts, and sign conversions.
+
+I copy them below..
+
+```
+
+int muslstrncmp(const char *_l, const char *_r, size_t n)
+{
+	const unsigned char *l=(void *)_l, *r=(void *)_r;
+	if (!n--) return 0;
+	for (; *l && *r && n && *l == *r ; l++, r++, n--);
+	return *l - *r;
+}
+
+
+//(uclibc)
+int ucstrcmp (const char *p1, const char *p2)
+{
+  const unsigned char *s1 = (const unsigned char *) p1;
+  const unsigned char *s2 = (const unsigned char *) p2;
+  unsigned char c1, c2;
+
+  do
+    {
+      c1 = (unsigned char) *s1++;
+      c2 = (unsigned char) *s2++;
+      if (c1 == '\0')
+	return c1 - c2;
+    }
+  while (c1 == c2);
+
+  return c1 - c2;
+}
+
+```
+
+The bionic implementation is crazy. sse3, or unrolled.
+
+
+
+
+
 #### 2025/03/21
 
 Reading the C99 spec, (again) ....
