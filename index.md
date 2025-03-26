@@ -5,6 +5,113 @@
 ---
 
 
+#### 2025/03/26
+
+
+Did had written a function to convert unsigned integers to base 2-36.
+
+My approach was a recursive (nested) function,
+which doesn't need any division.
+Somehow, it looks nice in C.
+
+But the disassembly shows, this isn't effective. (too big)
+
+Somehow, with some things gcc isn't that good.
+Nested functions, variable function arguments, 
+and (nested) structures and unions.
+
+```
+int _xuitobuf(char *buf, unsigned int i, const unsigned int base, int prec, const char pad){
+	# define xuitobuf(_buf, _uint,...) _xuitobuf( _buf,_uint,DEFAULT_ARGS( (10,0,'0'), __VA_ARGS__) )
+
+	char *pbuf = buf;
+	uint tmp;
+
+	void r_uitobuf(uint digit){
+		prec --;
+		if ( !__builtin_umul_overflow(digit,base,&tmp) && (  tmp <= i ) ){
+				r_uitobuf(tmp);
+		} else {
+			while ( prec --> 0  )
+				*buf++ = pad;
+		}
+
+		for ( *buf = '0'; i>=digit; i-=digit )
+			(*buf)++;
+
+		if ( *buf > '9' ) *buf += 39;
+		buf++;
+	}
+
+	r_uitobuf( 1 );
+	*buf = 0; 
+	return ( buf - pbuf);
+}
+```
+I copy the disassembly here: [./r_uitobuf.txt](./r_uitobuf.txt)
+
+I conclude, nested functions are better avoided.
+
+Since I was at it, I did rewrite the function in assembly.
+Sort of "misusing" the stack as stack..
+
+```
+static int _asmuitobuf(char *buf, unsigned int i, unsigned int base, int prec, const char pad){
+	# define asmuitobuf(_buf, _uint,...) _asmuitobuf( _buf,_uint,DEFAULT_ARGS( (10,0,'0'), __VA_ARGS__) )
+	char *pbuf = buf;
+	uint _base=base;
+
+	asm volatile ( R"(
+	xor %%edx,%%edx
+
+	inc %%edx
+	push %%rdx
+	mov %%eax,%%r9d
+1:
+	cmp %%eax, %%esi
+	jb 8f
+	push %%rax
+	dec %%ecx
+	mul %%r9d
+	jno 1b
+
+8: # padding  
+	dec %%ecx
+	jle 2f
+	mov %4,%%al
+	repnz stosb
+
+6:
+	pop %%rcx
+	mov $0x2f,%%eax
+3:
+	inc %%eax
+	sub %%ecx,%%esi
+	jae 3b
+	add %%ecx,%%esi
+
+4:
+	cmp $'9',%%eax
+	jbe 5f
+	add $39,%%eax
+5:
+	stosb
+2:
+	dec %%ecx
+	jnz 6b
+
+9:
+	movb %%cl,(%%rdi)
+	)" : "+c"(prec), "+S"(i), "+D"(pbuf), "+a"(_base) : "g"(pad) : "rdx", "r9", "memory", "cc" );
+						
+	return ( pbuf-buf );
+}
+```
+
+The disassembly with function prologue is in the same txt file.
+
+
+
 #### 2025/03/24
 
 
@@ -45,6 +152,49 @@ Close to trying to solve a mathematical riddle, which has no solution.
 ....
 
 Here is the link to the cite: https://judaism.stackexchange.com/questions/148411/are-you-really-you
+
+
+*tags: Schelling,philosophy*
+
+-----
+
+...
+
+
+My solution to the overflow problem of multiplications is inline assembly.
+
+```
+int umul( uint *result, uint a, uint b ){
+	int ret = 0;
+	asm (R"( 
+		mul %2
+		jno 1f
+		inc %0
+		1:
+	)" : "+r"(ret), "+a"(a) : "r"(b) : "cc" );
+	*result = a;
+	return(ret);
+}
+```
+Reading this again, it should be inlined. 
+And at least one register can be spared, the second operand of mul
+can stay in memory, the first operand (eax) does hold the result as well.
+
+ret doesn't need to be a register as well.
+
+Just now I'm wondering whether it's possible to change the function abi
+for single functions. 
+
+Or if there is a hack to check for the overflow bit from within C.
+
+...
+
+https://www.fefe.de/intof.html
+
+
+...
+
+
 
 
 

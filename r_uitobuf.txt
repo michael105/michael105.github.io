@@ -1,0 +1,111 @@
+00000000080481ea <r_uitobuf.5198>:
+ 80481ea:       55                      push   %rbp
+ 80481eb:       89 fd                   mov    %edi,%ebp
+ 80481ed:       89 f8                   mov    %edi,%eax
+ 80481ef:       53                      push   %rbx
+ 80481f0:       4c 89 d3                mov    %r10,%rbx
+ 80481f3:       52                      push   %rdx
+ 80481f4:       31 d2                   xor    %edx,%edx
+ 80481f6:       41 8b 4a 0c             mov    0xc(%r10),%ecx
+ 80481fa:       41 ff 4a 14             decl   0x14(%r10)
+ 80481fe:       f7 e1                   mul    %ecx
+ 8048200:       71 02                   jno    8048204 <r_uitobuf.5198+0x1a>
+ 8048202:       ff c2                   inc    %edx
+ 8048204:       41 89 42 10             mov    %eax,0x10(%r10)
+ 8048208:       85 d2                   test   %edx,%edx
+ 804820a:       75 0f                   jne    804821b <r_uitobuf.5198+0x31>
+ 804820c:       41 39 42 08             cmp    %eax,0x8(%r10)
+ 8048210:       72 09                   jb     804821b <r_uitobuf.5198+0x31>
+ 8048212:       89 c7                   mov    %eax,%edi
+ 8048214:       e8 d1 ff ff ff          callq  80481ea <r_uitobuf.5198>
+ 8048219:       eb 1e                   jmp    8048239 <r_uitobuf.5198+0x4f>
+ 804821b:       8b 43 14                mov    0x14(%rbx),%eax
+ 804821e:       8d 50 ff                lea    -0x1(%rax),%edx
+ 8048221:       89 53 14                mov    %edx,0x14(%rbx)
+ 8048224:       48 8b 13                mov    (%rbx),%rdx
+ 8048227:       85 c0                   test   %eax,%eax
+ 8048229:       7e 0e                   jle    8048239 <r_uitobuf.5198+0x4f>
+ 804822b:       48 8d 42 01             lea    0x1(%rdx),%rax
+ 804822f:       48 89 03                mov    %rax,(%rbx)
+ 8048232:       8a 43 18                mov    0x18(%rbx),%al
+ 8048235:       88 02                   mov    %al,(%rdx)
+ 8048237:       eb e2                   jmp    804821b <r_uitobuf.5198+0x31>
+ 8048239:       48 8b 03                mov    (%rbx),%rax
+ 804823c:       c6 00 30                movb   $0x30,(%rax)
+ 804823f:       48 8b 13                mov    (%rbx),%rdx
+ 8048242:       8a 02                   mov    (%rdx),%al
+ 8048244:       3b 6b 08                cmp    0x8(%rbx),%ebp
+ 8048247:       77 09                   ja     8048252 <r_uitobuf.5198+0x68>
+ 8048249:       ff c0                   inc    %eax
+ 804824b:       88 02                   mov    %al,(%rdx)
+ 804824d:       29 6b 08                sub    %ebp,0x8(%rbx)
+ 8048250:       eb ed                   jmp    804823f <r_uitobuf.5198+0x55>
+ 8048252:       3c 39                   cmp    $0x39,%al
+ 8048254:       7e 05                   jle    804825b <r_uitobuf.5198+0x71>
+ 8048256:       83 c0 27                add    $0x27,%eax
+ 8048259:       88 02                   mov    %al,(%rdx)
+ 804825b:       48 ff 03                incq   (%rbx)
+ 804825e:       58                      pop    %rax
+ 804825f:       5b                      pop    %rbx
+ 8048260:       5d                      pop    %rbp
+ 8048261:       c3                      retq
+
+
+000000000804832f <_xuitobuf>:
+ 804832f:       48 83 ec 38             sub    $0x38,%rsp
+ 8048333:       49 89 f9                mov    %rdi,%r9
+ 8048336:       48 8d 44 24 40          lea    0x40(%rsp),%rax
+ 804833b:       48 89 7c 24 08          mov    %rdi,0x8(%rsp)
+ 8048340:       4c 8d 54 24 08          lea    0x8(%rsp),%r10
+ 8048345:       bf 01 00 00 00          mov    $0x1,%edi
+ 804834a:       48 89 44 24 28          mov    %rax,0x28(%rsp)
+ 804834f:       89 74 24 10             mov    %esi,0x10(%rsp)
+ 8048353:       89 54 24 14             mov    %edx,0x14(%rsp)
+ 8048357:       89 4c 24 1c             mov    %ecx,0x1c(%rsp)
+ 804835b:       44 88 44 24 20          mov    %r8b,0x20(%rsp)
+ 8048360:       e8 85 fe ff ff          callq  80481ea <r_uitobuf.5198>
+ 8048365:       48 8b 44 24 08          mov    0x8(%rsp),%rax
+ 804836a:       c6 00 00                movb   $0x0,(%rax)
+ 804836d:       48 8b 44 24 08          mov    0x8(%rsp),%rax
+ 8048372:       48 83 c4 38             add    $0x38,%rsp
+ 8048376:       4c 29 c8                sub    %r9,%rax
+ 8048379:       c3                      retq
+
+
+
+
+0000000008048262 <_asmuitobuf>:
+ 8048262:       49 89 fa                mov    %rdi,%r10
+ 8048265:       89 d0                   mov    %edx,%eax
+
+0000000008048267 <.MARKASM_asmuitobuf>:
+ 8048267:       31 d2                   xor    %edx,%edx
+ 8048269:       ff c2                   inc    %edx
+ 804826b:       52                      push   %rdx
+ 804826c:       41 89 c1                mov    %eax,%r9d
+ 804826f:       39 c6                   cmp    %eax,%esi
+ 8048271:       72 08                   jb     804827b <.MARKASM_asmuitobuf+0x14>
+ 8048273:       50                      push   %rax
+ 8048274:       ff c9                   dec    %ecx
+ 8048276:       41 f7 e1                mul    %r9d
+ 8048279:       71 f4                   jno    804826f <.MARKASM_asmuitobuf+0x8>
+ 804827b:       ff c9                   dec    %ecx
+ 804827d:       7e 1c                   jle    804829b <.MARKASM_asmuitobuf+0x34>
+ 804827f:       44 88 c0                mov    %r8b,%al
+ 8048282:       f2 aa                   repnz stos %al,%es:(%rdi)
+ 8048284:       59                      pop    %rcx
+ 8048285:       b8 2f 00 00 00          mov    $0x2f,%eax
+ 804828a:       ff c0                   inc    %eax
+ 804828c:       29 ce                   sub    %ecx,%esi
+ 804828e:       73 fa                   jae    804828a <.MARKASM_asmuitobuf+0x23>
+ 8048290:       01 ce                   add    %ecx,%esi
+ 8048292:       83 f8 39                cmp    $0x39,%eax
+ 8048295:       76 03                   jbe    804829a <.MARKASM_asmuitobuf+0x33>
+ 8048297:       83 c0 27                add    $0x27,%eax
+ 804829a:       aa                      stos   %al,%es:(%rdi)
+ 804829b:       ff c9                   dec    %ecx
+ 804829d:       75 e5                   jne    8048284 <.MARKASM_asmuitobuf+0x1d>
+ 804829f:       88 0f                   mov    %cl,(%rdi)
+ 80482a1:       48 89 f8                mov    %rdi,%rax
+ 80482a4:       4c 29 d0                sub    %r10,%rax
+ 80482a7:       c3                      retq
