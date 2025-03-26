@@ -12,13 +12,16 @@ Did had written a function to convert unsigned integers to base 2-36.
 
 My approach was a recursive (nested) function,
 which doesn't need any division.
+(division is one of the most expensive operations, using up to several 
+ hundred times more resources than other operations)
+
 Somehow, it looks nice in C.
 
 But the disassembly shows, this isn't effective. (too big)
 
 Somehow, with some things gcc isn't that good.
 Nested functions, variable function arguments, 
-and (nested) structures and unions.
+(nested) structures and unions.
 
 ```
 int _xuitobuf(char *buf, unsigned int i, const unsigned int base, int prec, const char pad){
@@ -53,7 +56,8 @@ I copy the disassembly here: [./r_uitobuf.txt](./r_uitobuf.txt)
 I conclude, nested functions are better avoided.
 
 Since I was at it, I did rewrite the function in assembly.
-Sort of "misusing" the stack as stack..
+Sort of "misusing" the stack as stack.
+
 
 ```
 static int _asmuitobuf(char *buf, unsigned int i, unsigned int base, int prec, const char pad){
