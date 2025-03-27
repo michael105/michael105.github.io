@@ -5,6 +5,114 @@
 ---
 
 
+#### 2025/03/27
+
+
+For some reason, I did look for primes.
+
+`perl -e 'my $b = shift; print "sqrt: ",sqrt($b),"\n";for my $a (2..sqrt($b)){ if ( int($b/$a)*$a == $b ){ print "a: $a\n"; } }' 0xffffffff`
+
+(factorize/ to be exact, find all factors of/ the argument)
+
+The interesting result, I was looking for: 32bit unsigned( -5 ) (0xfffffffb) is the largest unsigned 32bit prime. (4294967291)
+
+Easy to remember. I'm not that good with numbers.
+
+(did need a number, which isn't a potency of 2..36. What a prime > 36 cannot be. Most lazy solution. )
+
+*tags primes*
+
+---
+
+All that ki generated stuff at the internet is starting to be too much.
+It's as with those damned previews at the news portals.
+'If you did buy that, you need to act' .. or whatever.
+And everytime you are forced to go to the article and read half of it, 
+until you realize, no, I didn't buy -whatever. A pound of platin.
+
+It's annoying. And somehow even worse than the old popup advertisements of the 90s.
+
+Eventually I should use an ai, to filter out news, I'm interested in.
+But somehow I've got the bad feeling, this would make things worse.
+
+There is the result, if ai trains other ais, after a few generations
+the ais are completely degenerated.
+
+What, if we regard ourselves as trained by ai??
+This could get horrible.
+
+Sametime I remember an even worse problem, which is more concrete.
+
+What, if the communication with ai is under surveillance, and misused without context?
+
+So, someone checks, if he is able to convince ai to some conspiration theories.
+
+Bad news, now he is at the list. Welcome to brazil 23.0
+
+Orwell and Terry Pratchet did team up to write reality, with maniac laughter.
+
+Well, somehow I don't care. I think, it's funny, I like Terry Pratchet. But the dangers are there.
+
+
+*tags ai,orwell*
+*title Orwell and Pratchet do write our reality*
+
+
+-----
+
+
+Did get into some trouble with the redzone.
+What, if my inline assembly function gets itself inlined, but I'm clobbering the redzone?
+
+Well. Seem s to me, I do have to jump below the redzone within the asm.
+
+While recherching, according to a microsoft developer, for windows
+the size of the redzone varies - between 0 and 212 bytes, depending on the architecture.
+
+And this is, I don't understand. I mean, it would be both ok, either have a redzone, or not.
+
+But - both ?? This ist typical for microsoft.
+
+The fact, their "OS" nowadays is halfway stable, might be the result of sheer luck,
+and learning from mistakes. With the result of still having old 90's code stuff deep within,
+I could bet on that.
+
+Someone, I believe it was Palmer, suggested at this time: there should be two teams.
+Developers, and debuggers.
+
+The developers should exclusively code, and not test.
+The debugger should exclusively look for bugs.
+
+It should be obvious, this cannot work out.
+
+
+Just think of the case, someone assumes, there is a redzone - but it isn't.
+Since someone did decide, it's not needed for -whatever arch.
+This sort of bugs is already hard to find.
+How should someone find this bug, and fix it, if he didn't write the code??
+You could read the disassembly. If the source would not had been written in visual basic.
+
+
+ might have confused the names, I'm certain, it's been Al Bundy.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #### 2025/03/26
 
 
