@@ -1,0 +1,74 @@
+2023/11/09 B
+
+
+
+here's a reasonable usecase for ifdef macros.
+
+I'm looking for the author of the original public domain implementation,
+might have been Gardner.
+
+I did strip the division by 3, which is costy.
+A bitshift of 2 works wonderful, as well.
+Yet I didn't figure out the complexity of the changed gaps.
+(Computes to 1,5,21,85,341,..). 
+
+Sideways, I found out, using 'rep movsb' in mixed assembly and c code
+shows up with unpredictable behaviour.
+The rep mosb instructions seem to overlap in time,
+doing a swap via cpy a->tmp, b->a, tmp->b
+sometimes copies different values of previous executions.
+
+Sometimes, this showed up to be unpredictable.
+
+Strange enough, but the code written in assembly did behave as expected.
+(Doing again the swap via movsb and a temporary buffer).
+
+.. now the usage hopefully works. this pointer syntax.
+
+//+doc macro implementation of shellsort.
+// This spares a lot of overhead, on the cost of having
+// the implementation with every sort. (if needed several times..
+// usage:
+// e.g. int array[1024]; // to sort
+// (optionally define the SORT_CMP routine)
+// #define SORT_CMP 1&&(*a>=*b)    // or a>=b, .. 
+//   first char of the replacement has to be a number or letter
+// Better solution might be:
+//
+// inline int I(int i){return i; }
+// #define SORT_CMP I(*a>=*b)
+//
+//
+// SHELLSORT(array,1024);
+// 
+// optionally, SORT_SWAP can be defined:
+// #define SORT_SWAP 0;*a^=*b;*b^=*a;*a^=*b;
+//
+//+def SHELLSORT
+
+// changed the division by 3 to a bitshift
+// uses typeof now.
+// made sort and swap routines optional.
+
+#define _ifdef_SORT_CMP 
+#define _ifdef_SORT_SWAP
+
+#define SHELLSORT(base,count) { \
+	int gap, i, j; \
+	for (gap = 0; ++gap < count;) \
+	gap <<= 2; \
+	while ((gap >>= 2)) { \
+		for (i = gap; i < count; i++ ) { \
+			for (j = i - gap; ;j -= gap) { \
+				typeof(*base) *a = j + base; \
+				typeof(*base) *b = a + gap; \
+				if ( IFELSE_DEF(SORT_CMP, SORT_CMP,*a<=*b) ) break; \
+				IFELSE_DEF(SORT_SWAP,SORT_SWAP,typeof(*base) tmp=*a; *a=*b; *b=tmp;) \
+				if (j < gap) break; \
+				} } } }
+
+
+(misc,23,cc-by-sa)
+
+
+
