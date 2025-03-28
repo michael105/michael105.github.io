@@ -1,0 +1,212 @@
+2023/11/09
+
+This time about macros.
+
+I like them, they get amazing in their logic.
+
+Somehow, this preexpanding thing - reverses all known logic.
+
+Further, there are things possible, one shouldn't think of.
+
+
+IFDEF, but not the normal way, as directives, instead switches within the maros itself.
+and IFNOTDEF.
+
+
+just now I'm thinking about lists, there's also IF_OPT, which ist built upon
+empty "elements". what could be used nearly as a formal programming language.
+There are 4 states given now, undefined, defined, one element, and two or more elements.
+Besides the content.
+
+If you know C, and the macros, well.
+Let's say having an IFDEF within macros is a milestone.
+
+here is the code, anyways.
+
+Oh, there are foreach loops as well. 
+Below, there's the CAT(...) loop, 
+which is needed for IFNOT_DEF, 
+to get all variable macro elements into one single argument.
+Hard to explain. I'm again getting dizzy by the logic..
+
+The reason, I built this, is a getopt framework,
+leaving nearly most of the work to the praeprocessor.
+
+Did spend some passionated time with this.
+
+But somehow this is better to get a grip of then if/else directives.
+The replacements and inserts are at the place, where they are inserted.
+(opposing to headers, where somewhere an ifdef changes this or that macro, often nested)
+afaik this is also the reason, macros should be clearly marked, written in capitals.
+So you know, they could be something different as well.
+
+Not so with these inline IFDEF's, they expand to the content, written at the same location.
+
+There's the boost preprocessor library as well, amongst others.
+However, mising a "pp runtime" ifdef implementation (yet).
+
+
+miSc23
+
+
+
+
+------------------------------
+
+
+//+doc IFDEF(var,...) expands to __VA_ARGS__
+// if var is defined (can also be empty)
+// usage:
+// #define _ifdef_VAR // needed
+//
+// IFDEF( VAR, code to insert )
+//
+// #define VARSTRING IFDEF(VAR)
+// VARSTRING
+//
+// for macros with arguments:
+// #define _ifdef_M(...)
+// #IFDEF( M(a), this is not expanded )
+// #define M(a) a*a
+// #IFDEF( M(a), this is expanded )
+//
+// to use brackets, the brackets have to be put into another macro, 
+// #define M(a) B((a+a)*2)
+// what expands to 1*((a+a)*2)
+// First char of the expansion has to be a letter or digit, which concatenates with _ifdef_ ..
+// #define M(a) 0+((a+a)*2) whould work as well, but could 
+// end in :  3*0+((a+a)*2) .... with a slightly different meaning
+// also possible: #define M(a) 0;((a+a)*2)
+// and:
+// inline char* S(char* s){return(s);}
+// #define M(a) S("a string")
+// --- === might be the best solution, also for numbers.
+//
+// final: 
+// inline int I(int i){ return i; }
+// #define M(a) I((a+a)*2)
+//
+// 
+//
+//+def
+#define IFDEF(_var,...) _IF_DEF( CAT(__VA_ARGS__), _var )
+
+//+def
+#define IF_DEF(_var,...) _IF_DEF( CAT(__VA_ARGS__),_var )
+#define _IF_DEF( _then, _var,... ) IF_OPT(_ifdef_##_var,CAT(_then))
+
+
+
+//+doc if _var is not defined, replace with IFNOTDEF_var
+// _var may not have the content of its own name at the beginning,
+// or it is recognized as undefined.
+//
+// example
+// #define _ifnotdef_VAR2 MARK_UNDEFINED  (needed line)
+// #define IFNOTDEF_VAR2 -- content to fill in. (VAR2) --
+// #define VAR2 1,2,3
+// IFNOTDEF(VAR2)
+//
+//+def
+#define IFNOTDEF_REPLACE(_var) _IFNOTDEF( _##_var, _var )
+#define ___IFNOTDEF(_n,_i1,...) __VA_OPT__( IFNOTDEF##_n )
+#define __IFNOTDEF(_n,_i,...) ___IFNOTDEF(_n,_i)
+#define _IFNOTDEF(_n,_i,...) __IFNOTDEF(_n, _ifnotdef_##_i)
+#define MARK_UNDEFINED __marked__,__as_undefined__
+
+
+//+doc if var is not defined, expand to the variable arguments.
+// usage:
+// #define _ifdef_VAR1
+// IFNOT_DEF( VAR1, this will expand, including commata.
+// inline const char* _S(const char*s){ return s; }
+// #define VAR1 "some value"
+// IFNOT_DEF( VAR1, this will not expand )
+// 
+// VAR1 can also be empty.
+//
+// Same as with IFDEF, IFNDEF can also take macro functions as argument.
+//+def
+#define IFNOT_DEF( var, ... ) _IFNOT_DEF(var, CAT(__VA_ARGS__) )
+#define IFNDEF( var, ... ) _IFNOT_DEF(var, CAT(__VA_ARGS__) )
+
+#define _IFNOT_DEF(var,...) IFNOT_OPT( _ifdef_##var,CAT(__VA_ARGS__))
+
+
+
+//+doc if _var is defined (same as with IFDEF/IFNDEF), _then / _else are inserted.
+// to have code inserted, also containing commata or lists, a CAT(_then) (/_else) is needed.
+//+def
+#define IFELSE_DEF( _var, _then, _else ) IF_DEF(CAT(_var),_then) IFNOT_DEF( CAT(_var), _else )
+
+
+//+doc expands, if _opt is not "empty". (defined, but containing nothing)
+// also expands, if _opt has not been defined. (and consequently expand to its own name)
+//+def
+#define IF_OPT( _opt, ... ) _IF_OPT( CAT(__VA_ARGS__), _opt )
+#define _IF_OPT( _then, ... ) __VA_OPT__( _then )
+
+
+#define __ifnot__EMPTY E1,E2
+
+
+//+doc Expands, if _opt does contain anything. 
+// (is defined as empty macro, e.g. #define MX
+//+def
+#define IFNOT_OPT(_opt,...) _IFNOT_OPT(CAT(__VA_ARGS__),_opt)
+#define ___IFNOT_OPT(a,x,...) __VA_OPT__( a )
+#define __IFNOT_OPT(a,x) ___IFNOT_OPT(CAT(a),x)
+#define _IFNOT_OPT(_if_not,_opt) __IFNOT_OPT(CAT(_if_not),__ifnot__EMPTY##_opt)
+
+
+//+doc expands to either _if, or _else, according to the definition of opt.
+//+def
+#define IFELSE_OPT(_opt,_if,_else) IF_OPT(_opt,CAT(_if)) IFNOT_OPT(_opt,CAT(_else))
+
+
+
+
+//+doc combine all arguments to a,b,c .. (with commata)
+// Several arguments are pushed into one single argument 
+//+def CAT
+#define CAT(...) __VA_OPT__(_CAT0(__VA_ARGS__))
+
+#define __CAT(x) x
+
+#define _CAT0(a,...)    __CAT(a)__VA_OPT__(_CAT1(__VA_ARGS__) )
+#define _CAT1(a,...)   ,__CAT(a)__VA_OPT__( _CAT2( __VA_ARGS__) )
+#define _CAT2(a,...)   ,__CAT(a)__VA_OPT__( _CAT3( __VA_ARGS__) )
+#define _CAT3(a,...)   ,__CAT(a)__VA_OPT__( _CAT4( __VA_ARGS__) )
+#define _CAT4(a,...)   ,__CAT(a)__VA_OPT__( _CAT5( __VA_ARGS__) )
+#define _CAT5(a,...)   ,__CAT(a)__VA_OPT__( _CAT6( __VA_ARGS__) )
+#define _CAT6(a,...)   ,__CAT(a)__VA_OPT__( _CAT7( __VA_ARGS__) )
+#define _CAT7(a,...)   ,__CAT(a)__VA_OPT__( _CAT8( __VA_ARGS__) )
+#define _CAT8(a,...)   ,__CAT(a)__VA_OPT__( _CAT9( __VA_ARGS__) )
+#define _CAT9(a,...)   ,__CAT(a)__VA_OPT__( _CAT10( __VA_ARGS__) )
+#define _CAT10(a,...)   ,__CAT(a)__VA_OPT__( _CAT11( __VA_ARGS__) )
+#define _CAT11(a,...)   ,__CAT(a)__VA_OPT__( _CAT12( __VA_ARGS__) )
+#define _CAT12(a,...)   ,__CAT(a)__VA_OPT__( _CAT13( __VA_ARGS__) )
+#define _CAT13(a,...)   ,__CAT(a)__VA_OPT__( _CAT14( __VA_ARGS__) )
+#define _CAT14(a,...)   ,__CAT(a)__VA_OPT__( _CAT15( __VA_ARGS__) )
+#define _CAT15(a,...)   ,__CAT(a)__VA_OPT__( _CAT16( __VA_ARGS__) )
+#define _CAT16(a,...)   ,__CAT(a)__VA_OPT__( _CAT17( __VA_ARGS__) )
+#define _CAT17(a,...)   ,__CAT(a)__VA_OPT__( _CAT18( __VA_ARGS__) )
+#define _CAT18(a,...)   ,__CAT(a)__VA_OPT__( _CAT19( __VA_ARGS__) )
+#define _CAT19(a,...)   ,__CAT(a)__VA_OPT__( _CAT20( __VA_ARGS__) )
+#define _CAT20(a,...)   ,__CAT(a)__VA_OPT__( _CAT21( __VA_ARGS__) )
+#define _CAT21(a,...)   ,__CAT(a)__VA_OPT__( _CAT22( __VA_ARGS__) )
+#define _CAT22(a,...)   ,__CAT(a)__VA_OPT__( _CAT23( __VA_ARGS__) )
+#define _CAT23(a,...)   ,__CAT(a)__VA_OPT__( _CAT24( __VA_ARGS__) )
+#define _CAT24(a,...)   ,__CAT(a)__VA_OPT__( _CAT25( __VA_ARGS__) )
+#define _CAT25(a,...)   ,__CAT(a)__VA_OPT__( _CAT26( __VA_ARGS__) )
+#define _CAT26(a,...)   ,__CAT(a)__VA_OPT__( _CAT27( __VA_ARGS__) )
+#define _CAT27(a,...)   ,__CAT(a)__VA_OPT__( _CAT28( __VA_ARGS__) )
+#define _CAT28(a,...)   ,__CAT(a)__VA_OPT__( _CAT29( __VA_ARGS__) )
+#define _CAT29(a,...)   ,__CAT(a)__VA_OPT__( _CAT30( __VA_ARGS__) )
+#define _CAT30(a,...)   ,__CAT(a)__VA_OPT__( _CAT31( __VA_ARGS__) )
+#define _CAT31(a,...)   ,__CAT(a)__VA_OPT__( _CAT32( __VA_ARGS__) )
+#define _CAT32(a,...)   ,__CAT(a)__VA_OPT__( _CAT33( __VA_ARGS__) )
+#define _CAT33(a,...) CATLOOP_ERROR - too many arguments
+
+
+// misc, github.com/michael105, CC-BY-SA
