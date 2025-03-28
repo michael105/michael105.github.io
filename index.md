@@ -21,6 +21,16 @@ Easy to remember. I'm not that good with numbers.
 
 (did need a number, which isn't a potency of 2..36. What a prime > 36 cannot be. Most lazy solution. )
 
+...
+
+reading this again. the oneliner is the most simple solution, I could type.
+There are better approaches, found primes should be stored, and there's a gap below the square root,
+where no number can be a factor of b without having a factor below this gap.
+
+Andsoon. Anyways. I leave this the way it is.
+
+
+
 *tags primes*
 
 ---
