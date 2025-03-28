@@ -71,6 +71,10 @@ Others think, it's dangerous, those are criminals.
 
 To cite Orwell: being different is a crime.
 
+I do believe, what J.D.Vance did say in munich, is partially not right.
+He sees several things from an outside perspective.
+But he also talked about a very important point, freedom.
+
 
 *tags ai,orwell*
 *title Orwell and Pratchet do write our reality*
