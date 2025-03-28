@@ -54,6 +54,23 @@ Orwell and Terry Pratchet did team up to write reality, with maniac laughter.
 
 Well, somehow I don't care. I think, it's funny, I like Terry Pratchet. But the dangers are there.
 
+The real problem might be the surveillance.
+People did talk nonsense for all times.
+But it simply wasn't possible to watch all of them.
+
+Where it was done, like in the DDR, and so on, we do know the result.
+
+Now, it is not only possible, it is done more and more.
+Even cryptography could get illegal.
+
+This can get a real problem.
+Especially, since too less people seem to realize, how dangerous this can get.
+
+I believe, it's important for a culture, that there are divergent and special people.
+Others think, it's dangerous, those are criminals. 
+
+To cite Orwell: being different is a crime.
+
 
 *tags ai,orwell*
 *title Orwell and Pratchet do write our reality*
