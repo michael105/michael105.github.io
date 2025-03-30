@@ -1,3 +1,0 @@
-[submodule "blog"]
-	path = blog_submodule
-	url = https://github.com/michael105/blog.git
