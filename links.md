@@ -1,4 +1,3 @@
-{% include_relative header.md %}
 
 
 Good readings, I can recommend
