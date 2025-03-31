@@ -1,4 +1,3 @@
-{% include_relative header.md %}
 
 ## About me
 
@@ -8,49 +7,56 @@
 <br>
 <hr>
 
-### Michael misc147  
+### misc147  
 
 * Germany, Munich 
-* Languages, deep knowledge: Perl, C, C++, Assembler, Shellscript <br>
-* SQL, HTML, CSS, Javascript, Ajax, Java, and knowledge of some other languages<br>
-* Experience: 25 years of development, <br>
+* Languages: C, Perl, C++, German, English
+* Good knowledge of Assembler, Shellscripts, SQL, HTML, CSS, Javascript, Latin, Ancient Greek
+* Experience: 25 years of software development, <br>
   running a software company for several years, 
   freelancing 
 * Native German speaker. Fluent in English. 
 
 ---
-<br>
+
 <br>
 
-### Specializations 
 
+Specializations
+
+* Linux
 * System programming (C, Assembly)
 * Resource usage optimization
+* Web-backends / data processing (Perl,modperl)
+
+
+Experience
+
+* User interface development (wxwidgets,Qt)
 * Databases, database interfaces, data structuring
-* Web-backends / data processing ( Perl, Javascript )
-* System Conception and Administration
-* Analyzing and consulting customer demands 
-* Conception and design of medium to big sized projects
+* System integration and administration
+* Analyzing customer demands, consulting
+* Conception and design of projects
 * Security with C
+* Teaching
 
 
-### Strengths
+Strengths
 
 * Analyzation and communication of requirements
 * Lateral thinking
-* Not limited to informatics with a MA in Philosophy, focuses amongst others on knowledge conceptions, formalizations, modal logic, logic and actuality, ethics, history
-* Core competences of humanity studies include the ability to fastly get into new concepts 
-* Experience in teaching
+* MA in Philosophy, focuses amongst others on knowledge conceptions, formalizations and modal logic
+* Interested to get into new concepts
 * Analytic thinking
-* Usability studies
+* Usability focused
 * Creativity
 * Open minded
 * Reliable
-* Experiences with social works
+* Experience with social work
 * enthusiastic
 
 
-### Weaknesses
+Weaknesses
 
 * Resentments towards Java and Microsoft 
 * enthusiastic
@@ -59,13 +65,23 @@
 
 ---
 
-Several software projects,<br>
-electronics ( development and building of audio equipment ),<br>
-art and design, photography,<br>
-music, music production,<br>
-playing the guitar,<br>
-trekking, travelling, freeclimbing,<br> 
-reading books, Philosophy,<br>
-chess.
+Other things
+
+<pre>
+	Magister Artium (Master of Arts) in Philosophy,
+	minors in History of Physical Science and Technics and
+	History of Science and Universities.
+	Academic studies in Psychology, Sinology, Science of Religion, Archaeology, History, Sociology.
+	Journeyman Automotive Technician.
+	
+	Several opensource software projects,
+	electronics ( development and building of audio equipment ),
+	art and design, photography,
+	music, music production,
+	playing guitar,
+	hiking, travelling, freeclimbing,
+	reading books, Philosophy,
+	chess. Interested in politics.
+</pre>
 
 
