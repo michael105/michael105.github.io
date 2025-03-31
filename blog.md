@@ -1601,12 +1601,6 @@ It's just, a passion and, sort of, point to concentrate on when everything else 
 
 I guess I can be really happy to have this sort of contemplation.
 
-My 'cover' of my 'real life' has been broken.
-
-I won't link back anyways.
-
-There honestly are reasons to separate different images.
-
 
 #### 2020/07
 
@@ -1809,67 +1803,6 @@ Counting some "extras" like sed (18kB) to another 64kBs.
 
 
 #### 2020/04/17
-
-Some time ago, I blogged here.
-
-I should possibly link another blog of mine, albite I tried 
-to put here the "serious" stuff, in the other page(s) I'm sort of presenting
-another side.
-
-Anyways. Atm, I'm (still) concerned about my security.
-I didn't yet have the urge, to really secure my systems,
-exceeding a "normal" security level.
-Some things showed me I obviously got some leaks.
-
-And, the usual "firewall", blocking things from the outside,
-leaving everything from the inside out - well.
-
-Seems to me, finally I stopped some ugly behaviour.
-E.g., my hd always went full, but I wasn't able to pinpoint the problem.
-Neither the disk usage showed the problem.
-
-Going to upload some of the solutions I found for generic problems,
-as soon I finished.
-Implemented an allpication level firewall for linux, amongst others.
-Since I already wrote some Gui(s) for generic tabular data representation
-and alteration, probably an application level firewall gui is my next project. 
-Have to check, how much time this would need.
-
-
-Meanwhile, I stumbled about an quite interesting article.
-Optimizations for C.
-
-(snip)
-
-#### 2020/04/17
-
-Some time ago, I blogged here.
-
-I should possibly link another blog of mine, albite I tried
-to put here the "serious" stuff, in the other page(s) I'm sort of presenting
-another side.
-
-Anyways. Atm, I'm (still) concerned about my security.
-I didn't yet have the urge, to really secure my systems,
-exceeding a "normal" security level.
-Some things showed me I obviously got some leaks.
-
-And, the usual "firewall", blocking things from the outside,
-leaving everything from the inside out - well.
-
-Seems to me, finally I stopped some ugly behaviour.
-E.g., my hd always went full, but I wasn't able to pinpoint the problem.
-Neither the disk usage showed the problem.
-Anyways, I guess, I should be really paranoic now.
-So - :/ reinstall. As soon, as I have a new hd.
-Which also broke.
-
-Going to upload some of the solutions I found for generic problems,
-when I finished.
-Implemented an allpication level firewall for linux, amongst others.
-Since I already wrote some Gui(s) for generic tabular data representation
-and alteration, probably an application level firewall gui is my next project.
-Have to check, how much time this would need.
 
 
 Meanwhile, I stumbled about an quite interesting article.
