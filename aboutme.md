@@ -11,7 +11,7 @@
 
 * Germany, Munich 
 * Languages: C, Perl, C++, German, English
-* Good knowledge of Assembler, Shellscripts, SQL, HTML, CSS, Javascript, Latin, Ancient Greek
+* Good knowledge of Assembler, Shellscripts, SQL, HTML, CSS, Javascript
 * Experience: 25 years of software development, <br>
   running a software company for several years, 
   freelancing 

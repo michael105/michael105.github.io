@@ -36,8 +36,6 @@ up: html
 	git commit -a -m `date +%Y/%M/%d` 
 	git push 
 
-	#gtam blog
-	#git push github
 
 #up: allpages
 #	( git commit -a -m 'Update' $(gitflag) && git push $(gitflag)) || true
