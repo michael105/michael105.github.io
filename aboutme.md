@@ -39,6 +39,7 @@ Experience
 * Conception and design of projects
 * Security with C
 * Teaching
+* AI (therefore python)
 
 
 Strengths
