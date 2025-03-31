@@ -47,7 +47,7 @@ pre {
    font-size: 1.1em;
 	 color: darkblue;
 	 font-weight: 500;
-	 border-left: 2px double blue;
+	// border-left: 2px double blue;
 	 padding-left: 0px;
 	 margin-left: 60px;
 }
@@ -98,7 +98,7 @@ code {
 	 //color: darkblue;
 	 color: #04198c;
 	 font-weight: 500;
-	 border-left: 2px double blue;
+	// border-left: 2px double blue;
 	 padding-left: 10px;
 }
 

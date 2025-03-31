@@ -4,13 +4,34 @@
 ---
 
 
+#### 2025/03/31
+
+Compiling two source formatters, to highlight sources in html.
+
+While waiting, I realize - this takes ages, the tools are written in c++.
+
+It's quite amazing, how deep macros in C can be nested, without 
+taking too long to compile.
+
+With c++ - well. Now it finished. might had been 10 minutes
+for a small tool.
+
+Oh. Now I see, why it took that long.
+The tool's binary to highlight sources does have 23MB.
+
+
+
 
 #### 2025/03/27
 
 
 For some reason, I did look for primes.
 
-`perl -e 'my $b = shift; print "sqrt: ",sqrt($b),"\n";for my $a (2..sqrt($b)){ if ( int($b/$a)*$a == $b ){ print "a: $a\n"; } }' 0xffffffff`
+`perl -e 'my $b = shift; print "sqrt: ",sqrt($b),"\n";\
+		for my $a (2..sqrt($b)){ \
+			if ( int($b/$a)*$a == $b ){ \
+				print "a: $a\n"; \
+			} }' 0xffffffff`
 
 (factorize/ to be exact, find all factors of/ the argument)
 
