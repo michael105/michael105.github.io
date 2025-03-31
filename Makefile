@@ -33,8 +33,8 @@ build/%.md: %.md.in *.inc
 
 	
 up: html
-	gtamp
-
+	git commit -a -m `date +%Y/%M/%d` 
+	git push github
 
 	#gtam blog
 	#git push github
