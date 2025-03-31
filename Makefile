@@ -33,8 +33,11 @@ build/%.md: %.md.in *.inc
 
 	
 up: html
-	gtam blog
-	git push github
+	gtamp
+
+
+	#gtam blog
+	#git push github
 
 #up: allpages
 #	( git commit -a -m 'Update' $(gitflag) && git push $(gitflag)) || true
