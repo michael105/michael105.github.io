@@ -41,9 +41,9 @@ in Erlangen back then, and wrote a recursive brute force attack.
 [./logik.pl.html](logik.pl.html)
 
 
-One of these riddles, I wrote the script for, is here: [Chaos Firma in Sibirien](https://philognosie.net/denken-lernen/witziger-logiktrainer-chaos-firma-in-sibirien)(German)
+One of those riddles, I wrote the script for, is here: [Chaos Firma in Sibirien](https://philognosie.net/denken-lernen/witziger-logiktrainer-chaos-firma-in-sibirien)(German)
 
-Now, using the script for the solution is an new problem.
+Now, using the script for the solution is a new problem.
 These formalizations sometimes are a bit quirky.
 
 However, I did had been satisifed, after I've had been able to solve several riddles with the script,
@@ -68,6 +68,8 @@ totp I'm using myself for several years now.
 
 It solves the problem of the need to have a correct system time
 by syncronizing the time of the tokens via sntp to a network time server.
+The token of the next timestep is displayed as well, no waiting for 5 or 10 seconds anymore.
+The tokens can be displayed via dzen as small overlay at a corner of the screen.
 
 
 (https://github.com/michael105/totp)
