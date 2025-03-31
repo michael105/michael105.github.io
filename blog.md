@@ -1289,7 +1289,7 @@ My current problem are relative return addresses.
 
 ehm. wait. probably my problem is about position dependent executables.
 
-Ok. checked it. The PIC flag did has been part of my trouble.
+Ok. checked it. The PIC flag did had been part of my trouble.
 I tried, amongst others, to jump into naked functions.
 
 The fun part of this construction is, 
