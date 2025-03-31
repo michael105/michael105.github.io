@@ -1932,7 +1932,7 @@ what I should stop. I like the arrow, but just now I realize,
 a is tested to be greater than -1.
 Therefore an additional comparison is needed.
 
-So, I did check.
+I did check.
 Code below.
 
 
@@ -1945,8 +1945,16 @@ loops with while ( a-- ) will again compare a with -1.
 so, best way is: while ( --a ) or for ( int i = 5; i; i-- )
 
 
+Just now, I'm wondering a bit, since within C you need to see while ( a-- ) as:
+if a is not 0, decrement a, and loop.
+However, gcc does something else: decrement a. If a is > -1, loop.
+Therefore, after the loop. a is -1.
+
+
+
+
 Testcode and disassembly below. 
-The inline asm is useful, to grep for the symbolic labels. (marks)
+The inline asm is there to mark with symbolic labels. 
 
 
 

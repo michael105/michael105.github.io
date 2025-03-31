@@ -2013,7 +2013,7 @@ or while ( a &#8211;&#62; 0 )</p>
 a is tested to be greater than -1.
 Therefore an additional comparison is needed.</p>
 
-<p>So, I did check.
+<p>I did check.
 Code below.</p>
 
 <p>By writing while ( a &#8211;&#62; 1 ) again only two instructions are generated.
@@ -2024,8 +2024,13 @@ and a will be 0 after the loop.</p>
 
 <p>so, best way is: while ( &#8211;a ) or for ( int i = 5; i; i&#8211; )</p>
 
+<p>Just now, I&#8217;m wondering a bit, since within C you need to see while ( a&#8211; ) as:
+if a is not 0, decrement a, and loop.
+However, gcc does something else: decrement a. If a is &#62; -1, loop.
+Therefore, after the loop. a is -1.</p>
+
 <p>Testcode and disassembly below. 
-The inline asm is useful, to grep for the symbolic labels. (marks)</p>
+The inline asm is there to mark with symbolic labels. </p>
 
 <pre><code>
     writesl("===== while =====");
@@ -2235,8 +2240,6 @@ The inline asm is useful, to grep for the symbolic labels. (marks)</p>
  8048dda:   eb e7                   jmp    8048dc3 &#60;mark5+0x5&#62;
 
 </code></pre>
-
-<p>Darn</p>
 
 <script src="https://giscus.app/client.js"
         data-repo="michael105/michael105.github.io"
