@@ -27,8 +27,7 @@ And I was fascinated by the moving pictures.
 Since I started programming with gwbasic in 1990, I also realized, 
 in how genius the hackers have been, realizing such animations at the quite restricted hardware back then.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/XezcZVu66QI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
+<iframe width="560" height="315" src="https://www.youtube.com/embed/iw17c70uJes" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
 
