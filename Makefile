@@ -34,7 +34,7 @@ build/%.md: %.md.in *.inc
 	
 up: html
 	git commit -a -m `date +%Y/%M/%d` 
-	git push github
+	git push 
 
 	#gtam blog
 	#git push github
