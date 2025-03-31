@@ -5,6 +5,11 @@
 Rebuilding pages (2025/03)
 
 
+Somehow, I'm not satisfied.
+
+Maybe I should strip all those colors.
+
+It's 'nice'. But I'd like to focus on the content.
 
 
 
