@@ -1911,342 +1911,257 @@ We can also use register allocation, which leads to more efficient code elsewher
 ```
 
 
-#### 2020/02/11
-
-Good morning.
-
-I don't know, why. But, somehow,
-I'm getting up earlier and earlier.
-Maybe, cause I see I've got things to do.
-
-So, my plan for today:
-
-I did some changes to minilib; they are within the devel branch yet.
-Like to push them to master.
+..2025,misc
 
-Also, regarding minilib: ANSI-C is close.
-And much of POSIX-C is written.
-If I can take the time today, I'd love to push that forward.
-The point is close, where one could build an entire basic linux system 
-with minilib. Which would be a real milestone.
-And also one of m other plans; having a solid and secure "minicore";
-above one can build a linux distribution.
-It's thought like this: The core should be rock solid. Just the core,
-literary. Above that, you can build, whatever you want.
-And the core should provide security related functionality.
-E.g. password and user management, the firewall, syslogs.
-I'm thinking about how to minimize memory usage of the core related services.
-Every taskswitch needs resources. 
-The core functionality is needed quite often,
-every time, something is logged, e.g.
-So, having a tiny core, counting in kilobytes, does have real advantages
-in terms of responsibility and resource usage, of the whole system.
+Reevaluating, what I've written and copied.
 
+This might be only partially right.
+It is quite often surprising, what compilers (I did most with gcc) do generate.
 
-Ok. That's what I'd like to do.
+From the assembler view, it might be better to write for ( int a = 9; --a; )
 
-Then, there IS to do:
-I need to move. Have to call some people, and see, where I'm going to travel now.
-ATM, some things seem to force me travelling. ;) Could be worse.
+This should break down to two single instructions. ( dec %[a]; jz endloop )
 
-I have to take care of my money. I did see a job offer today,
-which could be my dream. Remote work, and some travelling.
-Have to apply. Today.
+However, if 'a' isn't used in the loop, gcc *can* be smart enough.
+It depends.
 
-I really should do some music.
-Albite, atm, my macbook is dead. :( 
-And somehow, this really slows me down.
-I'm used to open this thing, and do music, no matter where I am.
-That's. But, I should do some music, and record this time, no matter of the circumstances.
+Me, I'm writing for ( int a = 10; a --> 0 ; )
+or while ( a --> 0 )
 
-Linkedin I'm going to push a bit.
-I guess, yet I underestimated the power of social networks.
-Ok. I'm a opensource developer, not a manager, you know. Anyways. 
-I should improve myself.
+what I should stop. I like the arrow, but just now I realize, 
+a is tested to be greater than -1.
+Therefore an additional comparison is needed.
 
+So, I did check.
+Code below.
 
-I should change the harddisk in my notebook.
-Somehow the free space is. well. too less.
-And I got another disk with me, 
-I'm just fearing the work, copying my current development system (Arch Linux), andsoon.
 
-I need a dictionary, on my hd. Not sure, wheter I'm going to have fast enough internet, where I'm moving.
-So better take care in advance.
+By writing while ( a --> 1 ) again only two instructions are generated.
+But this seems a bit misleading to me, the last loop will be with a==1,
+and a will be 0 after the loop.
 
-I should say thanks for the accomodation to the good friend, where I'm now.
-Have to think about what I could do for her.
+loops with while ( a-- ) will again compare a with -1.
 
-Finally, I should setup a real blog.
-ATM, I'm blogging at several places.
-That's partially, cause I do have sort of several lifes.
-And I don't want to have my postpubertying ego, writing down it's anger about some peculiar circumstances,
-doing this at these more serious pages here.
+so, best way is: while ( --a ) or for ( int i = 5; i; i-- )
 
-But, somehow, I need to reintegrate. Or not.
-It's about what I am. And parts of me do an entirely different carreer.
-It is more than naturally, separating these parts in public.
-Albite, that has nothing to do with me, and my personality.
-I believe I'm a quite unified person.
-I'm just having trouble with some other people,
-who force me to, e.g., travel. And who also seem to think the craziest things about me.
-These people seem to have a problem with me, and even managed to force me out of my flat.
-Where I'm not going again, until I can afford the money for some lawyers.
-;) possibly they didn't like my music.
-Or, whatever. But one should be able to communicate. 
-My unloved neighbour - she even isn't able to communicate,
-when you talk to her friendly, saying repeatedly she should talk, when there is anything.
-Naaa. Instead. She does crazy and violent things. Stupid.
 
-The good thing: I'm travelling. I'm visiting good friends. I'm thinking about howto monetize
-some of my knowledge of IT.
-And I'm working quite straight, somehow. Possibly I should be travelling for some longer.
-Seems to do me good.
+Testcode and disassembly below. 
+The inline asm is useful, to grep for the symbolic labels. (marks)
 
-##### 12:30
 
-Uuuhm.
 
-Sort of successfull.
-I did some more networking at linkedin.
-Writing more about me at my profile.
+```
 
-Some communication. And again, this took 5 hours yet. (or even 6?)
+	writesl("===== while =====");
 
-That's the part, I'm having trouble with. Do things in the right order; 
-especially thats true for things, I don't like to do.
-I'm able to do so. But. Anyways. I still do have another half of today.
+	asm("while:\n");
+	int i = 5;
+	do {
+		printf("i%d\n",i);
+	} while( i-->1 ); // 1
+	printf("i out %d\n",i);
 
-So - left is: my application, my accomodation for the next days, the dictionary.
+	writesl("=====");
+	asm("while2:\n");
+	 i = 5;
+	do {
+		printf("i%d\n",i);
+	} while( i-->0 ); // 0
 
-Some todo list, I could place here at github.
-Ok. This I'm going to do now.
+	writesl("=====");
+	asm("while3:\n");
+	 i = 5;
+	do {
+		printf("i%d\n",i);
+	} while( i-- ); // 0
+
+
+	writesl("=====");
+	asm("while4:\n");
+	 i = 5;
+	do {
+		printf("i%d\n",i);
+	} while( --i );  // 1
+
+
+
+	writesl("===== for =====");
+
+	asm("mark:\n");
+	for (int i = 6; i-->1; ){
+		printf("i%d\n",i);
+	}
+
+	for (int i = 6; i-->0; ){
+		printf("i%d\n",i); // 5..0
+	}
+
+
+
+	asm("mark2:\n");
+	for (int i = 6; i;i-- ){
+		printf("i%d\n",i); // 6..1
+	}
+
+	asm("mark3:\n");
+	for (int i = 0; i<=5;i++ ){
+		writesl("====="); // This gets unrolled. (with -Os (!))
+	}
+
+	asm("mark4:");
+	for( int i = 5; i--; )
+		printf("i: %d\n",i); // 4 3 2 1 0
+									//
+
+	asm("mark5:");
+	for( int i = 5; --i; )
+		printf("i: %d\n",i); // 4 3 2 1 
+```
+
+gcc -Os
+
+
+```
+0000000008048c46 <while>:
+ 8048c46:	bb 05 00 00 00       	mov    $0x5,%ebx
+ 8048c4b:	89 da                	mov    %ebx,%edx
+ 8048c4d:	31 c0                	xor    %eax,%eax
+ 8048c4f:	be d5 8e 04 08       	mov    $0x8048ed5,%esi
+ 8048c54:	bf 01 00 00 00       	mov    $0x1,%edi
+ 8048c59:	e8 5b fe ff ff       	callq  8048ab9 <_dprintf.constprop.0>
+ 8048c5e:	ff cb                	dec    %ebx
+ 8048c60:	75 e9                	jne    8048c4b <while+0x5>
+ 8048c62:	31 d2                	xor    %edx,%edx
+ 8048c64:	be da 8e 04 08       	mov    $0x8048eda,%esi
+ 8048c69:	bf 01 00 00 00       	mov    $0x1,%edi
+ 8048c6e:	31 c0                	xor    %eax,%eax
+ 8048c70:	e8 44 fe ff ff       	callq  8048ab9 <_dprintf.constprop.0>
+ 8048c75:	b8 01 00 00 00       	mov    $0x1,%eax
+ 8048c7a:	be ce 8e 04 08       	mov    $0x8048ece,%esi
+ 8048c7f:	ba 06 00 00 00       	mov    $0x6,%edx
+ 8048c84:	89 c7                	mov    %eax,%edi
+ 8048c86:	0f 05                	syscall 
+
+0000000008048c88 <while2>:
+ 8048c88:	bb 05 00 00 00       	mov    $0x5,%ebx
+ 8048c8d:	89 da                	mov    %ebx,%edx
+ 8048c8f:	be d5 8e 04 08       	mov    $0x8048ed5,%esi
+ 8048c94:	bf 01 00 00 00       	mov    $0x1,%edi
+ 8048c99:	31 c0                	xor    %eax,%eax
+ 8048c9b:	e8 19 fe ff ff       	callq  8048ab9 <_dprintf.constprop.0>
+ 8048ca0:	ff cb                	dec    %ebx
+ 8048ca2:	83 fb ff             	cmp    $0xffffffff,%ebx
+ 8048ca5:	75 e6                	jne    8048c8d <while2+0x5>
+ 8048ca7:	b8 01 00 00 00       	mov    $0x1,%eax
+ 8048cac:	be ce 8e 04 08       	mov    $0x8048ece,%esi
+ 8048cb1:	ba 06 00 00 00       	mov    $0x6,%edx
+ 8048cb6:	89 c7                	mov    %eax,%edi
+ 8048cb8:	0f 05                	syscall 
+
+0000000008048cba <while3>:
+ 8048cba:	bb 05 00 00 00       	mov    $0x5,%ebx
+ 8048cbf:	89 da                	mov    %ebx,%edx
+ 8048cc1:	be d5 8e 04 08       	mov    $0x8048ed5,%esi
+ 8048cc6:	bf 01 00 00 00       	mov    $0x1,%edi
+ 8048ccb:	31 c0                	xor    %eax,%eax
+ 8048ccd:	e8 e7 fd ff ff       	callq  8048ab9 <_dprintf.constprop.0>
+ 8048cd2:	ff cb                	dec    %ebx
+ 8048cd4:	83 fb ff             	cmp    $0xffffffff,%ebx
+ 8048cd7:	75 e6                	jne    8048cbf <while3+0x5>
+ 8048cd9:	b8 01 00 00 00       	mov    $0x1,%eax
+ 8048cde:	be ce 8e 04 08       	mov    $0x8048ece,%esi
+ 8048ce3:	ba 06 00 00 00       	mov    $0x6,%edx
+ 8048ce8:	89 c7                	mov    %eax,%edi
+ 8048cea:	0f 05                	syscall 
+
+0000000008048cec <while4>:
+ 8048cec:	bb 05 00 00 00       	mov    $0x5,%ebx
+ 8048cf1:	89 da                	mov    %ebx,%edx
+ 8048cf3:	31 c0                	xor    %eax,%eax
+ 8048cf5:	be d5 8e 04 08       	mov    $0x8048ed5,%esi
+ 8048cfa:	bf 01 00 00 00       	mov    $0x1,%edi
+ 8048cff:	e8 b5 fd ff ff       	callq  8048ab9 <_dprintf.constprop.0>
+ 8048d04:	ff cb                	dec    %ebx
+ 8048d06:	75 e9                	jne    8048cf1 <while4+0x5>
+ 8048d08:	b8 01 00 00 00       	mov    $0x1,%eax
+ 8048d0d:	be e4 8e 04 08       	mov    $0x8048ee4,%esi
+ 8048d12:	ba 10 00 00 00       	mov    $0x10,%edx
+ 8048d17:	89 c7                	mov    %eax,%edi
+ 8048d19:	0f 05                	syscall 
+
+0000000008048d1b <mark>:
+ 8048d1b:	bb 06 00 00 00       	mov    $0x6,%ebx
+ 8048d20:	ff cb                	dec    %ebx
+ 8048d22:	74 15                	je     8048d39 <mark+0x1e>
+ 8048d24:	89 da                	mov    %ebx,%edx
+ 8048d26:	be d5 8e 04 08       	mov    $0x8048ed5,%esi
+ 8048d2b:	bf 01 00 00 00       	mov    $0x1,%edi
+ 8048d30:	31 c0                	xor    %eax,%eax
+ 8048d32:	e8 82 fd ff ff       	callq  8048ab9 <_dprintf.constprop.0>
+ 8048d37:	eb e7                	jmp    8048d20 <mark+0x5>
+ 8048d39:	bb 06 00 00 00       	mov    $0x6,%ebx
+ 8048d3e:	ff cb                	dec    %ebx
+ 8048d40:	83 fb ff             	cmp    $0xffffffff,%ebx
+ 8048d43:	74 15                	je     8048d5a <mark2>
+ 8048d45:	89 da                	mov    %ebx,%edx
+ 8048d47:	be d5 8e 04 08       	mov    $0x8048ed5,%esi
+ 8048d4c:	bf 01 00 00 00       	mov    $0x1,%edi
+ 8048d51:	31 c0                	xor    %eax,%eax
+ 8048d53:	e8 61 fd ff ff       	callq  8048ab9 <_dprintf.constprop.0>
+ 8048d58:	eb e4                	jmp    8048d3e <mark+0x23>
+
+0000000008048d5a <mark2>:
+ 8048d5a:	bb 06 00 00 00       	mov    $0x6,%ebx
+ 8048d5f:	89 da                	mov    %ebx,%edx
+ 8048d61:	31 c0                	xor    %eax,%eax
+ 8048d63:	be d5 8e 04 08       	mov    $0x8048ed5,%esi
+ 8048d68:	bf 01 00 00 00       	mov    $0x1,%edi
+ 8048d6d:	e8 47 fd ff ff       	callq  8048ab9 <_dprintf.constprop.0>
+ 8048d72:	ff cb                	dec    %ebx
+ 8048d74:	75 e9                	jne    8048d5f <mark2+0x5>
+
+0000000008048d76 <mark3>:
+ 8048d76:	bf 01 00 00 00       	mov    $0x1,%edi
+ 8048d7b:	be ce 8e 04 08       	mov    $0x8048ece,%esi
+ 8048d80:	ba 06 00 00 00       	mov    $0x6,%edx
+ 8048d85:	89 f8                	mov    %edi,%eax
+ 8048d87:	0f 05                	syscall 
+ 8048d89:	89 f8                	mov    %edi,%eax
+ 8048d8b:	0f 05                	syscall 
+ 8048d8d:	89 f8                	mov    %edi,%eax
+ 8048d8f:	0f 05                	syscall 
+ 8048d91:	89 f8                	mov    %edi,%eax
+ 8048d93:	0f 05                	syscall 
+ 8048d95:	89 f8                	mov    %edi,%eax
+ 8048d97:	0f 05                	syscall 
+ 8048d99:	89 f8                	mov    %edi,%eax
+ 8048d9b:	0f 05                	syscall 
+
+0000000008048d9d <mark4>:
+ 8048d9d:	bb 05 00 00 00       	mov    $0x5,%ebx
+ 8048da2:	ff cb                	dec    %ebx
+ 8048da4:	83 fb ff             	cmp    $0xffffffff,%ebx
+ 8048da7:	74 15                	je     8048dbe <mark5>
+ 8048da9:	89 da                	mov    %ebx,%edx
+ 8048dab:	be f5 8e 04 08       	mov    $0x8048ef5,%esi
+ 8048db0:	bf 01 00 00 00       	mov    $0x1,%edi
+ 8048db5:	31 c0                	xor    %eax,%eax
+ 8048db7:	e8 fd fc ff ff       	callq  8048ab9 <_dprintf.constprop.0>
+ 8048dbc:	eb e4                	jmp    8048da2 <mark4+0x5>
+
+0000000008048dbe <mark5>:
+ 8048dbe:	bb 05 00 00 00       	mov    $0x5,%ebx
+ 8048dc3:	ff cb                	dec    %ebx
+ 8048dc5:	74 15                	je     8048ddc <mark5_asm>
+ 8048dc7:	89 da                	mov    %ebx,%edx
+ 8048dc9:	be f5 8e 04 08       	mov    $0x8048ef5,%esi
+ 8048dce:	bf 01 00 00 00       	mov    $0x1,%edi
+ 8048dd3:	31 c0                	xor    %eax,%eax
+ 8048dd5:	e8 df fc ff ff       	callq  8048ab9 <_dprintf.constprop.0>
+ 8048dda:	eb e7                	jmp    8048dc3 <mark5+0x5>
+
+```
 
-
-
-
-#### 2020/02/10
-
-Life is an adventure.
-
-In the need of falling back to some of my resources,
-meaning, good friends and my knowledge and experience in informatic technologies,
-suddenly, this starts to get fun.
-
-I always preferred doing some development work just for fun.
-It's a soothing puzzle to me,
-other people watch television,
-I do either music or some development puzzles.
-
-However - sometimes life changes, and, well, I always did know,
-I do have some things in my background.
-
-And, my opensource engagement obviously pays out.
-
-So, quite gripping, I'm travelling along, visiting good friends, 
-and building a network for my (now) business, I'm going to work again.
-
-Btw., when you've got linkedin, would be glad if you'd connect with me:
-[linked.in](https://linked.in/in/michael-scondo)
-
-Cheers, Michael
-
-
-#### 2020/01/05
-
-##### Happy new year everyone!
-
-I better do not say, it can only get better - it could always be worse.
-
-so. Just my best wishes to anyone.
-
-Found a interesting reading about the state of software development 
-written by Rob Pike, and dating back to the year 2000.
-
-A quote: 
-> Ironically, at a time when computing is almost the definition of innovation, research in both software and hardware at universities and much of industry is becoming insular, ossified, and irrelevant.
-
-
-.. still true. Read on: [http://doc.cat-v.org/bell_labs/utah2000/utah2000.html](http://doc.cat-v.org/bell_labs/utah2000/utah2000.html)
-
-
-Oh. Some further readings: [The Bell System Technical Journal 1922-1983](https://archive.org/details/bstj-archives)
-
----
-
-oh. That's surprising. 
-Unaligned memory access is way faster when aligned?? Am I reading wrong?
-Or, if I get this right, the conclusion might be, don't use data structures, 
-aligned and with a power of two. I'm still surprised.
-Although this is somehow logical; when the data exactl would fit into a cache,
-ever byte more will cause a cache miss. Why I sometimes used to set the size of structures to just a few bytes
-below a power of two. Anyways. I learnd something new.
-https://danluu.com/3c-conflict/
-
-Compare here: 
-- https://danluu.com/new-cpu-features/
-- https://people.freebsd.org/~lstewart/articles/cpumemory.pdf
-- this diskussion, Torvalds et al.. [https://groups.google.com/forum/#!msg/comp.arch/_uecSnSEQc4/mvfRnOvIyzUJ](https://groups.google.com/forum/#!msg/comp.arch/_uecSnSEQc4/mvfRnOvIyzUJ)
-
-
-
-
-#### 2019/12/28
-
-Just created a new project for a sort algorithm implementation, I'm calling bitsort.
-It's a implementation, being in most cases about twice as fast as glibc qsort, for example.
-(That's my claim, at least - have to reevaluate at the machines, I can get a grip on.
-I did this implementation more than 10 years before)
-
-I somehow guess, I should publish a quite nice compression algorithm as well - 
-the decompressor implementation are three(!) lines of code, in the unoptimized version.
-
-
-
-
-#### 2019/12/21
-
-Well. There's an Austrian regisseur. Hader. Why the heck does he write my life??
-That's to change.
-
-However. In the "morning" I preferrably drink coffee. 4 cups. And let my thoughts free.
-Today, I came upon an ineteresting question: You can regard programming as an Aristotelic approach of
-getting grip of the world.
-The whole object oriented approach can be seen as an Aristotelic conception.
-Species, genre, individuum - classes, objects, instances. Andsoon.
-
-So what would be a Platonic conception?
-
-*I for myself say I'm a Platonician, furthermore, Aristoteles is read completely wrong. 
-Besides we don't know which documents are really "written" by Aristoteles,
-most writings are just compilations of fragments, sometimes someone did have the 
-meaning this or that sentence could haven been written by Aristoteles -- 
-I'd also say Aristoteles.. uh. That's going to be too lengthy. But my meaning to (the construction of) Aristoteles
-would be, he's a Platonician - who didn't get Plato right.*
-
-Back to software and Plato. Plato's conception of the world is mostly related to the ideas.
-These, in turn, are somehow a paradox conception, being hard to understand.
-They are in the world of the ideas, separated by our world, they are the being of itself.
-
-However, they also are the essence of all things in our world.
-All we understand, we just get the idea of it, not the thing itself.
-
-So this also might be the Platonic approach of software development.
-
-Instead of abstracting, differenciating (e.g. a button, which has the attribute of being clickable),
-it's about the idea and the inner intent. 
-So the button could be represented as an object, which is there to be clicked and initiate an action.
-In which way the button is represented is secondary. 
-
-I guess, we all use this conception, one could name "Platonic", without knowing it.
-
-But when thinking about it - e.g. most UI libraries are obviously written with the Aristotelic approach.
-
-Firstly, the visual representation of the Button is designed, and how it fits into the other elements of the UI.
-Then, the possible attributes are implemented. The example given, being clickable.
-
-However, I'd say, the visual representation is not the important aspect of a Button.
-The important aspect is the intent, to be clickable, and .. 
-
-I need more coffee. And better stop this writing for now.
-
-..rereading - I've to rethink the beginning, cause when naming this approach "Platonic",
-there's also a Platonic object oriented approach. What somehow negates my initial sentences.
-
-So. I rethink. drink more coffee. And leave this entry, as it is. 
-It's a blog and not a scientific publication.
-
-... So. seems to me, what I tried to characterize as a Platonic conception of software development
-overlaps in many points with the concept of Agile Software Development. [(Wikipedia: Agile Software Development)](https://en.wikipedia.org/wiki/Agile_software_development)
-
-I push these thoughts onto my stack for now. 
-
-
-
-#### 2019/12/20
-
-... Two things to put on top: Get a linkedin account. And read a book. 
-
-
-#### 2019/12/18
-
-Somehow I got the feeling,
-I should raise an old project/idea especially.
-
-It's about sort algorithms. To be more exact, 
-it's about howto sort and take most advantage of the cashelines/memory access/instruction set. 
-
-I did this about ten years before, and also implemented the algorithm in Perl/C/Assembly.
-
-The results are overall surprising.
-
-- Firstly, my algorithm is in most cases about 50% faster than, e.g., gnu glibc sort(quicksort), but also faster than other approaches.
-But I don't remember exactly, I should reinvestigate the results again..
-- Although the algorithm utilizes a conquer and divide approach; for datasets below, say, 10 or 100MB,
-parallelization doesn't give much of an advantage. The syncronization overhead is too expensive;
-and I tried different techniques, also spinlocks / combined with XCHANGE (or so, it has been ten years ago).
-- C is faster than perl, but not much. Even when optimized.
-- Same for Assembly; Assembly is faster than C (gnu gcc), WHEN optimized right. 
-
-I guess, the methodology of my algorithm has been overseen; simply,
-cause normally you think in terms of complexity. Which isn't the same as efficiency.
-
-Complexity is a heuristic approach, which is useful. 
-But the other factors also have to be taken in account.
-
-In computing terms, we simply do not have turing machines.
-Instead, there are memory cashelines, instruction pipelines, jump predictions, 
-parallel instruction processing, and so on.
-
-While the compiler is very often suprisingly good in optimizing --
-e.g. the choice of the algorithm as well as the prediction on the datasets (size,entropy,..) has to be done by humans(yet).
-
-At which point my philosophical education could jump in, but I'm going to write
-about my thoughts on the differences of humans and machines another time.
-
-
-Somehow crazy, but I got the feeling, I should make clear I'm the discoverer of this sorting approach.
-I'm still not sure, whether this algorithm really gives such an andvantage. Simply,
-cause I'm not experienced in big data or mainframe computing. However,
-well. My feelings. Sometimes I've got the feeling, I'd better close my eyes when walking around.
-And should listen to my feelings. Cause when looking around, I'm going to surely stamp into every puddle
-and piece of sxxx on my way.
-
-I really do not know, what is happening these days. Somehow the people around me, well, are nervous.
-
-And I'm looking for the reason, but I'm unable to find one.
-Possibly, cause there's none. However, there's a slight possibilty, ~~xxxxx ..??~~
-This also seems wrong. Possibly nothing is wrong, and I'm just looking for nothing;
-which is quite hard to detect, logically. Dunno.
-
-Which should be harder now. And it's just another guess of mine.
-I simply don't know anything.
-
-
-~~Happily, I'm not easy to infect with nervousity.~~
-It's possibly more honest, I'm able to cope
-with high tensions. I did freeclimbing for more than ten years, and there you've to learn to cope
-with your fears. Not willingly you will get from time to time into real dangers. And when you are going to cramp,
-cause you let the fear control your body, you'll drop. Which sometimes wouldn't be good at all.
-But, at the moment, I'm still like WTF what is going on WTF. And everyone keeps suggesting me different directions.
-
-Also remembering me onto freeclimbing.
-Sometimes, people try cheering you to keep going.
-Everyone reacts in another way on the cheering, 
-so within your climbing group you normally know, what to yell, when someone fights with his route.
-
-Which is quite funny. One has to be insulted, like "UUhh you'll never do it, looser", and so on.
-The other has to be praised and lauded, that she's a great climber, did really well, she's looking wonderful,..
-Me responding best to positive suggestions.
-
-Worst thing however in all cases might be, when people yell contradicting instructions.
-That's like -- right? left?? eh, what?? -- even worse, you'll get into thinking. Which is not what you have the time for,
-when climbing at your limit. The conclusions might show up more detailed in these "extreme" situations.
-But should be applicable in normal life as well. 
-
-And there's the experience, I possibly should heed on now. 
-Whatever you do, keep climbing. If you're in the wrong direction, you'll possibly drop.
-But when you stand still, you'll drop for sure, since your strengths cannot hold on forever.
-So better keep climbing. 
 
 <script src="https://giscus.app/client.js"
         data-repo="michael105/michael105.github.io"

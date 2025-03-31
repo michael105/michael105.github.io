@@ -12,6 +12,11 @@ Maybe I should strip all those colors.
 It's 'nice'. But I'd like to focus on the content.
 
 
+The license for the content and code samples at the pages michael105.github.io is CC-BY-SA 4.0,
+if not othwerwise noted.
+
+
+
 
 
 <script src="https://giscus.app/client.js"
