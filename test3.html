@@ -1,0 +1,65 @@
+<html>
+	<head>
+	<title>Test number 2</title>
+
+
+<script>
+    window.onload = function() {
+      const observer = new MutationObserver(function(mutations) {
+        window.parent.postMessage({ height: document.body.scrollHeight, iframeId: window.frameElement.id }, '*'); // Sende die ID des iFrames mit
+      });
+
+      const config = {
+        attributes: true,
+        childList: true,
+        subtree: true,
+        characterData: true
+      };
+
+      observer.observe(document.body, config);
+      window.parent.postMessage({ height: document.body.scrollHeight, iframeId: window.frameElement.id }, '*'); // Initial resize
+    };
+  </script>
+
+
+	</head>
+	<body>
+
+		test 3 xxx
+
+
+		some content..
+		<hr>
+
+		sah
+
+		sakjf
+
+		<h1>ksadhfiudsafh</h1>
+
+
+		waehniufdw 23298324 
+
+
+
+<script src="https://giscus.app/client.js"
+        data-repo="michael105/michael105.github.io"
+        data-repo-id="MDEwOlJlcG9zaXRvcnkyMjU5MTIwODI="
+        data-category="Announcements"
+        data-category-id="DIC_kwDODXclEs4CoOid"
+        data-mapping="pathname"
+        data-strict="1"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="https://michael105.github.io/css/custom.css"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+
+
+
+ 	</body>
+</html>
+

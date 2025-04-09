@@ -1,0 +1,433 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>m i s c 2.net - Object Orientation in Javascript</title>
+<meta name="title" content="Object Orientation in Javascript"/>
+<meta name="author" content="misc"/>
+<meta name="description" content="misc1.codeberg.page"/>
+<meta name="keywords" content="programming, perl, php, linux, scripts, cpp, c, pascal, assembler, hacker, bash, script"/>
+<meta name="Generator" content="Joomla! - Copyright (C) 2005 - 2007 Open Source Matters. All rights reserved."/>
+<meta name="robots" content="index, follow"/>
+<!--[if IE]>
+<style>
+#mainnavbar a {
+		height: 38px;
+}
+</style>
+<![endif]-->
+
+<meta http-equiv="Content-Type" content="text/html; charset=charset=iso-8859-1"/>
+</head>
+
+<body>
+<div align="center" width="100%">
+<div id="maindiv" align="left">
+
+
+	<div id="contentdiv">
+			
+		<table class="contentpaneopen">
+		  <script language="javascript" type="text/javascript">
+  // <!--
+  
+function jsc(elementName){
+	
+	if ( !elementName )
+	elementName = 'jscShowCase';
+	var e = document.getElementsByName(elementName)[0];
+	if ( !e )
+	return;
+	e.className="jscContentDiv";
+	var script = e.innerHTML;
+	
+	var lines = script.split("\n");
+	
+	var s = 'function output(string){ document.getElementById("'+ elementName + 'OutputDiv").innerHTML = ' +  'document.getElementById("'+ elementName + 'OutputDiv").innerHTML + "<br/>" + string;};';
+
+	var html = '<div class="jscShowCaseOuterDiv"><div class="jscShowCaseCodeDiv"><table class="jscCodeTable" cellpadding="0" cellspacing="0" border=0">';
+		
+	for ( var a = 0; a<lines.length; a++ ){
+		 if ( jsc.containsCode(lines[a]) ){ // seems to contain some code
+			 s += 'if (!jsc.line(0,'+(a+1)+', \'' + elementName + '\') ) throw "0"; '+lines[a]+
+					 'if (!jsc.line(1,'+(a+1)+', \'' + elementName + '\') ) throw "0"; '+ 
+					 "\n";//'; if (!jsc.line('+(a+1)+', \'' + elementName + '\') ) throw "0";'+"\n";
+		 } else {
+			 s+= lines[a]+"\n";
+		 }
+		 html += '<tr class="jscCodeRow"><TD class="jscLineNumber">' + (a+1) + '</td><td class="jscCodeLine" id="jsc' + elementName + (a+1) +
+				 '">' + lines[a] + '</td></tr>';
+
+	}
+//	s+= '} catch(e) {}';
+	
+	jsc[elementName+'linenumbers'] = lines.length;
+	html += 
+		
+		'</table></div>' +
+			'<div class="jscDebugDiv"><div class="jscOutputOuterDiv" id="' + elementName + 'OutputDiv">Output:<br/></div></div>' +  
+		 
+		'<div class="jscButtonsDiv"><button onClick="jsc.run(\'' + elementName + '\')">Run</button>' +
+'<button onClick="jsc.debug(\'' + elementName + '\')">Debug</button>' +
+'<button onClick="jsc.stepInto(\'' + elementName + '\')">Step Forward</button>'+
+			'<button onClick="jsc.stepBack(\'' + elementName + '\')">Step Back</button>'+
+			'<button onClick="jsc.stepOver(\'' + elementName + '\')">Step Over</button>'+			
+			'</div></div>'; 
+	 			
+	
+	e.innerHTML = html;
+	
+	s = s.replace( /&lt;/, '<' );
+	jsc[elementName + 'code'] = s;
+	//eval(s);
+	//alert(s);
+}
+new jsc();
+
+
+jsc.containsCode = function(s){
+	if ( s.match(/^.*\S+.*$/)  && 
+		!s.match(/(^\/\/)|(^\s*$)|(^\s*\/\/)/  ) )
+			return(true);
+	
+	return(false);
+}
+
+// Is callen by each line of the dynamically created code within the jscShowCase
+jsc.line = function(linestart, linenumber, name){
+	if ( ! this[name + 'debug'] ){ // No debug - Run or Continue clicked
+		// Insert if Breakpoint  
+		this[name + 'currentlinenumber'] = linenumber;
+		return(true);
+	}
+	
+	document.getElementById('jsc' + name + linenumber ).className = 'jscCodeLine';
+	
+	this[name + 'lastlinenumber2'] = this[name + 'lastlinenumber'];	
+	this[name + 'lastlinenumber'] = linenumber;	
+	// Unsure about the next two lines...
+ 	if ( this[name + 'currentlinenumber'] == linenumber )
+ 		return(true);
+	
+	
+	
+ 	this[name + 'currentlinenumber'] = linenumber;
+	
+	if ( !this[name+'line'+linenumber] ){
+		this[name+'line'+linenumber] = 1;
+		this[name+'lineRunning'+linenumber] = 1;
+	} else {
+		if ( this[name+'lineRunning'+linenumber] < this[name+'line'+linenumber] ){
+			this[name+'lineRunning'+linenumber] ++;
+			return( true );
+		}
+	
+		if ( this[name+'line'+linenumber] == this[name+'lineRunning'+linenumber] ){
+			this[name+'line'+linenumber] ++;
+			//return( true );
+		} else {
+// 			this[name+'line'+linenumber] ++;
+// 			document.getElementById('jsc' + name + linenumber ).className = 'jscCodeLine';
+// 			return(true);
+		}
+	}
+	
+	if ( this[name + 'stepOver'] ){
+		if ( this[name + 'stepOver'] + 1 > linenumber ){
+			return(true);
+		}
+	}
+	
+	document.getElementById('jsc' + name + linenumber ).className = 'jscCodeLineHighlight';
+	
+	/*this[name + 'halt']	= true;
+	while( this[name + 'halt'] ){
+		this.Sleep(1);
+	}*/
+	
+//   	if ( (this[name+'stepOver'] == linenumber ) && (linestart == 0) )
+//   			return( true );
+	//if ( this[name+'stepOver'] != 0 && this[name+'stepOver'] 
+	this[name + 'lastlinenumber'] = linenumber;
+	
+	throw( 0 );
+}
+	
+	
+jsc.run = function(name){
+	this[name + 'debug'] = false;
+	this[name + 'currentlinenumber'] = 0;
+	this.execute(name);
+	
+}
+
+jsc.debug = function(name){
+	this[name + 'debug'] = true;
+	this[name + 'currentlinenumber'] = 0;
+	
+	var a;
+	for ( a=1; a<this[name+'linenumbers']; a++ ){
+		this[name+'lineRunning'+a] = 0;
+		this[name+'line'+a] = 0;
+	}
+		
+	this.execute(name);
+	
+}
+
+jsc.stepInto = function(name){
+	this[name + 'debug'] = true;
+	this[name + 'currentlinenumber'] = 0;
+	
+	var a;
+	for ( a=1; a<this[name+'linenumbers']; a++ ){
+		this[name+'lineRunning'+a] = 0;
+	}
+	
+	this.execute(name);
+}
+
+
+jsc.stepBack = function(name){
+	this[name + 'debug'] = true;
+	this[name + 'currentlinenumber'] = 0;
+	
+		
+	if ( this[name + 'lastlinenumber'] && (this[name + 'line' + this[name + 'lastlinenumber']]) )
+	{
+		document.getElementById('jsc' + name + this[name + 'lastlinenumber'] ).className = 'jscCodeLine';
+		this[name + 'line' + this[name + 'lastlinenumber']] -= 1;
+	}
+	if ( this[name + 'lastlinenumber2'] && (this[name + 'line' + this[name + 'lastlinenumber2']]) )
+	{
+		this[name + 'line' + this[name + 'lastlinenumber2']] -= 1;
+	}
+	
+	var a;
+	for ( a=1; a<(this[name+'linenumbers']); a++ ){
+		this[name+'lineRunning'+a] = 0;
+	}
+	
+	this.execute(name);
+}
+
+jsc.stepOver = function(name){
+	this[name + 'debug'] = true;
+	this[name + 'stepOver'] = this[name + 'currentlinenumber'];
+	this[name + 'currentlinenumber'] = 0;
+
+	
+	var a;
+	for ( a=1; a<this[name+'linenumbers']; a++ ){
+		this[name+'lineRunning'+a] = 0;
+	}
+	
+	this.execute(name);
+	this[name + 'stepOver'] = 0;
+}
+
+jsc.execute = function(name){
+document.getElementById(name + 'OutputDiv').innerHTML = "Output:<br />";
+	try {
+		eval( this[name + 'code'] );
+	} catch(e) {
+		if ( e == 0 )
+			return; // Step done
+		if ( this[name + 'currentlinenumber'] > 0 )
+		document.getElementById('jsc' + name + this[name + 'currentlinenumber'] ).className = 'jscCodeLineError';
+		alert ( e );
+	}
+}
+
+/*
+jsc.Sleep = function(naptime){
+	naptime = naptime * 1000;
+	var sleeping = true;
+	var now = new Date();
+	var alarm;
+	var startingMSeconds = now.getTime();
+	//alert("starting nap at timestamp: " + startingMSeconds + "\nWill sleep for: " + naptime + " ms");
+	while(sleeping){
+		alarm = new Date();
+		alarmMSeconds = alarm.getTime();
+		if(alarmMSeconds - startingMSeconds > naptime){ sleeping = false; }
+	}      
+	//alert("Wakeup!");
+}*/
+
+
+
+
+
+  // -->
+  </script>
+
+	<style>
+.jscCodeLineHighlight {
+	background-color: blue;
+	padding-left: 3px;
+	padding-right: 5px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+}
+
+.jscCodeLineError {
+	background-color: red;
+	padding-left: 3px;
+	padding-right: 5px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+}
+
+.jscCodeTable {
+	border: 0;
+}
+.jscCodeLine {
+	padding-right: 5px;	
+	padding-top: 0px;
+	padding-bottom: 0px;
+	padding-left: 3px;
+}
+
+.jscLineNumber {
+	padding: 0px 4px 0px 1px;
+	background-color: grey;
+/* 	display: inline; */
+}
+
+.jscShowCaseCodeDiv {
+	background-color: lightgrey;
+	border: 1px black solid;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-left: 0px;
+	padding-right: 0px;
+/* 	display: block; */
+	float: left;
+}
+
+.jscDebugDiv {
+ /*position: fixed;*/
+	top: 0px;
+	/*height: 600px;*/
+	/*width: 100%;*/
+}
+
+
+.jscOutputOuterDiv {
+	min-width: 200px;
+	overflow: auto;
+left:600px;
+position:relative;
+	border: 1px black solid;
+	min-height:350px;
+	background-color: lightgrey;
+	#float: right;
+/* 	clear: left; */
+}
+
+.jscButtonsDiv {
+	clear: left;
+}
+
+.jscContentDiv{
+font-size: 12px;
+}
+
+	</style>
+
+
+<pre><div name="src3">function obj(x){  
+  output('obj, x: '+x);
+};
+new obj('Declaring usage of prototypes');
+
+obj.prototype.variable = 'This is obj'; 	
+  // sets the "virtual" class variable variable
+			
+obj.prototype.dump = function (){
+  output( this.variable );	
+// this.variable reads out the virtual variable 
+//of the obj "class", "This is obj" / 
+//"Hello again" in this case
+};
+
+function inherits(y){
+  output('inherits, y: '+y);
+};
+
+inherits.prototype = new obj('Declaring inheritants of inherits');
+
+inherits.prototype.dumpout = function(){
+	this.dump();
+};
+
+var inherits1 = new inherits('Creating object');	
+// This does not call the function obj,
+// Therefore I wouldn't call the functions obj / inherits constructors
+inherits1.dumpout();
+
+
+function inherits_inherits(){
+};
+inherits_inherits.prototype = new inherits('Declaring inheritance of inherits_inherits');
+
+inherits_inherits.prototype.dump = function (){ 
+  output( 'inherits_inherits: dump called, value of variable: '+ this.variable );
+};
+
+var inherits2 = new inherits_inherits();
+
+inherits2.dumpout();	
+// inherits.dump will now call inherits_inherits.dump,
+// as expected
+
+</div></pre>
+<script language="JavaScript">
+new jsc('src3');
+</script>
+So inheritance is quite similar to cpp, except:<br/>
+<ul>
+<li>- Multiple inheritance isn't possible by default</li>
+<li>- The "virtual constructors" aren't callen every time you create a new instance</li>
+<li>- There is no public/protected/private concept</li>
+</ul><br/>
+<br/>
+There are, however, technics possible to simulate a more cpp like behaviour.<br/>
+<br/><br/>
+
+It was possible to enter scripts yourself. Currently, I cannot figure out, how this worked.<br>
+Well. Nowadays every browser has it's own debugging engine included, so I leave it the way it is for now.
+
+
+		</tr>
+					<tr>
+			</tr>
+					</table>
+
+		<span class="article_seperator">&nbsp;</span>
+
+					<div class="back_button">
+				<a href="javascript:history.go(-1)">
+					[ Back ]</a>
+			</div>
+			
+<!-- language path: /var/www/htdocs/misc2/administrator/components/com_comments/language/english.php --><script type="text/javascript">
+function openAboutbbcode(){
+var windowW = 500; // wide
+var windowH = 385; // high
+var windowX = (screen.width/2)-(windowW/2);
+var windowY = (screen.height/2)-(windowH/2);
+var urlPop = 'administrator/components/com_comments/aboutbbcode.php';
+s = 'width='+windowW+',height='+windowH+',scrollbars=no';
+var beIE = document.all ? true : false;
+NFW=window.open(urlPop,'popFrameless',+s);
+NFW.blur();
+window.focus();
+NFW.resizeTo(windowW,windowH);
+NFW.moveTo(windowX,windowY);
+NFW.focus();
+}</script>
+
+
+</body>
+</html>
+
